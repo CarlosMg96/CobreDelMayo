@@ -1,0 +1,16 @@
+a.logo {
+    background: url(../../img/logo_brave.png) no-repeat center center;
+	background-size:cover;
+	-moz-background-size:cover;
+	-webkit-background-size:cover;
+	-ms-background-size:cover;
+    /*display: block;*/
+    height: 50px;
+    position: relative;
+}
+
+body.leftMenu {
+    /*background: url(../../img/logo_white_icon.png) no-repeat;
+    background-position: 11px 10px;*/
+    background-color: #262a33;
+}

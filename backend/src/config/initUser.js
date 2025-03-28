@@ -46,7 +46,7 @@ const createTableUsers = async (connection) => {
 const createDefaultUser = async (connection) => {
     try {
       // Verificar si el usuario ya existe
-      const [existingUsers] = await connection.execute('SELECT * FROM users WHERE email = ?', ['isadev@mail.com']);
+      const [existingUsers] = await connection.execute('SELECT * FROM users WHERE email = ?', [keys.userEmail]);
   
       if (existingUsers.length > 0) {
         console.log('El usuario ya existe.');

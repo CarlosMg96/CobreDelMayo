@@ -1,4 +1,3 @@
-import Login from "@/public/views/UserLogin.vue";
 import AboutPage from "@/public/views/AboutPage.vue";
 import HomePage from "@/public/views/HomePage.vue";
 import ContactPage from "@/public/views/ContactPage.vue";
@@ -14,14 +13,6 @@ export default [
             requireAuth: false
         },
         children:[
-            {
-                path: 'admin',
-                name: 'admin',
-                component: Login,
-                meta:{
-                    title: 'Inicio de sesión'
-                },
-            },
             {
                 path: 'home',
                 name: 'home',

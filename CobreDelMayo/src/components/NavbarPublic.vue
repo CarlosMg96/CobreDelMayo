@@ -1,30 +1,174 @@
 <template>
   <nav class="navbar">
     <div class="logo">
-      <span>COBRE</span>
-      <span>DELMAYO</span>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="156.108"
+        height="58"
+        viewBox="0 0 156.108 58"
+      >
+        <g
+          id="Grupo_74"
+          data-name="Grupo 74"
+          transform="translate(-1247 331.186)"
+        >
+          <rect
+            id="Rectángulo_120"
+            data-name="Rectángulo 120"
+            width="11.669"
+            height="4.545"
+            transform="translate(1300.542 -318.864)"
+            fill="#d32a28"
+          ></rect>
+          <rect
+            id="Rectángulo_121"
+            data-name="Rectángulo 121"
+            width="20.409"
+            height="4.545"
+            transform="translate(1291.8 -308.58)"
+            fill="#f15a29"
+          ></rect>
+          <rect
+            id="Rectángulo_122"
+            data-name="Rectángulo 122"
+            width="40.819"
+            height="4.545"
+            transform="translate(1271.392 -298.297)"
+            fill="#f15a29"
+          ></rect>
+          <rect
+            id="Rectángulo_123"
+            data-name="Rectángulo 123"
+            width="49.064"
+            height="4.545"
+            transform="translate(1263.145 -288.014)"
+            fill="#f07e35"
+          ></rect>
+          <rect
+            id="Rectángulo_124"
+            data-name="Rectángulo 124"
+            width="65.209"
+            height="4.545"
+            transform="translate(1247 -277.731)"
+            fill="#f07e35"
+          ></rect>
+          <path
+            id="Trazado_147"
+            data-name="Trazado 147"
+            d="M91.27,8.5a8.5,8.5,0,0,1,16.067-3.865l-3.645,1.845a4.412,4.412,0,0,0-8.3,2.015,4.412,4.412,0,0,0,8.3,2.015l3.645,1.845A8.5,8.5,0,0,1,91.27,8.5"
+            transform="translate(1229.613 -331.186)"
+            fill="#d32a28"
+          ></path>
+          <path
+            id="Trazado_148"
+            data-name="Trazado 148"
+            d="M114.462,8.5a8.489,8.489,0,1,1,2.486,6.017A8.5,8.5,0,0,1,114.462,8.5m12.865,0a4.376,4.376,0,1,0-4.376,4.376A4.375,4.375,0,0,0,127.327,8.5"
+            transform="translate(1225.195 -331.185)"
+            fill="#d32a28"
+          ></path>
+          <path
+            id="Trazado_149"
+            data-name="Trazado 149"
+            d="M152.839,12.254c0,3.032-2.209,4.582-5.025,4.582h-7.979V.273h7.344c2.843,0,5.107,1.656,5.107,4.666a3.645,3.645,0,0,1-1.876,3.479,3.866,3.866,0,0,1,2.429,3.836m-6.185-8.3H144.06V6.876h2.594a1.482,1.482,0,0,0,1.408-1.463,1.462,1.462,0,0,0-1.408-1.463m1.967,7.754a1.467,1.467,0,0,0-1.436-1.463h-3.12v2.928h3.12a1.45,1.45,0,0,0,1.435-1.463"
+            transform="translate(1220.36 -331.237)"
+            fill="#d32a28"
+          ></path>
+          <path
+            id="Trazado_150"
+            data-name="Trazado 150"
+            d="M173.73,16.837h-4.745l-3.865-6.074h-.966v6.074h-4.218V.273h7.37a5.063,5.063,0,0,1,5.08,5.217,4.937,4.937,0,0,1-3.23,4.776ZM168.319,5.656A1.653,1.653,0,0,0,166.6,3.943h-2.457V7.37h2.464a1.653,1.653,0,0,0,1.714-1.714"
+            transform="translate(1216.537 -331.237)"
+            fill="#d32a28"
+          ></path>
+          <path
+            id="Trazado_151"
+            data-name="Trazado 151"
+            d="M184.306,3.944V6.732h5.108v3.645h-5.108v2.789h6.046v3.671h-10.27V.273h10.27V3.944Z"
+            transform="translate(1212.694 -331.237)"
+            fill="#d32a28"
+          ></path>
+          <path
+            id="Trazado_152"
+            data-name="Trazado 152"
+            d="M91.379,30.682h3.492a6.389,6.389,0,1,1,0,12.778H91.379ZM94.85,42.1a5.026,5.026,0,1,0,0-10.052H92.725V42.1Z"
+            transform="translate(1229.592 -337.031)"
+            fill="#fff"
+          ></path>
+          <path
+            id="Trazado_153"
+            data-name="Trazado 153"
+            d="M107.8,32v4.408h4.9v1.318h-4.9v4.408h5.622v1.318H106.44V30.682h6.986V32Z"
+            transform="translate(1226.723 -337.031)"
+            fill="#fff"
+          ></path>
+          <path
+            id="Trazado_154"
+            data-name="Trazado 154"
+            d="M124.2,42.1v1.363h-6.112V30.682h1.363V42.1Z"
+            transform="translate(1224.505 -337.031)"
+            fill="#fff"
+          ></path>
+          <path
+            id="Trazado_155"
+            data-name="Trazado 155"
+            d="M145.852,30.682V43.459H144.51V33.407l-4.445,10.052h-1.13l-4.407-10.095V43.459h-1.363V30.682h1.45l4.9,11.137,4.918-11.137Z"
+            transform="translate(1221.635 -337.031)"
+            fill="#fff"
+          ></path>
+          <path
+            id="Trazado_156"
+            data-name="Trazado 156"
+            d="M158.5,40.477h-5.684l-1.044,2.982h-1.491l4.62-12.777h1.513l4.62,12.777h-1.5Zm-.448-1.3L155.663,32.3l-2.407,6.878Z"
+            transform="translate(1218.373 -337.031)"
+            fill="#fff"
+          ></path>
+          <path
+            id="Trazado_157"
+            data-name="Trazado 157"
+            d="M168.938,37.389v6.064h-1.363V37.41L163.1,30.681h1.7l3.45,5.3,3.45-5.3h1.682Z"
+            transform="translate(1215.929 -337.031)"
+            fill="#fff"
+          ></path>
+          <path
+            id="Trazado_158"
+            data-name="Trazado 158"
+            d="M176.639,37.031a6.559,6.559,0,1,1,6.559,6.558,6.559,6.559,0,0,1-6.559-6.558m11.754,0a5.162,5.162,0,1,0-1.512,3.683,5.2,5.2,0,0,0,1.512-3.683"
+            transform="translate(1213.351 -336.991)"
+            fill="#fff"
+          ></path>
+        </g>
+      </svg>
     </div>
-    <ul class="nav-links">
+
+    <!-- Hamburger icon solo visible en móviles -->
+    <div class="hamburger" @click="toggleMenu">
+      <div class="line" :class="{ 'line-1': isOpen }"></div>
+      <div class="line" :class="{ 'line-2': isOpen }"></div>
+      <div class="line" :class="{ 'line-3': isOpen }"></div>
+    </div>
+
+    <!-- Menú de navegación -->
+    <ul class="nav-links" :class="{ 'nav-active': isOpen }">
       <li>
-        <router-link to="/home" active-class="active">HOME</router-link>
+        <router-link to="/home" active-class="active" @click="closeMenu"
+          >HOME</router-link
+        >
       </li>
       <li>
-        <router-link to="/about" active-class="active">ABOUT</router-link>
+        <router-link to="/contact" active-class="active" @click="closeMenu"
+          >CONTACT</router-link
+        >
       </li>
       <li>
-        <router-link to="/contact" active-class="active">CONTACT</router-link>
-      </li>
-      <li>
-        <router-link to="/sustainability" active-class="active">SUSTAINABILITY</router-link>
-      </li>
-      <li>
-        <router-link to="/investors" active-class="active">INVESTORS</router-link>
+        <router-link to="/admin" active-class="active" @click="closeMenu"
+          >INVESTORS</router-link
+        >
       </li>
     </ul>
   </nav>
 
   <!-- Contenido de la página -->
-  <div class="content">
+  <div class="content" :class="{ 'content-blur': isOpen }">
     <!-- Aquí va el contenido de tu página -->
   </div>
 </template>
@@ -32,42 +176,66 @@
 <script>
 export default {
   name: "NavbarPublicEs",
+  data() {
+    return {
+      isOpen: false,
+    };
+  },
+  methods: {
+    toggleMenu() {
+      this.isOpen = !this.isOpen;
+    },
+    closeMenu() {
+      this.isOpen = false;
+    },
+  },
 };
 </script>
 
 <style scoped>
+/* Aseguramos que el body ocupe toda la altura */
+html,
 body {
-  font-family: Arial, sans-serif;
+  height: 100%;
   margin: 0;
   padding: 0;
 }
 
+/* Navbar */
 .navbar {
   position: fixed; /* Fija el navbar en la parte superior */
-  top: 0; /* Lo coloca en la parte superior */
-  left: 0;
-  width: 100%; /* Asegura que ocupe todo el ancho */
+  width: calc(
+    100% - 64px
+  ); /* Ajusta el ancho del navbar con márgenes de 32px */
   z-index: 1000; /* Asegura que esté por encima de otros elementos */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.7); /* Fondo semitransparente */
-  backdrop-filter: blur(10px); /* Aplica el desenfoque al fondo */
+  background-color: rgba(146, 146, 146, 0.7);
+  backdrop-filter: blur(10px);
   padding: 10px 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-top: 24px; /* Margen superior */
+  margin-left: 32px; /* Margen izquierdo */
+  margin-right: 32px; /* Margen derecho */
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
 }
 
+/* Logo dentro del navbar */
 .logo {
   color: rgb(6, 0, 0);
   font-size: 24px;
   font-weight: bold;
 }
 
+/* Enlaces del navbar */
 .nav-links {
   list-style: none;
   display: flex;
   margin: 0;
   padding: 0;
+  transition: all 0.3s ease-in-out;
 }
 
 .nav-links li {
@@ -89,12 +257,91 @@ body {
   color: orange;
 }
 
-/* Agregar margen superior al contenido */
-body {
-  padding-top: 60px; /* Ajusta el contenido para que no quede oculto detrás del navbar fijo */
+/* Contenido de la página */
+.content {
+  overflow-y: auto; /* Permite el desplazamiento si el contenido es mayor que la altura visible */
+  transition: filter 0.3s ease-in-out;
 }
 
-.content {
-  padding: 20px; /* Espacio dentro del contenido */
+.content-blur {
+  filter: blur(2px);
+}
+
+/* Hamburger menu - oculto por defecto */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.hamburger .line {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 5px;
+  transition: all 0.3s ease;
+}
+
+.hamburger .line-1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger .line-2 {
+  opacity: 0;
+}
+
+.hamburger .line-3 {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .navbar {
+    width: calc(100% - 48px);
+    padding: 10px 16px;
+    margin-left: 24px;
+    margin-right: 24px;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    clip-path: circle(0px at 90% -10%);
+    -webkit-clip-path: circle(0px at 90% -10%);
+    pointer-events: none;
+    margin: 0;
+  }
+
+  .nav-links.nav-active {
+    clip-path: circle(1500px at 90% -10%);
+    -webkit-clip-path: circle(1500px at 90% -10%);
+    pointer-events: all;
+  }
+
+  .nav-links li {
+    margin: 15px 0;
+    opacity: 0;
+  }
+
+  .nav-links.nav-active li {
+    opacity: 1;
+    transition: opacity 0.5s ease 0.2s;
+  }
+
+  .nav-links a {
+    font-size: 20px;
+  }
 }
 </style>

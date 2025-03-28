@@ -1,7 +1,8 @@
-import {jwtDecode} from "jwt-decode"
-import {useEncryption} from "@/config/crypt-config";
-
+import { jwtDecode } from "jwt-decode"
+import { useEncryption } from "@/config/crypt-config";
 const { encrypt, decrypt } = useEncryption()
+
+const BASEURL = process.env.VUE_APP_BASE_URL+'/public';
 
 const setToken = async (token) => {
     try {
@@ -13,13 +14,13 @@ const setToken = async (token) => {
 }
 
 const getRoleByToken = async () => {
-   try {
-    const tokenDecrypted = decrypt(getToken() || '');
-    const decode = jwtDecode(tokenDecrypted || '');
-    return decode.role
-   } catch (error) {
+    try {
+        const tokenDecrypted = decrypt(getToken() || '');
+        const decode = jwtDecode(tokenDecrypted || '');
+        return decode.role
+    } catch (error) {
         removeToken()
-   }
+    }
 }
 
 export const getUserIdByToken = async () => {
@@ -32,7 +33,7 @@ export const getUserIdByToken = async () => {
     } catch (error) {
         removeToken()
     }
-    
+
 }
 
 const getToken = () => {
@@ -96,30 +97,32 @@ const getErrorMessages = (errorCode) => {
 
 function convertirImagenABase64(archivo) {
     return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-  
-      reader.onloadend = () => {
-        if (reader.result) {
-          resolve(reader.result); // Resultado en base64
-        }
-      };
-  
-      reader.onerror = (error) => {
-        reject("Error al leer el archivo: " + error);
-      };
-  
-      reader.readAsDataURL(archivo); // Lee el archivo y lo convierte a base64
-    });
-  }  
+        const reader = new FileReader();
 
-  // Función privada para extraer el base64, sin prefijo
+        reader.onloadend = () => {
+            if (reader.result) {
+                resolve(reader.result); // Resultado en base64
+            }
+        };
+
+        reader.onerror = (error) => {
+            reject("Error al leer el archivo: " + error);
+        };
+
+        reader.readAsDataURL(archivo); // Lee el archivo y lo convierte a base64
+    });
+}
+
+// Función privada para extraer el base64, sin prefijo
 function extraerBase64(dataUrl) {
     const base64Prefix = 'base64,';
     if (dataUrl.includes(base64Prefix)) {
-      return dataUrl.split(base64Prefix)[1]; // Retorna solo la parte base64
+        return dataUrl.split(base64Prefix)[1]; // Retorna solo la parte base64
     }
     return null; // Si no tiene el prefijo esperado, devuelve null
-  }
+}
+
+
 
 
 export {
@@ -132,5 +135,6 @@ export {
     limitDescription,
     getErrorMessages,
     convertirImagenABase64,
-    extraerBase64
+    extraerBase64,
+    BASEURL
 }

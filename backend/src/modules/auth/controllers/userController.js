@@ -1,7 +1,7 @@
 const userService = require('../services/userService');
 
 exports.register = async (req, res) => {
-    const { fullname, email, password, role } = req.body;
+    const { fullname, email, password, role, area } = req.body;
 
     if (!fullname || !email || !password || !role) {
         return res.status(400).json({

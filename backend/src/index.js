@@ -5,15 +5,17 @@ const cors = require('cors'); // Importa el middleware CORS
 const authRoutes = require('./routes/auth');
 const { createConnection } = require('./config/db');
 const { createDatabaseIfNotExists } = require('./config/initUser');
+const path = require('path');
 
 const app = express();
 
-app.use(bodyParser.json());
+app.use(bodyParser.json({ limit: '10mb' }));
 
 app.use(cors({
   origin: '*'
 }));
 
+app.use('/api/public', express.static(path.join(__dirname, '../public')));
 app.use('/api/', authRoutes);
 
 // Manejador de errores para rutas no encontradas
