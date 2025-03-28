@@ -63,5 +63,5 @@ yarn run serve
 ### 6. Accede a localhost
 - Tu terminal debera marcarte en que puerto se esta ejecutando pero por default es el 8080
 ```navegador
-http://localhost:8080/adds
+http://localhost:8080/
 ```
