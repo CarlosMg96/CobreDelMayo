@@ -31,17 +31,15 @@
           <p>Frontera is a copper mining company that operates the Padras Vardes mine. The mine is located in southern Sonora, 25 minutes from Alamos and 35 minutes from Navojoa, where most employees live.</p>
         </div>
         
-        <!-- Placeholder para imagen grande -->
         <div class="main-image-placeholder">
-          [IMAGEN PRINCIPAL PLACEHOLDER]
+          <img src="https://placehold.co/800x300.png" alt="Main Image" width="800" height="300">
         </div>
         
         <div class="mine-details">
           <div class="mine-title-container">
             <h4>Padras Vardes</h4>
-            <!-- Placeholder para imagen pequeña junto al título -->
             <div class="mine-icon-placeholder">
-              [ICONO MINA PLACEHOLDER]
+              <div class="divider"></div>
             </div>
           </div>
           
@@ -54,7 +52,7 @@
       <!-- Sección inferior con logo y columnas -->
       <section class="info-section">
         <div class="footer-logo-placeholder">
-          [LOGO GRANDE PLACEHOLDER]
+          <img src="https://placehold.co/100x100.png" alt="" width="100" height="100">
         </div>
         
         <div class="info-columns">
