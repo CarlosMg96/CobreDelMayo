@@ -61,7 +61,7 @@ const router = createRouter({
 })
 
 router.beforeEach(async (to, from, next) => {
-  const publicRoutes = ["/admin", "/unautorized", "/home", "/about", "not-found", "/history", "/esg", "/operations", "/location" ];
+  const publicRoutes = ["/admin", "/unautorized", "/home", "/about", "not-found", "/history", "/esg", "/operations", "/location", "/gallery" ];
   const authRequired = !publicRoutes.includes(to.path);
   const loggedIn = getToken();
 
