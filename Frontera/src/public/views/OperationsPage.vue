@@ -3,10 +3,10 @@
     <section class="about-hero">
       <div class="hero-overlay">
         <div v-if="languaje == 'EN'">
-          <h1>Operations</h1>
+          <h1 style="color: white !important;" >Operations</h1>
         </div>
         <div v-else>
-          <h1>Operaciones</h1>
+          <h1 style="color: white !important;" >Operaciones</h1>
         </div>
       </div>
     </section>
@@ -431,6 +431,7 @@ h1 {
   font-style: bold;
   margin-bottom: 1.8rem;
   border-bottom: 2px solid #e2e8f0;
+  color: orange;
 }
 
 /* Estilos del mining and process */
@@ -515,7 +516,7 @@ h1 {
 .only-mining-title {
   font-size: 2.5rem;
   font-weight: bold;
-  color: #222;
+  color: orange;
   margin-left: 32px;
 }
 

@@ -4,10 +4,10 @@
     <section class="about-hero">
       <div class="hero-overlay">
         <div v-if="languaje == 'EN'">
-          <h1>Location</h1>
+          <h1 style="color: white !important;">Location</h1>
         </div>
         <div v-else>
-          <h1>Ubicación y acceso</h1>
+          <h1 style="color: white !important;">Ubicación y acceso</h1>
         </div>
       </div>
     </section>
@@ -899,13 +899,13 @@ const languaje = ref(getLanguage());
 .about-hero {
   height: 60vh;
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url("http://localhost:3000/api/public/img/bg-location.jpg") center/cover
+    url("http://localhost:3000/api/public/img/bg-history.jpg") center/cover
       no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: white;
+  color: white !important;
   position: relative;
 }
 
@@ -916,6 +916,23 @@ const languaje = ref(getLanguage());
 .about-hero h1 {
   font-size: 3.5rem;
   margin-bottom: 1rem;
+}
+
+.operations-container {
+  font-family: "Arial", sans-serif;
+  color: #333;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  margin-top: 92px !important;
+}
+
+h1 {
+  font-size: 2.2rem;
+  font-style: bold;
+  margin-bottom: 1.8rem;
+  border-bottom: 2px solid #e2e8f0;
+  color: orange;
 }
 
 /* Historia Section */

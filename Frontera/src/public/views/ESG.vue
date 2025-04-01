@@ -11,6 +11,7 @@
       <!-- Sección Principal -->
       <div v-if="languaje == 'EN'">
         <section class="main-section">
+          <div class="number-circle">ESG</div>
           <h1>Local Communities</h1>
 
           <div class="content-with-image">
@@ -45,17 +46,72 @@
                   In cooperation with the municipality of Alamos, Piedras Verdes
                   funds a temporary employment program for the local fishing
                   communities.
-                In cooperation with the municipality of Alamos, Piedras Verdes
-                funds a temporary employment program for the local fishing
-                communities.
+                </p>
+
+                <p class="lead-rigth-text right-text">
+                  We have created and managed various programs to support the
+                  health of local children. Likewise, we are actively
+                  participating in the management of the local food bank, which
+                  is accessible by anyone in need.
+                </p>
+              </div>
+            </div>
+
+            <div class="image-placeholder right">
+              <img
+                :src="`${BASEURL}/img/esg-local-communities.jpg`"
+                alt="Community Activities"
+              />
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div v-else>
+        <section class="main-section">
+          <div class="number-circle">ESG</div>
+          <h1>Comunidades locales</h1>
+
+          <div class="content-with-image">
+            <div class="text-content">
+              <p class="lead-text">
+                El buen desarrollo de las comunidades circundantes tiene una
+                importancia fundamental para PV. Se esfuerza por ser solidario,
+                mantener un diálogo abierto y un alto nivel de confianza en su
+                comunicación:
               </p>
 
-              <p class="lead-rigth-text right-text">
-                We have created and managed various programs to support the
-                health of local children. Likewise, we are actively
-                participating in the management of the local food bank, which is
-                accessible by anyone in need.
+              <div class="highlight-box">
+                <p>
+                  <strong
+                    >Piedras Verdes financia el presupuesto operativo del
+                    Instituto Tecnológico de Cajeme que imparte educación de
+                    grado en ingeniería y ciencias de la administración.</strong
+                  >
+                </p>
+              </div>
+
+              <p>
+                Piedras Verdes financia y apoya el Festival Alfonso Ortíz
+                Tirado, un fin de semana musical anual en Álamos, Sonora, que
+                atrae a visitantes de todo el país, presenta a la Orquesta
+                Sinfónica de Sonora y combina música clásica, jazz y géneros
+                contemporáneos
               </p>
+
+              <div class="back-zone-image">
+                <p class="lead-rigth-text left-text">
+                  En colaboración con el municipio de Álamos, Piedras Verdes
+                  financia un programa de empleo temporal para las comunidades
+                  pesqueras locales.
+                </p>
+
+                <p class="lead-rigth-text right-text">
+                  Piedras Verdes creó y gestiona un programa de apoyo a los
+                  niños locales con discapacidad y participa activamente en los
+                  bancos de alimentos para los más necesitados de las
+                  comunidades.
+                </p>
               </div>
             </div>
 
@@ -74,33 +130,50 @@
 
       <!-- Sección Agua y Ambiente -->
       <section class="topic-section">
+        <div class="number-circle">ESG</div>
         <div class="section-header">
-          <div class="number-circle">120</div>
-          <h2>Water and Environment</h2>
+          <div v-if="languaje == 'EN'"><h2>Water and Environment</h2></div>
+          <div v-else><h2>Agua y medio ambiente</h2></div>
         </div>
 
         <div class="content-with-image reverse">
           <div class="image-placeholder left">
             <img
-              src="https://placehold.co/300x200/4b5563/fff?text=Water+Analysis"
+              :src="`${BASEURL}/img/esg-water-and-environment.jpg`"
               alt="Water Management"
+              class="image-comunities"
             />
           </div>
 
-          <div class="text-content">
-            <ul class="bullet-list">
-              <li>
-                <strong>A</strong> Produce Workers are researching environmental
-                inequalities in addition to operating in compliance with both
-                national and international regulations, we focus on serving our
-                local conditions.
-              </li>
-              <li>
-                2022 has been included in how we work across our small towns and
-                centres, and will EESG awareness for the benefit of the nation's
-                world.
-              </li>
-            </ul>
+          <div v-if="languaje == 'EN'">
+            <div class="text-content">
+              <ul class="bullet-list">
+                <li>
+                  At Piedras Verdes our surrounding environment is important. In
+                  addition to operating in compliance with both, national and
+                  international regulations, we focus on serving our local
+                  conditions. 2024 is a year in which we have set out to create
+                  a much more real, sincere, and solid ESG awareness for the
+                  benefit of the natural world.
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div v-else>
+            <div class="text-content">
+              <ul class="bullet-list">
+                <li>
+                  PV opera según las normas medioambientales internacionales y
+                  cumple con todas las normas medioambientales mexicanas
+                  aplicables.
+                </li>
+                <li>
+                  No se han producido incidentes medioambientales significativos
+                  ni se han llevado a cabo acciones de cumplimiento desde el
+                  inicio de las operaciones en 2006.
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -110,44 +183,88 @@
 
       <!-- Sección Salud y Seguridad -->
       <section class="topic-section">
-        <div class="section-header">
-          <div class="number-circle">120</div>
-          <h2>Health and Safety</h2>
-        </div>
-
         <div class="two-column-content">
-          <div class="column">
-            <p>
-              We promote the use of a lack of our people's fat and tolerance for
-              safety controls across the world, against increased standards due
-              to key factors that prevention will lead us down the path of new
-              accidents.
-            </p>
+          <div class="column text-center">
+            <img
+              :src="`${BASEURL}/img/esg-health-and-safety-01.jpg`"
+              style="width: 400px"
+              alt="esg-healt"
+            />
           </div>
 
-          <div class="column">
-            <p>
-              We take risk assessments and job safety analyses at the home of
-              our day-to-day work. The contractors' improvement of our
-              procedures requires more than 50 employees and contractors receive
-              assistance regarding training to ensure operational safety,
-              emphasizing them who manage higher-risk locations.
-            </p>
+          <div v-if="languaje == 'EN'">
+            <div class="column">
+              <div class="number-circle">ESG</div>
+              <div class="section-header">
+                <h2>Health and Safety</h2>
+              </div>
+              <p style="margin-bottom: 16px">
+                We prioritize the safe and health of our people first and
+                foremost. Our safety records compare favorably against
+                international standards, and we firmly believe that prevention
+                will lead us down the path of zero accidents.
+              </p>
 
-            <div class="image-placeholder full-width">
-              <img
-                src="https://placehold.co/600x200/4b5563/fff?text=Safety+Training"
-                alt="Safety Procedures"
-              />
+              <p style="margin-bottom: 16px">
+                We take risk assessments and job safety analyses as the basis of
+                our day-to-day work. The continuous improvement of our processes
+                and procedures is a must. Our employees and contractors receive
+                extensive ongoing training to ensure operational safety,
+                emphasizing those who manage higher-risk functions.
+              </p>
+
+              <p style="margin-bottom: 16px">
+                Some of the pillars of our culture and values are safe, health,
+                and well-being. As part of our new awareness, we integrated the
+                caring of mental health into our work environment as a priority,
+                recognizing that the wellness at work directly influences the
+                success of any operation.
+              </p>
+              <div class="image-placeholder full-width">
+                <img
+                  :src="`${BASEURL}/img/esg-health-and-safety-02.jpg`"
+                  alt="Safety Procedures"
+                />
+              </div>
             </div>
+          </div>
+          <div v-else>
+            <div class="column">
+              <div class="number-circle">ESG</div>
+              <div class="section-header">
+                <h2>Salud y seguridad</h2>
+              </div>
+              <p style="margin-bottom: 16px">
+                Damos prioridad a la seguridad de nuestros empleados por encima
+                de todo.
+              </p>
 
-            <p>
-              None of the types of our staff are of substance risk levels, and
-              each being a je part of our core awareness, we integrate it to
-              ensure a potential health site or an environment as a priority,
-              recognizing that the resilience of work directly influences the
-              success of any operations.
-            </p>
+              <p style="margin-bottom: 16px">
+                Nuestros empleados y contratistas reciben una amplia formación
+                continua para garantizar la seguridad operativa con énfasis en
+                los que gestionan las funciones con mayor riesgo. Nuestra
+                cultura y valores corporativos hacen hincapié en la prioridad de
+                la seguridad y el cumplimiento de las normas medioambientales
+                por encima de cualquier consideración operativa.
+              </p>
+
+              <p style="margin-bottom: 16px">
+                Llevamos a cabo análisis de causa raíz de todos los incidentes,
+                sin importar cual intrascendentes puedan ser, y rápidamente
+                implementar los cambios apropiados en los procedimientos y
+                prácticas.
+              </p>
+              <p style="margin-bottom: 16px">
+                Nuestro historial de seguridad se compara muy favorablemente con
+                estándares internacionales.
+              </p>
+              <div class="image-placeholder full-width">
+                <img
+                  :src="`${BASEURL}/img/esg-health-and-safety-02.jpg`"
+                  alt="Safety Procedures"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -163,13 +280,13 @@ const languaje = ref(getLanguage());
 </script>
 
 <style scoped>
+/* Estilos base (los que ya tenías) */
 .esg-page {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
   line-height: 1.6;
 }
 
-/* Hero Section */
 .about-hero {
   height: 60vh;
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
@@ -202,10 +319,9 @@ const languaje = ref(getLanguage());
   margin-top: 92px !important;
 }
 
-/* Estilos de tipografía */
 h1 {
   font-size: 2.2rem;
-  color: #1a365d;
+  color: orange;
   margin-bottom: 1.8rem;
   border-bottom: 2px solid #e2e8f0;
   padding-bottom: 0.5rem;
@@ -213,7 +329,7 @@ h1 {
 
 h2 {
   font-size: 1.8rem;
-  color: #2c5282;
+  color: orange;
   margin-left: 1rem;
 }
 
@@ -223,7 +339,6 @@ h2 {
   margin-bottom: 1.5rem;
 }
 
-/* Layout de secciones */
 .content-with-image {
   display: flex;
   gap: 2rem;
@@ -246,10 +361,9 @@ h2 {
   margin-top: 1.5rem;
 }
 
-/* Componentes visuales */
 .highlight-box {
-  background-color: #ebf8ff;
-  border-left: 4px solid #3182ce;
+  background-color: #ffebeb;
+  border-left: 4px solid #ce3131;
   padding: 1.2rem;
   margin: 1.5rem 0;
 }
@@ -261,7 +375,7 @@ h2 {
 }
 
 .number-circle {
-  background-color: #2b6cb0;
+  background-color: #d24d19;
   color: white;
   width: 50px;
   height: 50px;
@@ -278,7 +392,6 @@ h2 {
   margin: 3rem 0;
 }
 
-/* Lista con viñetas especiales */
 .bullet-list {
   list-style-type: none;
   padding-left: 0;
@@ -294,14 +407,19 @@ h2 {
 .bullet-list li strong {
   position: absolute;
   left: 0;
-  color: #2b6cb0;
+  color: #b0412b;
 }
 
-/* Placeholders de imágenes */
+.image-comunities {
+  width: 600px !important;
+  height: auto;
+  display: block;
+}
+
 .image-placeholder {
-  width: 100%; /* Asegura que la imagen ocupe todo el espacio disponible */
-  height: auto; /* Mantiene la proporción de la imagen */
-  display: block; 
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .image-placeholder.right {
@@ -325,13 +443,12 @@ h2 {
   display: block;
 }
 
-/* Estilos para el texto de la sección de comunidades */
 .back-zone-image {
   display: flex;
   justify-content: space-between;
-  gap: 3rem; /* Espacio mayor entre columnas */
+  gap: 3rem;
   margin: 2rem 0;
-  width: 220%; /* Hace que el contenedor sea más ancho */
+  width: 220%;
   position: relative;
   z-index: 1;
 }
@@ -340,16 +457,132 @@ h2 {
   font-size: 1.1rem;
   line-height: 1.8;
   flex: 1;
-  min-width: 45%; /* Asegura que cada columna tenga buen espacio */
+  min-width: 45%;
 }
 
 .left-text {
-  padding-right: 1.5rem; /* Espacio interno derecho */
+  padding-right: 1.5rem;
 }
 
 .right-text {
-  padding-left: 1.5rem; /* Espacio interno izquierdo */
+  padding-left: 1.5rem;
 }
 
+/* Media Queries para pantallas medianas (tablets) */
+@media (max-width: 1024px) {
+  .about-hero h1 {
+    font-size: 2.8rem;
+  }
+  
+  .communities-container {
+    padding: 15px;
+    margin-top: 80px !important;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.6rem;
+    margin-left: 0.5rem;
+  }
+  
+  .content-with-image,
+  .content-with-image.reverse {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .image-placeholder.right,
+  .image-placeholder.left {
+    margin: 1rem 0;
+    flex: 1 1 100%;
+  }
+  
+  .image-comunities {
+    width: 100% !important;
+  }
+  
+  .back-zone-image {
+    width: 100%;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .lead-rigth-text {
+    min-width: 100%;
+  }
+  
+  .two-column-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .column.text-center img {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    display: block;
+  }
+}
 
+/* Media Queries para pantallas pequeñas (móviles) */
+@media (max-width: 767px) {
+  .about-hero {
+    height: 50vh;
+  }
+  
+  .about-hero h1 {
+    font-size: 2.2rem;
+  }
+  
+  .communities-container {
+    padding: 10px;
+    margin-top: 70px !important;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  h2 {
+    font-size: 1.4rem;
+    margin-left: 0;
+  }
+  
+  .number-circle {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+  
+  .lead-text,
+  .lead-rigth-text {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  .highlight-box {
+    padding: 1rem;
+  }
+  
+  .section-divider {
+    margin: 2rem 0;
+  }
+  
+  .back-zone-image {
+    margin: 1.5rem 0;
+  }
+  
+  .left-text,
+  .right-text {
+    padding: 0;
+  }
+  
+  .image-placeholder.full-width img {
+    width: 100%;
+  }
+}
 </style>
