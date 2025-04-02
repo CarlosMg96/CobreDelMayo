@@ -435,13 +435,13 @@ h1 {
   padding: 80px;
   margin-left: 84px;
   margin-right: 84px;
-  background-color: #b4241f;
+  background-color: #d94f4f;
 }
 .results-section h2 {
   font-size: 2.2rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
-  color: black !important;
+  color: white !important;
 }
 
 /* Estilos del ampliation section */

@@ -11,12 +11,12 @@ export const createNews = async (dataForm) => {
     }
 }
 
-export const getNews = async (params) => {
+export const getESG = async (params) => {
     try {
-        const { data } = await api.doGet('/news', params);
+        const { data } = await api.doGet('/esg', params);
         return data;
     } catch (error) {
-        showErrorToast("No se pudo obtener las noticias");
+        showErrorToast("No se pudo obtener los datos de ESG");
         return error;
     }
 }

@@ -1,10 +1,10 @@
 <template>
   <v-card class="mx-auto" elevation="16" max-width="100hv">
     <v-card-item>
-      <v-card-title> Noticias </v-card-title>
+      <v-card-title> ESG </v-card-title>
 
       <v-card-subtitle>
-        Listado de noticias
+        Listado de ESG
         <v-btn color="primary" @click="goToCreateNews" class="ml-3">
           Agregar Noticia
         </v-btn>
