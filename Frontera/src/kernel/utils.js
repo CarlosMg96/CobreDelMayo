@@ -33,6 +33,16 @@ const getRoleByToken = async () => {
     }
 }
 
+const getAreaByToken = async () => {
+    try {
+        const tokenDecrypted = decrypt(getToken() || '');
+        const decode = jwtDecode(tokenDecrypted || '');
+        return decode.area
+    } catch (error) {
+        removeToken()
+    }
+}
+
 export const getUserIdByToken = async () => {
 
     try {
@@ -140,6 +150,7 @@ export {
     getToken,
     getTokenDecrypted,
     getRoleByToken,
+    getAreaByToken,
     getUserInfoByToken,
     removeToken,
     limitDescription,
