@@ -1,6 +1,6 @@
 import HomeStart from "@/modules/home/HomeStart.vue";
-import ListEsg from "@/modules/esg/views/ListEsg.vue";
-import CreateEsg from "@/modules/esg/views/CreateEsg.vue";
+import ListSections from "@/modules/sections/views/ListSections.vue";
+import updateAbout from "@/modules/sections/views/updatePages/updateAbout.vue";
 
 export default [
     {
@@ -24,25 +24,25 @@ export default [
           },
         },
         {
-          path: "list-esg",
-          name: "list-esg",
-          component: ListEsg,
+          path: "list-sections",
+          name: "list-sections",
+          component: ListSections,
           meta: {
-            title: "Lista de Esg",
+            title: "Lista de Secciones",
             role: ['MASTER', 'ADMIN', 'SUPERADMIN'],
             area: ['FRONTERA']
           },
         },
         {
-          path: "create-esg",
-          name: "create-esg",
-          component: CreateEsg,
+          path: "update-about",
+          name: "update-about",
+          component: updateAbout,
           meta: {
-            title: "Nuevo Esg",
+            title: "Actualizar Acerca de",
             role: ['MASTER', 'ADMIN', 'SUPERADMIN'],
             area: ['FRONTERA']
           },
-        },
+        }
       ],
     },
   ];

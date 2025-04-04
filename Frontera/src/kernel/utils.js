@@ -4,6 +4,7 @@ const { encrypt, decrypt } = useEncryption()
 
 const BASEURL = process.env.VUE_APP_BASE_URL+'/public';
 let language = localStorage.getItem('language') || "EN"; 
+let languageForUpdateContent = localStorage.getItem('languageForUpdateContent') || "EN";
 
 const getLanguage = () => {
     return language;
@@ -12,6 +13,14 @@ const getLanguage = () => {
 const setLanguage = (lang) => {
     language = lang;
     localStorage.setItem('language', lang);
+}
+
+const getLanguageForUpdateContent = () => {
+    return languageForUpdateContent;
+}
+const setLanguageForUpdateContent = (lang) => {
+    languageForUpdateContent = lang;
+    localStorage.setItem('languageForUpdateContent', lang);
 }
 
 const setToken = async (token) => {
@@ -160,4 +169,6 @@ export {
     BASEURL,
     getLanguage,
     setLanguage,
+    getLanguageForUpdateContent,
+    setLanguageForUpdateContent,
 }

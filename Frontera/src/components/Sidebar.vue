@@ -60,7 +60,7 @@ export default {
             showModal: false,
             menuItems: [
                 { label: 'Inicio', icon: 'fa-solid fa-house', route: 'start', roles: ['MASTER', 'ADMIN', 'SUPERADMIN'] },
-                { label: 'ESG', icon: 'fa-solid fa-newspaper', route: 'list-esg', roles: ['MASTER', 'ADMIN', 'SUPERADMIN'] },
+                { label: 'Secciones', icon: 'fa-solid fa-list', route: 'list-sections', roles: ['MASTER', 'ADMIN', 'SUPERADMIN'] },
                 { label: 'Usuarios', icon: 'fa-solid fa-user-plus', route: 'users', roles: ['MASTER', 'SUPERADMIN'] },
             ],
             filteredRoutes: [], 
