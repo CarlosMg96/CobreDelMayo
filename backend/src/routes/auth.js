@@ -9,7 +9,7 @@ router.get('/hello', (req, res) => {
   });
 
 // Definir las rutas correctamente
-router.post('/register', checkRole(['MASTER', 'SUPERADMIN']), authController.register);
+router.post('/register', verifyToken, checkRole(['MASTER', 'SUPERADMIN']), authController.register);
 router.post('/login', authController.login);
 router.get('/me', verifyToken, authController.me);
 router.get('/users', verifyToken, checkRole(['MASTER', 'SUPERADMIN']), authController.get_users);

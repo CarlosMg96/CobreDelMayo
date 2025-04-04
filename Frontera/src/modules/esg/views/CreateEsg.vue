@@ -1,8 +1,7 @@
 <template>
   <v-card class="mx-auto" elevation="16" max-width="100hv">
     <v-card-item>
-      <v-card-title> Nuevas noticias </v-card-title>
-      <v-card-subtitle> Card subtitle secondary text </v-card-subtitle>
+      <v-card-title> Nuevo ESG </v-card-title>
     </v-card-item>
 
     <v-card-text>
@@ -19,27 +18,17 @@
       <!-- Campo de título -->
       <v-text-field v-model="title" label="Título" outlined></v-text-field>
 
-      <!-- Campo para el enlace -->
-      <v-text-field v-model="link" label="Enlace" outlined></v-text-field>
-
-      <!-- Campo para la fecha -->
-      <v-date-picker
-        v-model="date"
-        label="Fecha"
-        outlined
-        :max="new Date().toISOString().substr(0, 10)"
-      ></v-date-picker>
 
       <!-- Campo para el estatus -->
-      <v-select
+      <!-- <v-select
         v-model="status"
         :items="statusOptions"
         label="Estatus"
         outlined
-      ></v-select>
+      ></v-select> -->
 
       <!-- Input para agregar imágenes (máximo 2) -->
-      <v-file-input
+      <!-- <v-file-input
         v-model="images"
         label="Agregar imágenes"
         multiple
@@ -47,16 +36,16 @@
         :rules="imageRules"
         accept="image/*"
         @change="handleImageUpload"
-      ></v-file-input>
+      ></v-file-input> -->
 
       <!-- Mostrar imágenes seleccionadas -->
-      <div v-if="images.length > 0">
+      <!-- <div v-if="images.length > 0">
         <h4>Imágenes seleccionadas:</h4>
         <div v-for="(image, index) in images" :key="index" class="image-preview">
           <img :src="getImageUrl(image)" alt="Imagen seleccionada" width="100" />
           <v-btn @click="removeImage(index)" color="error" small>Eliminar</v-btn>
         </div>
-      </div>
+      </div> -->
 
       <!-- Editor Quill -->
       <div id="editor">
@@ -75,7 +64,7 @@
 import { defineComponent, ref, onMounted } from 'vue';
 import Quill from 'quill';
 import 'quill/dist/quill.snow.css';
-import { createNews } from '../services/news-service';
+import { createEsg } from '../services/esg-service';
 import { showSuccessToast } from '@/kernel/alerts';
 import router from '@/router';
 
@@ -88,8 +77,6 @@ export default defineComponent({
       { text: 'Inglés', value: 'en' },
     ]);
     const title = ref('');
-    const link = ref('');
-    const date = ref(new Date()); // Inicializa con la fecha actual
     const status = ref('Activo');
     const statusOptions = ref(['Activo', 'Inactivo']);
     const images = ref([]);
@@ -136,25 +123,21 @@ export default defineComponent({
 
       const dataForm = {
         title: title.value,
-        content,
-        link: link.value,
-        date: date.value.toISOString().substr(0, 10),
-        year: date.value.getFullYear(),
+        description: content,
         status: status.value,
-        images: images.value,
         language: selectedLanguage.value,
       }
 
       try {
-        const response = await createNews(dataForm);
-        console.log('Noticia publicada:', response);
-        if (response.code == 200 || response.code == 201) {
+        const response = await createEsg(dataForm);
+        console.log('ESG:', response);
+        if (response.status == 200 || response.status == 201) {
           // Redirigir a la lista de noticias
-          showSuccessToast('Noticia publicada correctamente');
-          await router.push({ name: 'list-news' });      
+          showSuccessToast('El ESG se agrego correctamente');
+          await router.push({ name: 'list-esg' });      
         }
       } catch (error) {
-        console.error('Error al publicar la noticia:', error);
+        console.error('Error al publicar el esg:', error);
       }
     };
 
@@ -162,8 +145,6 @@ export default defineComponent({
       selectedLanguage,
       languages,
       title,
-      link,
-      date,
       status,
       statusOptions,
       images,

@@ -1,6 +1,6 @@
 import HomeStart from "@/modules/home/HomeStart.vue";
-import ListNews from "@/modules/news/views/ListNews.vue";
-import CreateNews from "@/modules/news/views/CreateNews.vue";
+import ListEsg from "@/modules/esg/views/ListEsg.vue";
+import CreateEsg from "@/modules/esg/views/CreateEsg.vue";
 
 export default [
     {
@@ -9,7 +9,8 @@ export default [
         import( "@/layouts/PrivateLayout.vue"),
       meta: {
         requireAuth: true,
-        role: ['MASTER', 'ADMIN']
+        role: ['MASTER', 'ADMIN', 'SUPERADMIN'],
+        area: ['FRONTERA', 'NA']
       },
       children: [
         {
@@ -18,25 +19,28 @@ export default [
           component: HomeStart,
           meta: {
             title: "Inicio",
-            role: ['MASTER', 'ADMIN']
+            role: ['MASTER', 'ADMIN', 'SUPERADMIN'],
+            area: ['FRONTERA']
           },
         },
         {
-          path: "list-news",
-          name: "list-news",
-          component: ListNews,
+          path: "list-esg",
+          name: "list-esg",
+          component: ListEsg,
           meta: {
-            title: "Noticias",
-            role: ['MASTER', 'ADMIN']
+            title: "Lista de Esg",
+            role: ['MASTER', 'ADMIN', 'SUPERADMIN'],
+            area: ['FRONTERA']
           },
         },
         {
-          path: "create-news",
-          name: "create-news",
-          component: CreateNews,
+          path: "create-esg",
+          name: "create-esg",
+          component: CreateEsg,
           meta: {
-            title: "Nueva noticia",
-            role: ['MASTER', 'ADMIN']
+            title: "Nuevo Esg",
+            role: ['MASTER', 'ADMIN', 'SUPERADMIN'],
+            area: ['FRONTERA']
           },
         },
       ],
