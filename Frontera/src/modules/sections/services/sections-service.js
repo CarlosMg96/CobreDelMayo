@@ -13,7 +13,7 @@ export const createSection = async (dataForm) => {
 
 export const getSectionByPageandLanguaje = async (params) => {
     try {
-        const { data } = await api.doGet('/section', params);
+        const { data } = await api.doGet('/section', { params });
         return data;
     } catch (error) {
         showErrorToast("No se pudo obtener los datos de la sección");

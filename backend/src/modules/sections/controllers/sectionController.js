@@ -36,7 +36,8 @@ exports.createSection = async (req, res) => {
 }
 
 exports.getSectionByPageandLanguaje = async (req, res) => {
-    const { page, language } = req.params;
+    const { page, language } = req.query;
+    
 
     if (!page || !language) {
         return res.status(400).json({

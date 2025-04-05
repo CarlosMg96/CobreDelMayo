@@ -13,7 +13,7 @@ const getSectionByPageandLanguaje = async (page, language) => {
     const query = 'SELECT * FROM content_from_frontera WHERE page = ? and language = ?';
     const [results] = await connection.execute(query, [page, language]);
     await connection.end();
-    return results.length > 0 ? results[0] : null;
+    return results.length > 0 ? results : null;
 }
 
 const updateSectionM = async (section_id, description) => {
