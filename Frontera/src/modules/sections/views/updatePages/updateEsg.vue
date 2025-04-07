@@ -29,57 +29,39 @@
           <div class="esg-page">
             <section class="about-hero">
               <div class="hero-overlay">
-                <h1>ESG</h1>
+                <h1 @dblclick="openEditModal('ESG_01_' + languaje)"> <span v-html=" filterData('ESG_01_' + languaje)"></span></h1>
               </div>
             </section>
           </div>
           <div class="communities-container">
             <!-- Sección Principal -->
-            <div v-if="languaje == 'EN'">
-              <section class="main-section">
+            <section class="main-section">
                 <div class="number-circle">ESG</div>
-                <h1>Local Communities</h1>
+                <h1 @dblclick="openEditModal('ESG_02_' + languaje)">  <span v-html=" filterData('ESG_02_' + languaje)"></span></h1>
 
                 <div class="content-with-image">
                   <div class="text-content">
-                    <p class="lead-text">
-                      The sound development of the surrounding communities is of
-                      fundamental importance to PV. It strives to be supportive,
-                      maintain an open dialogue and a high level of trust in its
-                      communication.
+                    <p class="lead-text" @dblclick="openEditModal('ESG_03_' + languaje)">
+                      <span v-html=" filterData('ESG_03_' + languaje)"></span>
                     </p>
 
                     <div class="highlight-box">
-                      <p>
-                        <strong
-                          >Piedras Verdes funds the operating budget of the
-                          Instituto Tecnológico de Cajeme, which provides
-                          undergraduate education in engineering and management
-                          science</strong
-                        >
+                      <p @dblclick="openEditModal('ESG_04_' + languaje)">
+                        <span v-html=" filterData('ESG_04_' + languaje)"></span>
                       </p>
                     </div>
 
-                    <p>
-                      Piedras Verdes funds and supports the Festival Alfonso
-                      Ortíz Tirado, an annual musical weekend in Alamos, Sonora,
-                      that attracts visitors from across the country, showcases
-                      the Sonora Symphony Orchestra, and combines classical
-                      music, jazz, and contemporary genres.
+                    <p @dblclick="openEditModal('ESG_05_' + languaje)">
+                      <span v-html=" filterData('ESG_05_' + languaje)"></span>
                     </p>
 
                     <div class="back-zone-image">
-                      <p class="lead-rigth-text left-text">
-                        In cooperation with the municipality of Alamos, Piedras
-                        Verdes funds a temporary employment program for the
-                        local fishing communities.
+                      <p class="lead-rigth-text left-text" @dblclick="openEditModal('ESG_06_' + languaje)">
+                        <span v-html=" filterData('ESG_06_' + languaje)"></span>
                       </p>
 
-                      <p class="lead-rigth-text right-text">
-                        We have created and managed various programs to support
-                        the health of local children. Likewise, we are actively
-                        participating in the management of the local food bank,
-                        which is accessible by anyone in need.
+                      <p class="lead-rigth-text right-text" @dblclick="openEditModal('ESG_07_' + languaje)">
+                        <span v-html=" filterData('ESG_07_' + languaje)"></span>
                       </p>
                     </div>
                   </div>
@@ -92,66 +74,6 @@
                   </div>
                 </div>
               </section>
-            </div>
-
-            <div v-else>
-              <section class="main-section">
-                <div class="number-circle">ESG</div>
-                <h1>Comunidades locales</h1>
-
-                <div class="content-with-image">
-                  <div class="text-content">
-                    <p class="lead-text">
-                      El buen desarrollo de las comunidades circundantes tiene
-                      una importancia fundamental para PV. Se esfuerza por ser
-                      solidario, mantener un diálogo abierto y un alto nivel de
-                      confianza en su comunicación:
-                    </p>
-
-                    <div class="highlight-box">
-                      <p>
-                        <strong
-                          >Piedras Verdes financia el presupuesto operativo del
-                          Instituto Tecnológico de Cajeme que imparte educación
-                          de grado en ingeniería y ciencias de la
-                          administración.</strong
-                        >
-                      </p>
-                    </div>
-
-                    <p>
-                      Piedras Verdes financia y apoya el Festival Alfonso Ortíz
-                      Tirado, un fin de semana musical anual en Álamos, Sonora,
-                      que atrae a visitantes de todo el país, presenta a la
-                      Orquesta Sinfónica de Sonora y combina música clásica,
-                      jazz y géneros contemporáneos
-                    </p>
-
-                    <div class="back-zone-image">
-                      <p class="lead-rigth-text left-text">
-                        En colaboración con el municipio de Álamos, Piedras
-                        Verdes financia un programa de empleo temporal para las
-                        comunidades pesqueras locales.
-                      </p>
-
-                      <p class="lead-rigth-text right-text">
-                        Piedras Verdes creó y gestiona un programa de apoyo a
-                        los niños locales con discapacidad y participa
-                        activamente en los bancos de alimentos para los más
-                        necesitados de las comunidades.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="image-placeholder right">
-                    <img
-                      :src="`${BASEURL}/img/esg-local-communities.jpg`"
-                      alt="Community Activities"
-                    />
-                  </div>
-                </div>
-              </section>
-            </div>
 
             <!-- Divisor -->
             <div class="section-divider"></div>
@@ -160,10 +82,9 @@
             <section class="topic-section">
               <div class="number-circle">ESG</div>
               <div class="section-header">
-                <div v-if="languaje == 'EN'">
-                  <h2>Water and Environment</h2>
+                <div>
+                  <h2 @dblclick="openEditModal('ESG_08_' + languaje)">  <span v-html=" filterData('ESG_08_' + languaje)"></span></h2>
                 </div>
-                <div v-else><h2>Agua y medio ambiente</h2></div>
               </div>
 
               <div class="content-with-image reverse">
@@ -175,37 +96,9 @@
                   />
                 </div>
 
-                <div v-if="languaje == 'EN'">
-                  <div class="text-content">
-                    <ul class="bullet-list">
-                      <li>
-                        At Piedras Verdes our surrounding environment is
-                        important. In addition to operating in compliance with
-                        both, national and international regulations, we focus
-                        on serving our local conditions. 2024 is a year in which
-                        we have set out to create a much more real, sincere, and
-                        solid ESG awareness for the benefit of the natural
-                        world.
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div v-else>
-                  <div class="text-content">
-                    <ul class="bullet-list">
-                      <li>
-                        PV opera según las normas medioambientales
-                        internacionales y cumple con todas las normas
-                        medioambientales mexicanas aplicables.
-                      </li>
-                      <li>
-                        No se han producido incidentes medioambientales
-                        significativos ni se han llevado a cabo acciones de
-                        cumplimiento desde el inicio de las operaciones en 2006.
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+             <div class="text-content" @dblclick="openEditModal('ESG_09_' + languaje)">
+              <span v-html=" filterData('ESG_09_' + languaje)"></span>
+             </div>
               </div>
             </section>
 
@@ -223,74 +116,16 @@
                   />
                 </div>
 
-                <div v-if="languaje == 'EN'">
+                <div>
                   <div class="column">
                     <div class="number-circle">ESG</div>
                     <div class="section-header">
-                      <h2>Health and Safety</h2>
+                      <h2 @dblclick="openEditModal('ESG_10_' + languaje)"> <span v-html=" filterData('ESG_10_' + languaje)"></span></h2>
                     </div>
-                    <p style="margin-bottom: 16px">
-                      We prioritize the safe and health of our people first and
-                      foremost. Our safety records compare favorably against
-                      international standards, and we firmly believe that
-                      prevention will lead us down the path of zero accidents.
+                    <p style="margin-bottom: 16px" @dblclick="openEditModal('ESG_11_' + languaje)">
+                      <span v-html=" filterData('ESG_11_' + languaje)"></span>
                     </p>
 
-                    <p style="margin-bottom: 16px">
-                      We take risk assessments and job safety analyses as the
-                      basis of our day-to-day work. The continuous improvement
-                      of our processes and procedures is a must. Our employees
-                      and contractors receive extensive ongoing training to
-                      ensure operational safety, emphasizing those who manage
-                      higher-risk functions.
-                    </p>
-
-                    <p style="margin-bottom: 16px">
-                      Some of the pillars of our culture and values are safe,
-                      health, and well-being. As part of our new awareness, we
-                      integrated the caring of mental health into our work
-                      environment as a priority, recognizing that the wellness
-                      at work directly influences the success of any operation.
-                    </p>
-                    <div class="image-placeholder full-width">
-                      <img
-                        :src="`${BASEURL}/img/esg-health-and-safety-02.jpg`"
-                        alt="Safety Procedures"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div v-else>
-                  <div class="column">
-                    <div class="number-circle">ESG</div>
-                    <div class="section-header">
-                      <h2>Salud y seguridad</h2>
-                    </div>
-                    <p style="margin-bottom: 16px">
-                      Damos prioridad a la seguridad de nuestros empleados por
-                      encima de todo.
-                    </p>
-
-                    <p style="margin-bottom: 16px">
-                      Nuestros empleados y contratistas reciben una amplia
-                      formación continua para garantizar la seguridad operativa
-                      con énfasis en los que gestionan las funciones con mayor
-                      riesgo. Nuestra cultura y valores corporativos hacen
-                      hincapié en la prioridad de la seguridad y el cumplimiento
-                      de las normas medioambientales por encima de cualquier
-                      consideración operativa.
-                    </p>
-
-                    <p style="margin-bottom: 16px">
-                      Llevamos a cabo análisis de causa raíz de todos los
-                      incidentes, sin importar cual intrascendentes puedan ser,
-                      y rápidamente implementar los cambios apropiados en los
-                      procedimientos y prácticas.
-                    </p>
-                    <p style="margin-bottom: 16px">
-                      Nuestro historial de seguridad se compara muy
-                      favorablemente con estándares internacionales.
-                    </p>
                     <div class="image-placeholder full-width">
                       <img
                         :src="`${BASEURL}/img/esg-health-and-safety-02.jpg`"
@@ -309,7 +144,7 @@
   <UpdateModal
     :visible="dialogVisible"
     :current-text="currentText"
-    current-page="ABOUT"
+    current-page="ESG"
     :text-id="currentTextId"
     @update:visible="updateDialogVisible"
     @save-text="updateText"
@@ -363,7 +198,7 @@ export default defineComponent({
       {
         section_id: "ESG_04_EN",
         description:
-          "Piedras Verdes funds the operating budget of the Instituto Tecnológico de Cajeme, which provides undergraduate education in engineering and management science",
+          "<strong>Piedras Verdes funds the operating budget of the Instituto Tecnológico de Cajeme, which provides undergraduate education in engineering and management science </strong>",
       },
       {
         section_id: "ESG_04_ES",
@@ -411,30 +246,30 @@ export default defineComponent({
       {
         section_id: "ESG_09_EN",
         description:
-          "This will occur while prioritizing safety, care for the community and sustainability.",
+          "At Piedras Verdes our surrounding environment is important. In addition to operating in compliance with both, national and international regulations, we focus on serving our local conditions. 2024 is a year in which we have set out to create a much more real, sincere, and solid ESG awareness for the benefit of the natural world.",
       },
       {
         section_id: "ESG_09_ES",
         description:
-          "Esto ocurrirá mientras se prioriza la seguridad, el cuidado de la comunidad y la sostenibilidad.",
+          "PV opera según las normas medioambientales internacionales y cumple con todas las normas medioambientales mexicanas aplicables. <br> No se han producido incidentes medioambientales significativos ni se han llevado a cabo acciones de cumplimiento desde el inicio de las operaciones en 2006.",
       },
       {
         section_id: "ESG_10_EN",
-        description: "Values",
+        description: "Health and Safety",
       },
       {
         section_id: "ESG_10_ES",
-        description: "Valores",
+        description: "Salud y seguridad",
       },
       {
         section_id: "ESG_11_EN",
         description:
-          "Our core values are focussed on the health, safety and wellbeing of our employees, contractors and other stakeholders, we operate to world-class environmental, social, and governance standards.",
+          "We prioritize the safe and health of our people first and foremost. Our safety records compare favorably against international standards, and we firmly believe that prevention will lead us down the path of zero accidents <br> We take risk assessments and job safety analyses as the basis of our day-to-day work. The continuous improvement of our processes and procedures is a must. Our employees and contractors receive extensive ongoing training to ensure operational safety, emphasizing those who manage higher-risk functions. <br>Some of the pillars of our culture and values are safe, health, and well-being. As part of our new awareness, we integrated the caring of mental health into our work environment as a priority, recognizing that the wellness at work directly influences the success of any operation.",
       },
       {
         section_id: "ESG_11_ES",
         description:
-          "Nuestros valores fundamentales incluyen la salud y la seguridad de nuestros empleados y contratistas, y el compromiso de operar de acuerdo con las normas ambientales, sociales y estándares gubernamentales.",
+          "Damos prioridad a la seguridad de nuestros empleados por encima de todo. <br> Nuestros empleados y contratistas reciben una amplia formación continua para garantizar la seguridad operativa con énfasis en los que gestionan las funciones con mayor riesgo. Nuestra cultura y valores corporativos hacen hincapié en la prioridad de la seguridad y el cumplimiento de las normas medioambientales por encima de cualquier consideración operativa. <br>Llevamos a cabo análisis de causa raíz de todos los incidentes, sin importar cual intrascendentes puedan ser, y rápidamente implementar los cambios apropiados en los procedimientos y prácticas. <br>Nuestro historial de seguridad se compara muy favorablemente con estándares internacionales. ",
       },
     ]);
 
@@ -487,7 +322,9 @@ export default defineComponent({
         };
         const response = await getSectionByPageandLanguaje(dataForm);
         if (response.status === 200) {
-          dataEsg.value = response.data;
+          if (parseInt(response.data.length) !== 0) {
+            dataEsg.value = response.data;
+          } 
         }
       } catch (error) {
         console.error("Error fetching data:", error);

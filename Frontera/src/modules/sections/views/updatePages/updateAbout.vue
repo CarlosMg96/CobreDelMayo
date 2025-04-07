@@ -309,7 +309,11 @@ export default defineComponent({
         };
         const response = await getSectionByPageandLanguaje(dataForm);
         if (response.status === 200) {
-          dataAbout.value = response.data;
+          if (parseInt(response.data.length) !== 0) {
+            dataAbout.value = response.data;
+          }else {
+            showInfoToast("Watching for cache data");
+          }
         }
       } catch (error) {
         console.error("Error fetching data:", error);

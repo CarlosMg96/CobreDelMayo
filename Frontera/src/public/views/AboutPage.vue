@@ -4,7 +4,6 @@
       <div class="hero-overlay bordered-section">
         <h1
           style="color: white !important"
-          @dblclick="openEditModal('ABOUT_01_' + languaje)"
         >
           <span v-html="filterData('ABOUT_01_' + languaje)"></span>
         </h1>
@@ -14,12 +13,12 @@
     <section class="header_about">
       <v-row>
         <v-col cols="12" md="6">
-          <h1 @dblclick="openEditModal('ABOUT_02_' + languaje)">
+          <h1>
             <span v-html="filterData('ABOUT_02_' + languaje)"></span>
           </h1>
         </v-col>
         <v-col cols="12" md="6">
-          <p @dblclick="openEditModal('ABOUT_03_' + languaje)">
+          <p >
             <span v-html="filterData('ABOUT_03_' + languaje)"></span>
           </p>
         </v-col>
@@ -29,19 +28,19 @@
     <section class="about-info">
       <v-row class="text-center">
         <v-col cols="12" md="12">
-          <h3 @dblclick="openEditModal('ABOUT_04_' + languaje)">
+          <h3>
             <span v-html="filterData('ABOUT_04_' + languaje)"></span>
           </h3>
         </v-col>
       </v-row>
       <v-row class="text-start">
         <v-col cols="12" md="6">
-          <p @dblclick="openEditModal('ABOUT_05_' + languaje)">
+          <p >
             <span v-html="filterData('ABOUT_05_' + languaje)"></span>
           </p>
         </v-col>
         <v-col cols="12" md="6">
-          <p @dblclick="openEditModal('ABOUT_06_' + languaje)">
+          <p>
             <span v-html="filterData('ABOUT_06_' + languaje)"></span>
           </p>
         </v-col>
@@ -62,13 +61,13 @@
         </v-col>
         <v-col cols="12" md="6" class="text-start">
           <div class="strategy-text">
-            <h1 @dblclick="openEditModal('ABOUT_07_' + languaje)">
+            <h1>
               <span v-html="filterData('ABOUT_07_' + languaje)"></span>
             </h1>
-            <p @dblclick="openEditModal('ABOUT_08_' + languaje)">
+            <p>
               <span v-html="filterData('ABOUT_08_' + languaje)"></span>
             </p>
-            <h2 @dblclick="openEditModal('ABOUT_09_' + languaje)">
+            <h2>
               <span v-html="filterData('ABOUT_09_' + languaje)"></span>
             </h2>
           </div>
@@ -80,10 +79,10 @@
       <v-row>
         <v-col cols="12" md="6" class="backgroudnd-text-values">
           <div class="strategy-text text-start">
-            <h1 @dblclick="openEditModal('ABOUT_10_' + languaje)">
+            <h1 >
               <span v-html="filterData('ABOUT_10_' + languaje)"></span>
             </h1>
-            <p @dblclick="openEditModal('ABOUT_11_' + languaje)">
+            <p>
               <span v-html="filterData('ABOUT_11_' + languaje)"></span>
             </p>
           </div>
@@ -220,7 +219,9 @@ const fetchData = async () => {
     };
     const response = await getSectionByPageandLanguaje(dataForm);
     if (response.status === 200) {
-      dataAbout.value = response.data;
+      if (parseInt(response.data.length) !== 0) {
+        dataAbout.value = response.data;
+      }
     }
   } catch (error) {
     console.error("Error fetching data:", error);
