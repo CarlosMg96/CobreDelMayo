@@ -280,7 +280,6 @@ const languaje = ref(getLanguage());
 </script>
 
 <style scoped>
-/* Estilos base (los que ya tenías) */
 .esg-page {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: #333;

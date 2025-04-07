@@ -1,9 +1,12 @@
 <template>
   <div class="operations-page">
     <section class="about-hero">
-      <div class="hero-overlay">
-        <h1 style="color: white !important">
-          {{ filterData("ABOUT_01_" + languaje) }}
+      <div class="hero-overlay bordered-section">
+        <h1
+          style="color: white !important"
+          @dblclick="openEditModal('ABOUT_01_' + languaje)"
+        >
+          <span v-html="filterData('ABOUT_01_' + languaje)"></span>
         </h1>
       </div>
     </section>
@@ -11,11 +14,13 @@
     <section class="header_about">
       <v-row>
         <v-col cols="12" md="6">
-          <h1>{{ filterData("ABOUT_02_" + languaje) }}</h1>
+          <h1 @dblclick="openEditModal('ABOUT_02_' + languaje)">
+            <span v-html="filterData('ABOUT_02_' + languaje)"></span>
+          </h1>
         </v-col>
         <v-col cols="12" md="6">
-          <p>
-            {{ filterData("ABOUT_03_" + languaje) }}
+          <p @dblclick="openEditModal('ABOUT_03_' + languaje)">
+            <span v-html="filterData('ABOUT_03_' + languaje)"></span>
           </p>
         </v-col>
       </v-row>
@@ -24,20 +29,20 @@
     <section class="about-info">
       <v-row class="text-center">
         <v-col cols="12" md="12">
-          <h3>
-            {{ filterData("ABOUT_04_" + languaje) }}
+          <h3 @dblclick="openEditModal('ABOUT_04_' + languaje)">
+            <span v-html="filterData('ABOUT_04_' + languaje)"></span>
           </h3>
         </v-col>
       </v-row>
       <v-row class="text-start">
         <v-col cols="12" md="6">
-          <p>
-            {{ filterData("ABOUT_05_" + languaje) }}
+          <p @dblclick="openEditModal('ABOUT_05_' + languaje)">
+            <span v-html="filterData('ABOUT_05_' + languaje)"></span>
           </p>
         </v-col>
         <v-col cols="12" md="6">
-          <p>
-            {{ filterData("ABOUT_06_" + languaje) }}
+          <p @dblclick="openEditModal('ABOUT_06_' + languaje)">
+            <span v-html="filterData('ABOUT_06_' + languaje)"></span>
           </p>
         </v-col>
       </v-row>
@@ -57,12 +62,14 @@
         </v-col>
         <v-col cols="12" md="6" class="text-start">
           <div class="strategy-text">
-            <h1>{{ filterData("ABOUT_07_" + languaje) }}</h1>
-            <p>
-              {{ filterData("ABOUT_08_" + languaje) }}
+            <h1 @dblclick="openEditModal('ABOUT_07_' + languaje)">
+              <span v-html="filterData('ABOUT_07_' + languaje)"></span>
+            </h1>
+            <p @dblclick="openEditModal('ABOUT_08_' + languaje)">
+              <span v-html="filterData('ABOUT_08_' + languaje)"></span>
             </p>
-            <h2>
-              {{ filterData("ABOUT_09_" + languaje) }}
+            <h2 @dblclick="openEditModal('ABOUT_09_' + languaje)">
+              <span v-html="filterData('ABOUT_09_' + languaje)"></span>
             </h2>
           </div>
         </v-col>
@@ -73,9 +80,11 @@
       <v-row>
         <v-col cols="12" md="6" class="backgroudnd-text-values">
           <div class="strategy-text text-start">
-            <h1>{{ filterData("ABOUT_10_" + languaje) }}</h1>
-            <p>
-              {{ filterData("ABOUT_11_" + languaje) }}
+            <h1 @dblclick="openEditModal('ABOUT_10_' + languaje)">
+              <span v-html="filterData('ABOUT_10_' + languaje)"></span>
+            </h1>
+            <p @dblclick="openEditModal('ABOUT_11_' + languaje)">
+              <span v-html="filterData('ABOUT_11_' + languaje)"></span>
             </p>
           </div>
         </v-col>

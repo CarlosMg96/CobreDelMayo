@@ -18,35 +18,6 @@
       <!-- Campo de título -->
       <v-text-field v-model="title" label="Título" outlined></v-text-field>
 
-
-      <!-- Campo para el estatus -->
-      <!-- <v-select
-        v-model="status"
-        :items="statusOptions"
-        label="Estatus"
-        outlined
-      ></v-select> -->
-
-      <!-- Input para agregar imágenes (máximo 2) -->
-      <!-- <v-file-input
-        v-model="images"
-        label="Agregar imágenes"
-        multiple
-        outlined
-        :rules="imageRules"
-        accept="image/*"
-        @change="handleImageUpload"
-      ></v-file-input> -->
-
-      <!-- Mostrar imágenes seleccionadas -->
-      <!-- <div v-if="images.length > 0">
-        <h4>Imágenes seleccionadas:</h4>
-        <div v-for="(image, index) in images" :key="index" class="image-preview">
-          <img :src="getImageUrl(image)" alt="Imagen seleccionada" width="100" />
-          <v-btn @click="removeImage(index)" color="error" small>Eliminar</v-btn>
-        </div>
-      </div> -->
-
       <!-- Editor Quill -->
       <div id="editor">
         <p>Hello World!</p>

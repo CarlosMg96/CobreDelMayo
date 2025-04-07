@@ -46,7 +46,7 @@
       const imageUrl = "https://www.rami-spare.it/media/images/cache/macchine-movimento-terra-cover_jpg_1024_0_cover_60.jpg";
       const listNameSections = ref([
         { id: 1, name: "About / Nosotros", route: "update-about" },
-        { id: 2, name: "ESG", route: "update-about" },
+        { id: 2, name: "ESG", route: "update-esg" },
         { id: 3, name: "History / Historia", route: "update-about" },
         { id: 4, name: "Home / Inicio", route: "update-about" },
         { id: 5, name: "Location / Ubicación", route: "update-about" },
