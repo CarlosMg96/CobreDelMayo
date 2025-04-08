@@ -5,7 +5,7 @@
         <h1
           style="color: white !important"
         >
-          <span v-html="filterData('ABOUT_01_' + languaje)"></span>
+          <span v-html="filterData('ABOUT_01_' + language)"></span>
         </h1>
       </div>
     </section>
@@ -14,12 +14,12 @@
       <v-row>
         <v-col cols="12" md="6">
           <h1>
-            <span v-html="filterData('ABOUT_02_' + languaje)"></span>
+            <span v-html="filterData('ABOUT_02_' + language)"></span>
           </h1>
         </v-col>
         <v-col cols="12" md="6">
           <p >
-            <span v-html="filterData('ABOUT_03_' + languaje)"></span>
+            <span v-html="filterData('ABOUT_03_' + language)"></span>
           </p>
         </v-col>
       </v-row>
@@ -29,19 +29,19 @@
       <v-row class="text-center">
         <v-col cols="12" md="12">
           <h3>
-            <span v-html="filterData('ABOUT_04_' + languaje)"></span>
+            <span v-html="filterData('ABOUT_04_' + language)"></span>
           </h3>
         </v-col>
       </v-row>
       <v-row class="text-start">
         <v-col cols="12" md="6">
           <p >
-            <span v-html="filterData('ABOUT_05_' + languaje)"></span>
+            <span v-html="filterData('ABOUT_05_' + language)"></span>
           </p>
         </v-col>
         <v-col cols="12" md="6">
           <p>
-            <span v-html="filterData('ABOUT_06_' + languaje)"></span>
+            <span v-html="filterData('ABOUT_06_' + language)"></span>
           </p>
         </v-col>
       </v-row>
@@ -62,13 +62,13 @@
         <v-col cols="12" md="6" class="text-start">
           <div class="strategy-text">
             <h1>
-              <span v-html="filterData('ABOUT_07_' + languaje)"></span>
+              <span v-html="filterData('ABOUT_07_' + language)"></span>
             </h1>
             <p>
-              <span v-html="filterData('ABOUT_08_' + languaje)"></span>
+              <span v-html="filterData('ABOUT_08_' + language)"></span>
             </p>
             <h2>
-              <span v-html="filterData('ABOUT_09_' + languaje)"></span>
+              <span v-html="filterData('ABOUT_09_' + language)"></span>
             </h2>
           </div>
         </v-col>
@@ -80,10 +80,10 @@
         <v-col cols="12" md="6" class="backgroudnd-text-values">
           <div class="strategy-text text-start">
             <h1 >
-              <span v-html="filterData('ABOUT_10_' + languaje)"></span>
+              <span v-html="filterData('ABOUT_10_' + language)"></span>
             </h1>
             <p>
-              <span v-html="filterData('ABOUT_11_' + languaje)"></span>
+              <span v-html="filterData('ABOUT_11_' + language)"></span>
             </p>
           </div>
         </v-col>
@@ -103,9 +103,9 @@
 <script setup>
 import { onMounted, ref } from "vue";
 import { getLanguage, BASEURL } from "@/kernel/utils";
-import { getSectionByPageandLanguaje } from "@/modules/sections/services/sections-service";
+import { getSectionByPageandlanguage } from "@/modules/sections/services/sections-service";
 
-const languaje = ref(getLanguage());
+const language = ref(getLanguage());
 const dataAbout = ref([
   {
     section_id: "ABOUT_01_EN",
@@ -215,9 +215,9 @@ const fetchData = async () => {
   try {
     const dataForm = {
       page: "ABOUT",
-      language: languaje.value,
+      language: language.value,
     };
-    const response = await getSectionByPageandLanguaje(dataForm);
+    const response = await getSectionByPageandlanguage(dataForm);
     if (response.status === 200) {
       if (parseInt(response.data.length) !== 0) {
         dataAbout.value = response.data;

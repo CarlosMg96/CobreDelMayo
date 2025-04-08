@@ -3,12 +3,12 @@
     <v-card-item>
       <v-card-title> ESG </v-card-title>
       <v-card-subtitle>
-        <div v-if="languaje == 'EN'">
+        <div v-if="language == 'EN'">
           <h2>You are in the section to update in</h2>
           <h1>English</h1>
           <button @click="changeLanguage()" class="action-btn secondary-btn">
             <span class="language-tag">Change Language</span>
-            {{ languaje == "EN" ? "ES" : "EN" }}
+            {{ language == "EN" ? "ES" : "EN" }}
           </button>
         </div>
 
@@ -17,7 +17,7 @@
           <h1>Español</h1>
           <button @click="changeLanguage()" class="action-btn secondary-btn">
             <span class="language-tag">Cambiar idioma</span>
-            {{ languaje == "ES" ? "EN" : "ES" }}
+            {{ language == "ES" ? "EN" : "ES" }}
           </button>
         </div>
         <div class="divider"></div>
@@ -29,7 +29,7 @@
           <div class="esg-page">
             <section class="about-hero">
               <div class="hero-overlay">
-                <h1 @dblclick="openEditModal('ESG_01_' + languaje)"> <span v-html=" filterData('ESG_01_' + languaje)"></span></h1>
+                <h1 @dblclick="openEditModal('ESG_01_' + language)"> <span v-html=" filterData('ESG_01_' + language)"></span></h1>
               </div>
             </section>
           </div>
@@ -37,31 +37,31 @@
             <!-- Sección Principal -->
             <section class="main-section">
                 <div class="number-circle">ESG</div>
-                <h1 @dblclick="openEditModal('ESG_02_' + languaje)">  <span v-html=" filterData('ESG_02_' + languaje)"></span></h1>
+                <h1 @dblclick="openEditModal('ESG_02_' + language)">  <span v-html=" filterData('ESG_02_' + language)"></span></h1>
 
                 <div class="content-with-image">
                   <div class="text-content">
-                    <p class="lead-text" @dblclick="openEditModal('ESG_03_' + languaje)">
-                      <span v-html=" filterData('ESG_03_' + languaje)"></span>
+                    <p class="lead-text" @dblclick="openEditModal('ESG_03_' + language)">
+                      <span v-html=" filterData('ESG_03_' + language)"></span>
                     </p>
 
                     <div class="highlight-box">
-                      <p @dblclick="openEditModal('ESG_04_' + languaje)">
-                        <span v-html=" filterData('ESG_04_' + languaje)"></span>
+                      <p @dblclick="openEditModal('ESG_04_' + language)">
+                        <span v-html=" filterData('ESG_04_' + language)"></span>
                       </p>
                     </div>
 
-                    <p @dblclick="openEditModal('ESG_05_' + languaje)">
-                      <span v-html=" filterData('ESG_05_' + languaje)"></span>
+                    <p @dblclick="openEditModal('ESG_05_' + language)">
+                      <span v-html=" filterData('ESG_05_' + language)"></span>
                     </p>
 
                     <div class="back-zone-image">
-                      <p class="lead-rigth-text left-text" @dblclick="openEditModal('ESG_06_' + languaje)">
-                        <span v-html=" filterData('ESG_06_' + languaje)"></span>
+                      <p class="lead-rigth-text left-text" @dblclick="openEditModal('ESG_06_' + language)">
+                        <span v-html=" filterData('ESG_06_' + language)"></span>
                       </p>
 
-                      <p class="lead-rigth-text right-text" @dblclick="openEditModal('ESG_07_' + languaje)">
-                        <span v-html=" filterData('ESG_07_' + languaje)"></span>
+                      <p class="lead-rigth-text right-text" @dblclick="openEditModal('ESG_07_' + language)">
+                        <span v-html=" filterData('ESG_07_' + language)"></span>
                       </p>
                     </div>
                   </div>
@@ -83,7 +83,7 @@
               <div class="number-circle">ESG</div>
               <div class="section-header">
                 <div>
-                  <h2 @dblclick="openEditModal('ESG_08_' + languaje)">  <span v-html=" filterData('ESG_08_' + languaje)"></span></h2>
+                  <h2 @dblclick="openEditModal('ESG_08_' + language)">  <span v-html=" filterData('ESG_08_' + language)"></span></h2>
                 </div>
               </div>
 
@@ -96,8 +96,8 @@
                   />
                 </div>
 
-             <div class="text-content" @dblclick="openEditModal('ESG_09_' + languaje)">
-              <span v-html=" filterData('ESG_09_' + languaje)"></span>
+             <div class="text-content" @dblclick="openEditModal('ESG_09_' + language)">
+              <span v-html=" filterData('ESG_09_' + language)"></span>
              </div>
               </div>
             </section>
@@ -120,10 +120,10 @@
                   <div class="column">
                     <div class="number-circle">ESG</div>
                     <div class="section-header">
-                      <h2 @dblclick="openEditModal('ESG_10_' + languaje)"> <span v-html=" filterData('ESG_10_' + languaje)"></span></h2>
+                      <h2 @dblclick="openEditModal('ESG_10_' + language)"> <span v-html=" filterData('ESG_10_' + language)"></span></h2>
                     </div>
-                    <p style="margin-bottom: 16px" @dblclick="openEditModal('ESG_11_' + languaje)">
-                      <span v-html=" filterData('ESG_11_' + languaje)"></span>
+                    <p style="margin-bottom: 16px" @dblclick="openEditModal('ESG_11_' + language)">
+                      <span v-html=" filterData('ESG_11_' + language)"></span>
                     </p>
 
                     <div class="image-placeholder full-width">
@@ -160,7 +160,7 @@ import {
 } from "@/kernel/utils";
 import { showInfoToast } from "@/kernel/alerts";
 import UpdateModal from "../../components/UpdateModal.vue";
-import { getSectionByPageandLanguaje } from "../../services/sections-service";
+import { getSectionByPageandlanguage } from "../../services/sections-service";
 
 export default defineComponent({
   name: "UpdateEsg",
@@ -320,7 +320,7 @@ export default defineComponent({
           page: "ESG",
           language: getLanguageForUpdateContent(),
         };
-        const response = await getSectionByPageandLanguaje(dataForm);
+        const response = await getSectionByPageandlanguage(dataForm);
         if (response.status === 200) {
           if (parseInt(response.data.length) !== 0) {
             dataEsg.value = response.data;
@@ -337,7 +337,7 @@ export default defineComponent({
 
     return {
       BASEURL,
-      languaje: getLanguageForUpdateContent(),
+      language: getLanguageForUpdateContent(),
       changeLanguage,
       filterData,
       openEditModal,

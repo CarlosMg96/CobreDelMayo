@@ -11,7 +11,7 @@ export const createSection = async (dataForm) => {
     }
 }
 
-export const getSectionByPageandLanguaje = async (params) => {
+export const getSectionByPageandlanguage = async (params) => {
     try {
         const { data } = await api.doGet('/section', { params });
         return data;

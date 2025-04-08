@@ -2,28 +2,17 @@
   <div class="operations-page">
     <section class="about-hero">
       <div class="hero-overlay">
-        <div v-if="languaje == 'EN'">
-          <h1 style="color: white !important;" >Operations</h1>
-        </div>
-        <div v-else>
-          <h1 style="color: white !important;" >Operaciones</h1>
+        <div>
+          <h1 style="color: white !important"><span v-html="filterData('OPERATIONS_01_' + language)"></span></h1>
         </div>
       </div>
     </section>
 
     <section class="mining_process">
-      <div v-if="languaje == 'EN'" class="text-center">
-        <h1>Mining and Process</h1>
-        <h3>Conventional Open Pit Mine</h3>
-        <p>The PV deposit is mined by conventional open-pit mining methods.</p>
-      </div>
-      <div v-else class="text-center">
-        <h1>Minería y Proceso</h1>
-        <h3>Mina convencional a cielo abierto</h3>
-        <p>
-          El yacimiento de PV se explota mediante métodos convencionales de
-          minería a cielo abierto
-        </p>
+      <div class="text-center">
+        <h1><span v-html="filterData('OPERATIONS_02_' + language)"></span></h1>
+        <h3><span v-html="filterData('OPERATIONS_03_' + language)"></span></h3>
+        <p><span v-html="filterData('OPERATIONS_04_' + language)"></span></p>
       </div>
     </section>
 
@@ -32,62 +21,33 @@
         <div class="container-mining">
           <div class="mining-grid">
             <div class="mining-card">
-              <div v-if="languaje == 'EN'">
+              <div>
                 <p>
-                  The pit is 4x2 km and operates 4 to 6 simultaneous faces; the
-                  Cerro Chato satellite pit is 1.5km west of the main pit.
-                </p>
-              </div>
-              <div v-else>
-                <p>
-                  El tajo es de 4x2 km y opera de 4 a 6 fases simultáneas, el
-                  tajo satélite Cerro Chato está ubicado a 1,5 km al oeste del
-                  tajo principal
+                  <span v-html="filterData('OPERATIONS_05_' + language)"></span>
                 </p>
               </div>
             </div>
 
             <div class="mining-card">
-              <div v-if="languaje == 'EN'">
+              <div>
                 <p>
-                  Mining follows a traditional drill, blast, load, haul, and
-                  dump sequence.
-                </p>
-              </div>
-              <div v-else>
-                <p>
-                  La minería sigue una secuencia tradicional de perforación,
-                  voladura, carga, acarreo y vertido
+                  <span v-html="filterData('OPERATIONS_06_' + language)"></span>
                 </p>
               </div>
             </div>
 
             <div class="mining-card">
-              <div v-if="languaje == 'EN'">
+              <div>
                 <p>
-                  Waste is hauled to dumps located north and northeast of the
-                  current pit configuration.
-                </p>
-              </div>
-              <div v-else>
-                <p>
-                  Los residuos se transportan a vertederos situados al norte y
-                  al noreste de la configuración actual del pozo
+                  <span v-html="filterData('OPERATIONS_07_' + language)"></span>
                 </p>
               </div>
             </div>
 
             <div class="mining-card">
-              <div v-if="languaje == 'EN'">
+              <div>
                 <p>
-                  Mining Rate Life of Mine (LOM): ~200ktpd of material moved
-                  (~60 ktpd of ore) LoM average.
-                </p>
-              </div>
-              <div v-else>
-                <p>
-                  Ritmo de extracción Vida útil de la mina (LOM): ~200 ktpd de
-                  material movido (~60 ktpd de mineral) promedio de LOM
+                  <span v-html="filterData('OPERATIONS_08_' + language)"></span>
                 </p>
               </div>
             </div>
@@ -98,13 +58,9 @@
 
     <section class="only-mining-container">
       <div class="only-mining-content">
-        <div v-if="languaje == 'EN'">
-          <h1 class="only-mining-title">Mining</h1>
-          <p class="only-mining-intro">The PV mobile mining fleet includes:</p>
-        </div>
-        <div v-else>
-          <h1 class="only-mining-title">Minería</h1>
-          <p class="only-mining-intro">La flota minera móvil de PV incluye::</p>
+        <div>
+          <h1 class="only-mining-title"><span v-html="filterData('OPERATIONS_09_' + language)"></span></h1>
+          <p class="only-mining-intro"><span v-html="filterData('OPERATIONS_10_' + language)"></span></p>
         </div>
 
         <div class="only-mining-layout">
@@ -133,59 +89,29 @@
             />
           </div>
 
-          <div v-if="languaje == 'EN'">
+          <div>
             <!-- Elementos posicionados alrededor del círculo -->
             <div class="only-mining-item only-mining-trucks">
-              <h2>26 Caterpillar 789 and<br />10 777 haul trucks</h2>
+              <h2><span v-html="filterData('OPERATIONS_11_' + language)"></span></h2>
             </div>
 
             <div class="only-mining-item only-mining-shovels">
-              <h3>2 Terex RH200 and one<br />Caterpillar 6040 shovel</h3>
+              <h3><span v-html="filterData('OPERATIONS_12_' + language)"></span></h3>
             </div>
 
             <div class="only-mining-item only-mining-loaders">
-              <h3>3 Caterpillar 994 and<br />one 992 front end loaders</h3>
+              <h3><span v-html="filterData('OPERATIONS_14_' + language)"></span></h3>
             </div>
 
             <div class="only-mining-item only-mining-drills">
               <h3>
-                4 Sandvick D75KS<br />conventional blast hole drills<br />and 1
-                Powerrock D60 truck drill
+                <span v-html="filterData('OPERATIONS_15_' + language)"></span>
               </h3>
             </div>
 
             <div class="only-mining-item only-mining-vehicles">
               <h2>
-                22 smaller loaders, bulldozers,<br />graders and water trucks
-              </h2>
-            </div>
-          </div>
-
-          <div v-else>
-            <!-- Elementos posicionados alrededor del círculo -->
-            <div class="only-mining-item only-mining-trucks">
-              <h2>26 camiones de acarreo Caterpillar 789 y<br />10 777</h2>
-            </div>
-
-            <div class="only-mining-item only-mining-shovels">
-              <h3>2 excavadoras Terex RH200 y una<br />Caterpillar 6040</h3>
-            </div>
-
-            <div class="only-mining-item only-mining-loaders">
-              <h3>3 cargadoras frontales Caterpillar 994 y<br />una 992</h3>
-            </div>
-
-            <div class="only-mining-item only-mining-drills">
-              <h3>
-                4 perforadoras convencionales Sandvick D75KS<br />y 1
-                Powerrock D60
-              </h3>
-            </div>
-
-            <div class="only-mining-item only-mining-vehicles">
-              <h2>
-                22 cargadoras, bulldozers,<br />motoniveladoras y camiones de
-                agua más pequeños
+                <span v-html="filterData('OPERATIONS_16_' + language)"></span>
               </h2>
             </div>
           </div>
@@ -196,36 +122,23 @@
         style="margin-top: 256px; margin-left: 56px; margin-right: 56px"
       >
         <p>
-          The mobile fleet maintenance facility is staffed by 130 highly
-          experienced employees. The facility can perform all major component
-          overhauls except engines.
+          <span v-html="filterData('OPERATIONS_17_' + language)"></span>
         </p>
       </div>
     </section>
 
     <div class="esg-section">
       <div style="margin-left: 24px; margin-bottom: 24px">
-        <div v-if="languaje === 'EN'">
-          <h1>Process Streams</h1>
+        <div>
+          <h1><span v-html="filterData('OPERATIONS_18_' + language)"></span></h1>
           <div class="divider"></div>
           <p>
-            The ore is selectively mined and processed as a function of its
-            grade, mineralization, acid consumption, leaching, and flotation
-            characteristics:
-          </p>
-        </div>
-        <div v-else>
-          <h1>Flujos de Proceso</h1>
-          <div class="divider"></div>
-          <p>
-            El mineral se extrae selectivamente y se procesa en función de su
-            ley, mineralización, consumo de ácido, lixiviación y características
-            de flotación:
+            <span v-html="filterData('OPERATIONS_19_' + language)"></span>
           </p>
         </div>
       </div>
 
-      <div v-if="languaje === 'EN'">
+      <div>
         <div class="esg-container">
           <!-- Tarjeta Comunidades -->
           <div class="esg-card">
@@ -238,15 +151,9 @@
               />
             </div>
             <div class="esg-content">
-              <h3>Oxide and Supergene Crushed Ore</h3>
+              <h3><span v-html="filterData('OPERATIONS_20_' + language)"></span></h3>
               <p>
-                Medium-grade oxides and supergene leachable ores are hauled to a
-                50+ ktpd primary crusher that feeds screens and secondary
-                crushers with a capacity of 45ktpd. Ore is transported to leach
-                pads by conveyor stacking systems to minimize cost and
-                compaction. Screened fines are drum agglomerated with fresh
-                water and concentrated sulfuric acid by two Feeco agglomerators
-                with a combined capacity of 24ktpd.
+                <span v-html="filterData('OPERATIONS_21_' + language)"></span>
               </p>
             </div>
           </div>
@@ -262,11 +169,9 @@
               />
             </div>
             <div class="esg-content">
-              <h3>ROM and Crushed Chalcopyrite Ore</h3>
+              <h3><span v-html="filterData('OPERATIONS_22_' + language)"></span></h3>
               <p>
-                Leached at 40ºC to 65ºC to reduce passivation on engineered pads
-                insulated against wind, with automated forced aeration and
-                temperature control.
+                <span v-html="filterData('OPERATIONS_23_' + language)"></span>
               </p>
             </div>
           </div>
@@ -282,87 +187,9 @@
               />
             </div>
             <div class="esg-content">
-              <h3>Ore for Tolling:</h3>
+              <h3><span v-html="filterData('OPERATIONS_24_' + language)"></span></h3>
               <p>
-                When the expected NSR from the sale of primary and to a lesser
-                degree, secondary sulfide ores is greater than that might be
-                achieved by leaching, chalcopyrite ore (typically with lower
-                pyrite and higher acid consumption) and selected high-grade
-                chalcocite ore is crushed by a dedicated system and sold to
-                Kupari for floatation.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div v-else>
-        <div class="esg-container">
-          <!-- Tarjeta Comunidades -->
-          <div class="esg-card">
-            <div class="esg-image-placeholder">
-              <img
-                :src="`${BASEURL}/img/process-01.jpg`"
-                alt="minerales"
-                width="400px"
-                height="200px"
-              />
-            </div>
-            <div class="esg-content">
-              <h3>Óxido y mineral triturado supergénico</h3>
-              <p>
-                Los óxidos de grado medio y los minerales lixiviables
-                supergénicos se transportan a una trituradora primaria de una
-                capacidad de 50+ ktpd que alimenta cribas y trituradoras
-                secundarias con una capacidad de 40ktpd (en una expansión de 45
-                ktdp). El mineral se transporta a las plataformas de lixiviación
-                mediante un sistema de apilamiento por cinta transportadora para
-                minimizar los costes y la compactación. Los finos cribados se
-                aglomeran en tambor con agua fresca y ácido sulfúrico
-                concentrado mediante dos aglomeradores de Feeco con una
-                capacidad combinada de 24ktpd.
-              </p>
-            </div>
-          </div>
-
-          <!-- Tarjeta Salud y Seguridad -->
-          <div class="esg-card">
-            <div class="esg-image-placeholder">
-              <img
-                :src="`${BASEURL}/img/process-02.jpg`"
-                alt="calpopirita"
-                width="400px"
-                height="200px"
-              />
-            </div>
-            <div class="esg-content">
-              <h3>ROM y mineral de calcopirita triturado</h3>
-              <p>
-                Lixiviado a 40ºC a 65ºC para reducir la pasivación en
-                plataformas de ingeniería aisladas contra el viento, con
-                aireación forzada automatizada y control de temperatura
-              </p>
-            </div>
-          </div>
-
-          <!-- Tarjeta Agua y Medio Ambiente -->
-          <div class="esg-card">
-            <div class="esg-image-placeholder">
-              <img
-                :src="`${BASEURL}/img/process-04.jpg`"
-                alt="mineral-para-maquila"
-                width="400px"
-                height="200px"
-              />
-            </div>
-            <div class="esg-content">
-              <h3>Mineral para maquila:</h3>
-              <p>
-                Cuando la expectativa NSR para la venta es mayor que el que
-                podría lograrse por lixiviación, el mineral de calcopirita
-                (normalmente con menor pirita y mayor consumo de ácido) y el
-                mineral de calcocita seleccionado de alta ley se tritura
-                mediante un sistema dedicado y se vende a Kupari para su
-                flotación. Los subproductos incluyen oro, plata y molibdeno.
+                <span v-html="filterData('OPERATIONS_25_' + language)"></span>
               </p>
             </div>
           </div>
@@ -373,10 +200,274 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-import { BASEURL, getLanguage } from "@/kernel/utils";
+import { onMounted, ref } from "vue";
+import { getLanguage, BASEURL } from "@/kernel/utils";
+import { getSectionByPageandlanguage } from "@/modules/sections/services/sections-service";
 
-const languaje = ref(getLanguage());
+const language = ref(getLanguage());
+
+const dataOperations = ref([
+  {
+    section_id: "OPERATIONS_01_EN",
+    description: "Operations",
+  },
+  {
+    section_id: "OPERATIONS_01_ES",
+    description: "Operaciones",
+  },
+  {
+    section_id: "OPERATIONS_02_EN",
+    description: "Mining and Process",
+  },
+  {
+    section_id: "OPERATIONS_02_ES",
+    description: "Minería y Procesos",
+  },
+  {
+    section_id: "OPERATIONS_03_EN",
+    description:
+      "Conventional Open Pit Mine",
+  },
+  {
+    section_id: "OPERATIONS_03_ES",
+    description:
+      "Mina convencional a cielo abierto",
+  },
+  {
+    section_id: "OPERATIONS_04_EN",
+    description:
+      "The PV deposit is mined by conventional open-pit mining methods.",
+  },
+  {
+    section_id: "OPERATIONS_04_ES",
+    description:
+      "El yacimiento de PV se explota mediante métodos convencionales de minería a cielo abierto ",
+  },
+  {
+    section_id: "OPERATIONS_05_EN",
+    description:
+      "The pit is 4x2 km and operates 4 to 6 simultaneous faces; the Cerro Chato satellite pit is 1.5km west of the main pit.",
+  },
+  {
+    section_id: "OPERATIONS_05_ES",
+    description:
+      "El tajo es de 4x2 km y opera de 4 a 6 fases simultáneas, el tajo satélite Cerro Chato está ubicado a 1,5 km al oeste del tajo principal",
+  },
+  {
+    section_id: "OPERATIONS_06_EN",
+    description:
+      "Mining follows a traditional drill, blast, load, haul, and dump sequence.",
+  },
+  {
+    section_id: "OPERATIONS_06_ES",
+    description:
+      "La minería sigue una secuencia tradicional de perforación, voladura, carga, acarreo y vertido",
+  },
+  {
+    section_id: "OPERATIONS_07_EN",
+    description: "Waste is hauled to dumps located north and northeast of the current pit configuration.",
+  },
+  {
+    section_id: "OPERATIONS_07_ES",
+    description: "Los residuos se transportan a vertederos situados al norte y al noreste de la configuración actual del pozo",
+  },
+  {
+    section_id: "OPERATIONS_08_EN",
+    description:
+      "Mining Rate Life of Mine (LOM): ~200ktpd of material moved (~60 ktpd of ore) LoM average.",
+  },
+  {
+    section_id: "OPERATIONS_08_ES",
+    description:
+      "Ritmo de extracción Vida útil de la mina (LOM): ~200 ktpd de material movido (~60 ktpd de mineral) promedio de LOM ",
+  },
+  {
+    section_id: "OPERATIONS_09_EN",
+    description:
+      "Mining",
+  },
+  {
+    section_id: "OPERATIONS_09_ES",
+    description:
+      "Minería",
+  },
+  {
+    section_id: "OPERATIONS_10_EN",
+    description: "The PV mobile mining fleet includes:",
+  },
+  {
+    section_id: "OPERATIONS_10_ES",
+    description: "La flota minera móvil de PV incluye:",
+  },
+  {
+    section_id: "OPERATIONS_11_EN",
+    description:
+      "26 Caterpillar 789 and<br />10 777 haul trucks",
+  },
+  {
+    section_id: "OPERATIONS_11_ES",
+    description:
+      "26 Caterpillar 789 y<br />10 camionetas 777 de arrastre",
+  },
+  {
+    section_id: "OPERATIONS_12_EN",
+    description:
+      "2 Terex RH200 and one<br />Caterpillar 6040 shovel",
+  },
+  {
+    section_id: "OPERATIONS_12_ES",
+    description:
+      "2 Terex RH200 y una pala<br />Caterpillar 6040",
+  },
+  {
+    section_id: "OPERATIONS_14_EN",
+    description:
+      "3 Caterpillar 994 and<br />one 992 front end loaders",
+  },
+  {
+    section_id: "OPERATIONS_15_EN",
+    description:
+      "4 Sandvick D75KS<br />conventional blast hole drills<br />and 1 Powerrock D60 truck drill",
+  },
+  {
+    section_id: "OPERATIONS_16_EN",
+    description:
+      "22 smaller loaders, bulldozers,<br />graders and water trucks",
+  },
+  {
+    section_id: "OPERATIONS_17_EN",
+    description:
+      "TThe mobile fleet maintenance facility is staffed by 130 highly experienced employees. The facility can perform all major component overhauls except engines.",
+  },
+  {
+    section_id: "OPERATIONS_18_EN",
+    description:
+      "Process Streams",
+  },
+  {
+    section_id: "OPERATIONS_19_EN",
+    description:
+      "The ore is selectively mined and processed as a function of its grade, mineralization, acid consumption, leaching, and flotation characteristics:",
+  },
+  {
+    section_id: "OPERATIONS_20_EN",
+    description:
+      "Oxide and Supergene Crushed Ore",
+  },
+  {
+    section_id: "OPERATIONS_21_EN",
+    description:
+      "Medium-grade oxides and supergene leachable ores are hauled to a 50+ ktpd primary crusher that feeds screens and secondary crushers with a capacity of 45ktpd. Ore is transported to leach pads by conveyor stacking systems to minimize cost and compaction. Screened fines are drum agglomerated with fresh water and concentrated sulfuric acid by two Feeco agglomerators with a combined capacity of 24ktpd.",
+  },
+  {
+    section_id: "OPERATIONS_22_EN",
+    description:
+      "ROM and Crushed Chalcopyrite Ore",
+  },
+  {
+    section_id: "OPERATIONS_23_EN",
+    description:
+      "Leached at 40ºC to 65ºC to reduce passivation on engineered pads insulated against wind, with automated forced aeration and temperature control.",
+  },
+  {
+    section_id: "OPERATIONS_24_EN",
+    description:
+      "Ore for Tolling:",
+  },
+  {
+    section_id: "OPERATIONS_25_EN",
+    description:
+      "When the expected NSR from the sale of primary and to a lesser degree, secondary sulfide ores is greater than that might be achieved by leaching, chalcopyrite ore (typically with lower pyrite and higher acid consumption) and selected high-grade chalcocite ore is crushed by a dedicated system and sold to Kupari for floatation.",
+  },
+  {
+    section_id: "OPERATIONS_14_ES",
+    description:
+      "3 cargadoras frontales Caterpillar 994 y<br />una 992",
+  },
+  {
+    section_id: "OPERATIONS_15_ES",
+    description:
+      "4 perforadoras convencionales Sandvick D75KS<br />y 1 Powerrock D60",
+  },
+  {
+    section_id: "OPERATIONS_16_ES",
+    description:
+      "22 cargadoras, bulldozers,<br />motoniveladoras y camiones de agua más pequeños",
+  },
+  {
+    section_id: "OPERATIONS_17_ES",
+    description:
+      "La instalación de mantenimiento de la flota móvil cuenta con 130 empleados altamente experimentados. Las instalaciones pueden realizar todas las revisiones de los componentes principales, excepto los motores.",
+  },
+  {
+    section_id: "OPERATIONS_18_ES",
+    description:
+      "Flujos de Proceso",
+  },
+  {
+    section_id: "OPERATIONS_19_ES",
+    description:
+      "El mineral se extrae selectivamente y se procesa en función de su ley, mineralización, consumo de ácido, lixiviación y características de flotación:",
+  },
+  {
+    section_id: "OPERATIONS_20_ES",
+    description:
+      "Óxido y mineral triturado supergénico",
+  },
+  {
+    section_id: "OPERATIONS_21_ES",
+    description:
+      "Los óxidos de grado medio y los minerales lixiviables supergénicos se transportan a una trituradora primaria de una capacidad de 50+ ktpd que alimenta cribas y trituradoras secundarias con una capacidad de 40ktpd (en una expansión de 45 ktdp). El mineral se transporta a las plataformas de lixiviación mediante un sistema de apilamiento por cinta transportadora para minimizar los costes y la compactación. Los finos cribados se aglomeran en tambor con agua fresca y ácido sulfúrico concentrado mediante dos aglomeradores de Feeco con una capacidad combinada de 24ktpd.",
+  },
+  {
+    section_id: "OPERATIONS_22_ES",
+    description:
+      "ROM y mineral de calcopirita triturado",
+  },
+  {
+    section_id: "OPERATIONS_23_ES",
+    description:
+      "Lixiviado a 40ºC a 65ºC para reducir la pasivación en plataformas de ingeniería aisladas contra el viento, con aireación forzada automatizada y control de temperatura",
+  },
+  {
+    section_id: "OPERATIONS_24_ES",
+    description:
+      "Mineral para maquila:",
+  },
+  {
+    section_id: "OPERATIONS_25_ES",
+    description:
+      "Cuando la expectativa NSR para la venta es mayor que el que podría lograrse por lixiviación, el mineral de calcopirita (normalmente con menor pirita y mayor consumo de ácido) y el mineral de calcocita seleccionado de alta ley se tritura mediante un sistema dedicado y se vende a Kupari para su flotación. Los subproductos incluyen oro, plata y molibdeno.",
+  },
+]);
+
+const fetchData = async () => {
+  try {
+    const dataForm = {
+      page: "OPERATIONS",
+      language: language.value,
+    };
+    const response = await getSectionByPageandlanguage(dataForm);
+    if (response.status === 200) {
+      if (parseInt(response.data.length) !== 0) {
+        dataOperations.value = response.data;
+      }
+    }
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+};
+
+const filterData = (found_id) => {
+  const filteredData = dataOperations.value.filter(
+    (item) => item.section_id === found_id
+  );
+  return filteredData.length > 0 ? filteredData[0].description : null;
+};
+
+onMounted(() => {
+  fetchData();
+});
 </script>
 
 <style scoped>

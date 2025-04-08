@@ -33,23 +33,13 @@
         </div>
       </div>
       <div class="about-content">
-        <div v-if="languaje === 'EN'">
-          <h2>About Us</h2>
+        <div>
+          <h2><span v-html="filterData('HOME_01_' + language)"></span></h2>
           <div class="divider"></div>
           <p>
-            <strong>Frontera Copper Corporation</strong> is an operating mine
-            located in northwestern Mexico.
+            <span v-html="filterData('HOME_02_' + language)"></span>
           </p>
           <button class="see-more" @click="seeMoreEsg()">SEE MORE</button>
-        </div>
-        <div v-else>
-          <h2>Acerca de nosotros</h2>
-          <div class="divider"></div>
-          <p>
-            <strong>Frontera Copper Corporation</strong> es una mina en
-            operación ubicada en el noroeste de México.
-          </p>
-          <button class="see-more" @click="seeMoreEsg">VER MÁS</button>
         </div>
       </div>
     </div>
@@ -57,135 +47,92 @@
     <!-- Sección ESG -->
     <div class="esg-section">
       <div style="margin-left: 24px; margin-bottom: 24px">
-        <h2>ESG</h2>
+        <h2><span v-html="filterData('HOME_03_' + language)"></span></h2>
         <div class="divider"></div>
       </div>
 
-      <div v-if="languaje === 'EN'">
-        <div class="esg-container">
-          <!-- Tarjeta Comunidades -->
-          <div class="esg-card">
-            <div class="esg-image-placeholder" style="background-image: url('http://localhost:3000/api/public/img/esg-communities.jpg'); background-size:cover;">
-              <img
-                :src="`${BASEURL}/img/esg-communities.jpg`"
-                alt="commununitis"
-                width="400px"
-                height="200px"
-                style="opacity:0"
-              />
-            </div>
-            <div class="esg-content">
-              <h3>ESG: Communities</h3>
-              <p>
-                We place great importance on our relationship with our
-                surrounding communities.
-              </p>
-              <button class="esg-see-more" @click="seeMoreEsg">SEE MORE</button>
-            </div>
+      <div class="esg-container">
+        <!-- Tarjeta Comunidades -->
+        <div class="esg-card">
+          <div
+            class="esg-image-placeholder"
+            style="
+              background-image: url('http://localhost:3000/api/public/img/esg-communities.jpg');
+              background-size: cover;
+            "
+          >
+            <img
+              :src="`${BASEURL}/img/esg-communities.jpg`"
+              alt="commununitis"
+              width="400px"
+              height="200px"
+              style="opacity: 0"
+            />
           </div>
-
-          <!-- Tarjeta Salud y Seguridad -->
-          <div class="esg-card">
-            <div class="esg-image-placeholder" style="background-image: url('http://localhost:3000/api/public/img/esg-health-and-safety.jpg'); background-size:cover;">
-              <img
-                :src="`${BASEURL}/img/esg-health-and-safety.jpg`"
-                alt="health-and-safety"
-                width="400px"
-                height="200px"
-                style="opacity:0"
-              />
-            </div>
-            <div class="esg-content">
-              <h3>ESG: Health and Safety</h3>
-              <p>
-                Extensive training programs combined with rigorous analysis of
-                all anormal operations and prompt corrective action.
-              </p>
+          <div class="esg-content">
+            <h3><span v-html="filterData('HOME_04_' + language)"></span></h3>
+            <p>
+              <span v-html="filterData('HOME_05_' + language)"></span>
+            </p>
+            <div v-if="language === 'EN'">
               <button class="esg-see-more" @click="seeMoreEsg">SEE MORE</button>
             </div>
-          </div>
-
-          <!-- Tarjeta Agua y Medio Ambiente -->
-          <div class="esg-card">
-            <div class="esg-image-placeholder">
-              <img
-                :src="`${BASEURL}/img/esg-water-environment.jpg`"
-                alt="water-environment"
-                width="400px"
-                height="200px"
-              />
-            </div>
-            <div class="esg-content">
-              <h3>ESG: Water & Environment</h3>
-              <p>
-                We comply with official regulations to the highest standards and
-                progressively improving our contribution to the environment.
-              </p>
-              <button class="esg-see-more" @click="seeMoreEsg">SEE MORE</button>
+            <div v-else>
+              <button class="esg-see-more" @click="seeMoreEsg">VER MÁS</button>
             </div>
           </div>
         </div>
-      </div>
-      <div v-else>
-        <div class="esg-container">
-          <!-- Tarjeta Comunidades -->
-          <div class="esg-card">
-            <div class="esg-image-placeholder">
-              <img
-                :src="`${BASEURL}/img/esg-communities.jpg`"
-                alt="comunidades"
-                width="400px"
-                height="200px"
-              />
+
+        <!-- Tarjeta Salud y Seguridad -->
+        <div class="esg-card">
+          <div
+            class="esg-image-placeholder"
+            style="
+              background-image: url('http://localhost:3000/api/public/img/esg-health-and-safety.jpg');
+              background-size: cover;
+            "
+          >
+            <img
+              :src="`${BASEURL}/img/esg-health-and-safety.jpg`"
+              alt="health-and-safety"
+              width="400px"
+              height="200px"
+              style="opacity: 0"
+            />
+          </div>
+          <div class="esg-content">
+            <h3><span v-html="filterData('HOME_06_' + language)"></span></h3>
+            <p>
+              <span v-html="filterData('HOME_07_' + language)"></span>
+            </p>
+            <div v-if="language === 'EN'">
+              <button class="esg-see-more" @click="seeMoreEsg">SEE MORE</button>
             </div>
-            <div class="esg-content">
-              <h3>ESG: Comunidades</h3>
-              <p>
-                Damos gran importancia a nuestra relación con las comunidades
-                que nos rodean.
-              </p>
+            <div v-else>
               <button class="esg-see-more" @click="seeMoreEsg">VER MÁS</button>
             </div>
           </div>
+        </div>
 
-          <!-- Tarjeta Salud y Seguridad -->
-          <div class="esg-card">
-            <div class="esg-image-placeholder">
-              <img
-                :src="`${BASEURL}/img/esg-health-and-safety.jpg`"
-                alt="segudidad-y-salud"
-                width="400px"
-                height="200px"
-              />
-            </div>
-            <div class="esg-content">
-              <h3>ESG: Salud y Seguridad</h3>
-              <p>
-                Amplios programas de entrenamiento combinados con un análisis
-                riguroso de todas las operaciones anormales y una pronta acción
-                correctiva.
-              </p>
-              <button class="esg-see-more" @click="seeMoreEsg">VER MÁS</button>
-            </div>
+        <!-- Tarjeta Agua y Medio Ambiente -->
+        <div class="esg-card">
+          <div class="esg-image-placeholder">
+            <img
+              :src="`${BASEURL}/img/esg-water-environment.jpg`"
+              alt="water-environment"
+              width="400px"
+              height="200px"
+            />
           </div>
-
-          <!-- Tarjeta Agua y Medio Ambiente -->
-          <div class="esg-card">
-            <div class="esg-image-placeholder">
-              <img
-                :src="`${BASEURL}/img/esg-water-environment.jpg`"
-                alt="agua-y-medio-ambiente"
-                width="400px"
-                height="200px"
-              />
+          <div class="esg-content">
+            <h3><span v-html="filterData('HOME_08_' + language)"></span></h3>
+            <p>
+              <span v-html="filterData('HOME_09_' + language)"></span>
+            </p>
+            <div v-if="language === 'EN'">
+              <button class="esg-see-more" @click="seeMoreEsg">SEE MORE</button>
             </div>
-            <div class="esg-content">
-              <h3>ESG: Agua y Medio Ambiente</h3>
-              <p>
-                Cumplimos los normativos oficiales con los más altos estándares
-                y mejorando programáticamente nuestra contribución al medio
-                ambiente.
-              </p>
+            <div v-else>
               <button class="esg-see-more" @click="seeMoreEsg">VER MÁS</button>
             </div>
           </div>
@@ -195,7 +142,7 @@
 
     <!-- Sección Galería -->
     <div class="gallery-section">
-      <div v-if="languaje === 'EN'">
+      <div v-if="language === 'EN'">
         <h2 class="text-start">Galery</h2>
       </div>
       <div v-else>
@@ -235,7 +182,7 @@
         <button class="carousel-btn prev" @click="prevSlide">&#10094;</button>
         <button class="carousel-btn next" @click="nextSlide">&#10095;</button>
       </div>
-      <div v-if="languaje === 'EN'">
+      <div v-if="language === 'EN'">
         <button class="see-more" @click="seeMoreGallery">SEE MORE</button>
       </div>
       <div v-else>
@@ -247,8 +194,9 @@
 
 <script>
 import { BASEURL, getLanguage } from "@/kernel/utils";
+import { getSectionByPageandlanguage } from "@/modules/sections/services/sections-service";
 import router from "@/router";
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 
 export default {
   name: "HomePage",
@@ -258,7 +206,7 @@ export default {
     };
 
     const currentSlide = ref(0);
-    const totalSlides = ref(4); 
+    const totalSlides = ref(4);
 
     const nextSlide = () => {
       currentSlide.value = (currentSlide.value + 1) % totalSlides.value;
@@ -287,14 +235,126 @@ export default {
       await router.push("/gallery");
     };
 
+    const dataHome = ref([
+      {
+        section_id: "HOME_01_EN",
+        description: "About Us",
+      },
+      {
+        section_id: "HOME_01_ES",
+        description: "Acerca de nosotros",
+      },
+      {
+        section_id: "HOME_02_EN",
+        description:
+          "Frontera Copper Corporation is an operating mine located in northwestern Mexico",
+      },
+      {
+        section_id: "HOME_02_ES",
+        description:
+          "Frontera Copper Corporation es una mina en operación ubicada en el noroeste de México.",
+      },
+      {
+        section_id: "HOME_03_EN",
+        description: "ESG",
+      },
+      {
+        section_id: "HOME_03_ES",
+        description: "ESG",
+      },
+      {
+        section_id: "HOME_04_EN",
+        description: "ESG: Communities",
+      },
+      {
+        section_id: "HOME_04_ES",
+        description: "ESG: Comunidades",
+      },
+      {
+        section_id: "HOME_05_EN",
+        description:
+          "We place great importance on our relationship with our surrounding communities.",
+      },
+      {
+        section_id: "HOME_05_ES",
+        description:
+          "Damos gran importancia a nuestra relación con las comunidades que nos rodean.",
+      },
+      {
+        section_id: "HOME_06_EN",
+        description: "ESG: Health and Safety",
+      },
+      {
+        section_id: "HOME_06_ES",
+        description: "ESG: Salud y Seguridad",
+      },
+      {
+        section_id: "HOME_07_EN",
+        description:
+          "Extensive training programs combined with rigorous analysis of all anormal operations and prompt corrective action.",
+      },
+      {
+        section_id: "HOME_07_ES",
+        description:
+          "Amplios programas de entrenamiento combinados con un análisis riguroso de todas las operaciones anormales y una pronta acción correctiva.",
+      },
+      {
+        section_id: "HOME_08_EN",
+        description: "ESG: Water & Environment",
+      },
+      {
+        section_id: "HOME_08_ES",
+        description: "ESG: Agua y Medio Ambiente",
+      },
+      {
+        section_id: "HOME_09_EN",
+        description:
+          "We comply with official regulations to the highest standards and progressively improving our contribution to the environment.",
+      },
+      {
+        section_id: "HOME_09_ES",
+        description:
+          "Cumplimos las normativas oficiales con los más altos estándares y mejorando progresivamente nuestra contribución al medio ambiente.",
+      },
+    ]);
+
+    const fetchData = async () => {
+      try {
+        const dataForm = {
+          page: "HOME",
+          language: getLanguage(),
+        };
+        const response = await getSectionByPageandlanguage(dataForm);
+        if (response.status === 200) {
+          if (parseInt(response.data.length) !== 0) {
+            dataHome.value = response.data;
+          }
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    const filterData = (found_id) => {
+      const filteredData = dataHome.value.filter(
+        (item) => item.section_id === found_id
+      );
+      return filteredData.length > 0 ? filteredData[0].description : null;
+    };
+
+    onMounted(() => {
+      fetchData();
+    });
+
     return {
       BASEURL,
-      languaje: getLanguage(),
+      language: getLanguage(),
       seeMore,
       nextSlide,
       prevSlide,
       seeMoreEsg,
       seeMoreGallery,
+      filterData,
     };
   },
 };
