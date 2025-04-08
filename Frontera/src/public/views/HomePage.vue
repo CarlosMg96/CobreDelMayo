@@ -65,12 +65,13 @@
         <div class="esg-container">
           <!-- Tarjeta Comunidades -->
           <div class="esg-card">
-            <div class="esg-image-placeholder">
+            <div class="esg-image-placeholder" style="background-image: url('http://localhost:3000/api/public/img/esg-communities.jpg'); background-size:cover;">
               <img
                 :src="`${BASEURL}/img/esg-communities.jpg`"
                 alt="commununitis"
                 width="400px"
                 height="200px"
+                style="opacity:0"
               />
             </div>
             <div class="esg-content">
@@ -85,12 +86,13 @@
 
           <!-- Tarjeta Salud y Seguridad -->
           <div class="esg-card">
-            <div class="esg-image-placeholder">
+            <div class="esg-image-placeholder" style="background-image: url('http://localhost:3000/api/public/img/esg-health-and-safety.jpg'); background-size:cover;">
               <img
                 :src="`${BASEURL}/img/esg-health-and-safety.jpg`"
                 alt="health-and-safety"
                 width="400px"
                 height="200px"
+                style="opacity:0"
               />
             </div>
             <div class="esg-content">
