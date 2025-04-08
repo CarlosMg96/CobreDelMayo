@@ -4,7 +4,7 @@ import OperationsPage from "@/public/views/OperationsPage.vue";
 import LocationPage from "@/public/views/LocationPage.vue";
 import ESGPage from "@/public/views/ESG.vue";
 import HistoryPage from "@/public/views/HistoryPage.vue";
-
+import GaleryPage from "@/public/views/GalleryPage.vue";
 
 export default [
     {
@@ -60,6 +60,14 @@ export default [
                 component: ESGPage,
                 meta:{
                     title: 'ESG'
+                },
+            },
+            {
+                path: 'gallery',
+                name: 'gallery',
+                component: GaleryPage,
+                meta:{
+                    title: 'Galería'
                 },
             }
 

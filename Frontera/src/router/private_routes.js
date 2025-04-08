@@ -1,6 +1,8 @@
 import HomeStart from "@/modules/home/HomeStart.vue";
-import ListNews from "@/modules/news/views/ListNews.vue";
-import CreateNews from "@/modules/news/views/CreateNews.vue";
+import ListSections from "@/modules/sections/views/ListSections.vue";
+import updateAbout from "@/modules/sections/views/updatePages/updateAbout.vue";
+import updateEsg from "@/modules/sections/views/updatePages/updateEsg.vue";
+import updateHistory from "@/modules/sections/views/updatePages/updateHistory.vue";
 
 export default [
     {
@@ -9,7 +11,8 @@ export default [
         import( "@/layouts/PrivateLayout.vue"),
       meta: {
         requireAuth: true,
-        role: ['MASTER', 'ADMIN']
+        role: ['MASTER', 'ADMIN', 'SUPERADMIN'],
+        area: ['FRONTERA', 'NA']
       },
       children: [
         {
@@ -18,27 +21,50 @@ export default [
           component: HomeStart,
           meta: {
             title: "Inicio",
-            role: ['MASTER', 'ADMIN']
+            role: ['MASTER', 'ADMIN', 'SUPERADMIN'],
+            area: ['FRONTERA']
           },
         },
         {
-          path: "list-news",
-          name: "list-news",
-          component: ListNews,
+          path: "list-sections",
+          name: "list-sections",
+          component: ListSections,
           meta: {
-            title: "Noticias",
-            role: ['MASTER', 'ADMIN']
+            title: "Lista de Secciones",
+            role: ['MASTER', 'ADMIN', 'SUPERADMIN'],
+            area: ['FRONTERA']
           },
         },
         {
-          path: "create-news",
-          name: "create-news",
-          component: CreateNews,
+          path: "update-about",
+          name: "update-about",
+          component: updateAbout,
           meta: {
-            title: "Nueva noticia",
-            role: ['MASTER', 'ADMIN']
+            title: "Actualizar Acerca de",
+            role: ['MASTER', 'ADMIN', 'SUPERADMIN'],
+            area: ['FRONTERA']
           },
         },
+        {
+          path: "update-esg",
+          name: "update-esg",
+          component: updateEsg,
+          meta: {
+            title: "Actualizar ESG",
+            role: ['MASTER', 'ADMIN', 'SUPERADMIN'],
+            area: ['FRONTERA']
+          },
+        },
+        {
+          path: "update-history",
+          name: "update-history",
+          component: updateHistory,
+          meta: {
+            title: "Actualizar Historia",
+            role: ['MASTER', 'ADMIN', 'SUPERADMIN'],
+            area: ['FRONTERA']
+          },
+        }
       ],
     },
   ];

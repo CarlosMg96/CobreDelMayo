@@ -2,154 +2,77 @@
   <div class="operations-page">
     <section class="about-hero">
       <div class="hero-overlay">
-        <div v-if="languaje == 'EN'">
-          <h1 style="color: white !important">History</h1>
-        </div>
-        <div v-else>
-          <h1 style="color: white !important">Historia</h1>
+        <div>
+          <h1 style="color: white !important">
+            <span v-html="filterData('HISTORY_01_' + languaje)"></span>
+          </h1>
         </div>
       </div>
     </section>
 
     <section class="mining_process">
-      <div v-if="languaje == 'EN'" class="text-center">
+      <div class="text-center">
         <h2>
-          Frontera Copper Corporation built the Piedras Verdes Mine and started
-          commercial production in 2006.
+          <span v-html="filterData('HISTORY_02_' + languaje)"></span>
         </h2>
         <p>
-          The mine was capital-constrained, mining was subcontracted at a high
-          cost, and leaching was undertaken on a run-of-mine basis with poor
-          metallurgical recoveries. In the context of low copper prices
-          prevailing during the financial crisis, the mine suspended operations
-          in 2008.
-        </p>
-      </div>
-      <div v-else class="text-center">
-        <h2>
-          Frontera Copper Corporation construyó la mina Piedras Verdes e inició
-          la producción comercial en 2006.
-        </h2>
-        <p>
-          Tenía limitaciones de capital, la minería se subcontrataba a un alto
-          coste y la lixiviación se realizaba a pie de mina con pobres
-          recuperaciones metalúrgicas.
+          <span v-html="filterData('HISTORY_03_' + languaje)"></span>
         </p>
       </div>
       <div class="container-mining">
         <div class="mining-grid">
           <div class="mining-card">
-            <div v-if="languaje == 'EN'">
+            <div>
               <p>
-                Invecture Group made a tender offer for Frontera that was
-                successfully concluded in May 2009
-              </p>
-            </div>
-            <div v-else>
-              <p>
-                En el contexto de los bajos precios del cobre que prevalecían
-                durante la crisis financiera, suspendió sus operaciones en 2008.
-                Invecture Group hizo una oferta pública de adquisición de todas
-                las acciones de Frontera, que concluyó con éxito en mayo de
-                2009.
+                <span v-html="filterData('HISTORY_04_' + languaje)"></span>
               </p>
             </div>
           </div>
 
           <div class="mining-card">
-            <div v-if="languaje == 'EN'">
+            <div>
               <p>
-                Invecture Group invested over $450m to convert the Piedras
-                Verdes Mine from a run-of-mine heap leach operation to multiple
-                process streams, increasing production and reducing unit costs.
-              </p>
-            </div>
-            <div v-else>
-              <p>
-                Invecture Group invirtió más de 450 millones de dólares para
-                convertir la mina de Piedras Verdes de una operación de
-                lixiviación en pila en un proceso múltiple, aumentando la
-                producción y reduciendo los costes unitarios.
+                <span v-html="filterData('HISTORY_05_' + languaje)"></span>
               </p>
             </div>
           </div>
 
           <div class="mining-card">
-            <div v-if="languaje == 'EN'">
+            <div>
               <p>
-                Kupari Metals built a floatation plant adjacent to the Piedras
-                Verdes deposit and started operations in 4Q12, which allowed
-                Frontera the ability to optimize the value of certain ore types
-                which offering better economics when processed by flotation.
-              </p>
-            </div>
-            <div v-else>
-              <p>
-                Kupari Metals construyó una planta de flotación adyacente al
-                yacimiento de Piedras Verdes y comenzó a operar en el 4T12, lo
-                que proporcionó a Frontera la capacidad de monetizar ciertos
-                tipos de mineral que ofrecen una mejor economía cuando se
-                procesan por flotación
+                <span v-html="filterData('HISTORY_06_' + languaje)"></span>
               </p>
             </div>
           </div>
         </div>
       </div>
       <div class="mining-section text-center">
-        <div v-if="languaje == 'EN'">
+        <div>
           <p>
-            From 1Q20 through 2Q21, Piedras Verdes was placed on Care and
-            Maintenance in the context of the Covid pandemic and low copper
-            prices. During this time, much test work was undertaken and
-            significant operational improvements were identified, analyzed, and
-            implemented.
-          </p>
-        </div>
-        <div v-else>
-          <p>
-            Desde el 1T20 hasta el 2T21, Piedras Verdes fue puesto en cuidado y
-            mantenimiento en el contexto de la pandemia de Covid y bajos precios
-            del cobre. Durante este tiempo, se realizaron muchos trabajos de
-            prueba y se identificaron, analizaron e implementaron mejoras
-            operativas significativas.
+            <span v-html="filterData('HISTORY_07_' + languaje)"></span>
           </p>
         </div>
       </div>
     </section>
 
     <section class="results-section text-center">
-      <div v-if="languaje == 'EN'">
-        <h2>As a result, over the past three years, Piedras Verdes has:</h2>
-      </div>
-      <div v-else>
+      <div>
         <h2>
-          Como resultado, en los últimos 18 meses, Piedras Verdes cuenta con:
+          <span v-html="filterData('HISTORY_08_' + languaje)"></span>
         </h2>
       </div>
     </section>
 
     <section class="ampliation-section text-center">
       <div>
-        <div v-if="languaje == 'EN'">
+        <div>
           <p>
-            Expanded the mineral reserve from 628kt of contained copper to 934
-            kt with a combination of exploration drilling and developing an
-            NSR-driven block model at $3.50/lb copper.
-          </p>
-        </div>
-        <div v-else>
-          <p>
-            Ampliamos la reserva mineral de 628 kt de cobre contenido a 934 kt
-            con una combinación de perforaciones de exploración y el desarrollo
-            de un modelo de bloques impulsado por el NSR a 3,50 $/lb de cobre
+            <span v-html="filterData('HISTORY_09_' + languaje)"></span>
           </p>
         </div>
 
-        <div v-if="languaje == 'EN'">
-          <h3>Grown and optimized operations by</h3>
-        </div>
-        <div v-else>
-          <h3>Crecimiento y optimización de las operaciones mediante:</h3>
+        <div>
+          <h3><span v-html="filterData('HISTORY_10_' + languaje)"></span></h3>
         </div>
       </div>
     </section>
@@ -203,8 +126,9 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import { getLanguage } from "@/kernel/utils";
+import { getSectionByPageandLanguaje } from "@/modules/sections/services/sections-service";
 
 const languaje = ref(getLanguage());
 
@@ -300,6 +224,132 @@ const operations = ref([
 const toggleExpand = (index) => {
   expandedIndex.value = expandedIndex.value === index ? null : index;
 };
+
+const dataHistory = ref([
+  {
+    section_id: "HISTORY_01_EN",
+    description: "HISTORY",
+  },
+  {
+    section_id: "HISTORY_01_ES",
+    description: "Historia",
+  },
+  {
+    section_id: "HISTORY_02_EN",
+    description:
+      "Frontera Copper Corporation built the Piedras Verdes Mine and started commercial production in 2006.",
+  },
+  {
+    section_id: "HISTORY_02_ES",
+    description:
+      "Frontera Copper Corporation construyó la mina Piedras Verdes e inició la producción comercial en 2006.",
+  },
+  {
+    section_id: "HISTORY_03_EN",
+    description:
+      "The mine was capital-constrained, mining was subcontracted at a high cost, and leaching was undertaken on a run-of-mine basis with poor metallurgical recoveries. In the context of low copper prices prevailing during the financial crisis, the mine suspended operations in 2008.",
+  },
+  {
+    section_id: "HISTORY_03_ES",
+    description:
+      "Tenía limitaciones de capital, la minería se subcontrataba a un alto coste y la lixiviación se realizaba a pie de mina con pobres recuperaciones metalúrgicas",
+  },
+  {
+    section_id: "HISTORY_04_EN",
+    description:
+      "Invecture Group made a tender offer for Frontera that was successfully concluded in May 2009.",
+  },
+  {
+    section_id: "HISTORY_04_ES",
+    description:
+      "En el contexto de los bajos precios del cobre que prevalecían durante la crisis financiera, suspendió sus operaciones en 2008. Invecture Group hizo una oferta pública de adquisición de todas las acciones de Frontera, que concluyó con éxito en mayo de 2009.",
+  },
+  {
+    section_id: "HISTORY_05_EN",
+    description:
+      "Invecture Group invested over $450m to convert the Piedras Verdes Mine from a run-of-mine heap leach operation to multiple process streams, increasing production and reducing unit costs.",
+  },
+  {
+    section_id: "HISTORY_05_ES",
+    description:
+      "Invecture Group invirtió más de 450 millones de dólares para convertir la mina de Piedras Verdes de una operación de lixiviación en pila en un proceso múltiple, aumentando la producción y reduciendo los costes unitarios.",
+  },
+  {
+    section_id: "HISTORY_06_EN",
+    description:
+      "Kupari Metals built a floatation plant adjacent to the Piedras Verdes deposit and started operations in 4Q12, which allowed Frontera the ability to optimize the value of certain ore types which offering better economics when processed by flotation.",
+  },
+  {
+    section_id: "HISTORY_06_ES",
+    description:
+      "Kupari Metals construyó una planta de flotación adyacente al yacimiento de Piedras Verdes y comenzó a operar en el 4T12, lo que proporcionó a Frontera la capacidad de monetizar ciertos tipos de mineral que ofrecen una mejor economía cuando se procesan por flotación",
+  },
+  {
+    section_id: "HISTORY_07_EN",
+    description:
+      "From 1Q20 through 2Q21, Piedras Verdes was placed on Care and Maintenance in the context of the Covid pandemic and low copper prices. During this time, much test work was undertaken and significant operational improvements were identified, analyzed, and implemented.",
+  },
+  {
+    section_id: "HISTORY_07_ES",
+    description:
+      "Desde el 4T19 hasta el 2T21, Piedras Verdes fue puesta bajo Cuidado y Mantenimiento en el contexto de los bajos precios del cobre. Durante este tiempo, se identificaron muchas mejoras operativas, se analizaron y realizaron pruebas. ",
+  },
+  {
+    section_id: "HISTORY_08_EN",
+    description: "As a result, over the past three years, Piedras Verdes has:",
+  },
+  {
+    section_id: "HISTORY_08_ES",
+    description:
+      "Como resultado, en los últimos 18 meses, Piedras Verdes cuenta con:",
+  },
+  {
+    section_id: "HISTORY_09_EN",
+    description:
+      "Expanded the mineral reserve from 628kt of contained copper to 934 kt with a combination of exploration drilling and developing an NSR-driven block model at $3.50/lb copper.",
+  },
+  {
+    section_id: "HISTORY_09_ES",
+    description:
+      "Ampliamos la reserva mineral de 628 kt de cobre contenido a 934 kt con una combinación de perforaciones de exploración y el desarrollo de un modelo de bloques impulsado por el NSR a 3,50 $/lb de cobre ",
+  },
+  {
+    section_id: "HISTORY_10_EN",
+    description: "Grown and optimized operations by",
+  },
+  {
+    section_id: "HISTORY_10_ES",
+    description: "Crecimiento y optimización de las operaciones mediante:",
+  },
+]);
+
+const fetchData = async () => {
+  try {
+    const dataForm = {
+      page: "HISTORY",
+      language: languaje.value,
+    };
+    const response = await getSectionByPageandLanguaje(dataForm);
+    if (response.status === 200) {
+      if (parseInt(response.data.length) !== 0) {
+        dataHistory.value = response.data;
+      }
+    }
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+};
+
+const filterData = (found_id) => {
+  const filteredData = dataHistory.value.filter(
+    (item) => item.section_id === found_id
+  );
+  return filteredData.length > 0 ? filteredData[0].description : null;
+};
+
+onMounted(() => {
+  fetchData();
+});
 </script>
 
 <style scoped>
@@ -435,13 +485,13 @@ h1 {
   padding: 80px;
   margin-left: 84px;
   margin-right: 84px;
-  background-color: #b4241f;
+  background-color: #d94f4f;
 }
 .results-section h2 {
   font-size: 2.2rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
-  color: black !important;
+  color: white !important;
 }
 
 /* Estilos del ampliation section */

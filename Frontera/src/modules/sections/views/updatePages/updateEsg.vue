@@ -1,9 +1,35 @@
 <template>
-   <div>
+  <v-card class="mx-auto" elevation="16" max-width="100hv">
+    <v-card-item>
+      <v-card-title> ESG </v-card-title>
+      <v-card-subtitle>
+        <div v-if="languaje == 'EN'">
+          <h2>You are in the section to update in</h2>
+          <h1>English</h1>
+          <button @click="changeLanguage()" class="action-btn secondary-btn">
+            <span class="language-tag">Change Language</span>
+            {{ languaje == "EN" ? "ES" : "EN" }}
+          </button>
+        </div>
+
+        <div v-else>
+          <h2>Estas actualizando la sección en</h2>
+          <h1>Español</h1>
+          <button @click="changeLanguage()" class="action-btn secondary-btn">
+            <span class="language-tag">Cambiar idioma</span>
+            {{ languaje == "ES" ? "EN" : "ES" }}
+          </button>
+        </div>
+        <div class="divider"></div>
+      </v-card-subtitle>
+    </v-card-item>
+    <v-card-text>
+      <v-row class="gap-y-6">
+        <div>
           <div class="esg-page">
             <section class="about-hero">
               <div class="hero-overlay">
-                <h1> <span v-html=" filterData('ESG_01_' + languaje)"></span></h1>
+                <h1 @dblclick="openEditModal('ESG_01_' + languaje)"> <span v-html=" filterData('ESG_01_' + languaje)"></span></h1>
               </div>
             </section>
           </div>
@@ -11,30 +37,30 @@
             <!-- Sección Principal -->
             <section class="main-section">
                 <div class="number-circle">ESG</div>
-                <h1 >  <span v-html=" filterData('ESG_02_' + languaje)"></span></h1>
+                <h1 @dblclick="openEditModal('ESG_02_' + languaje)">  <span v-html=" filterData('ESG_02_' + languaje)"></span></h1>
 
                 <div class="content-with-image">
                   <div class="text-content">
-                    <p class="lead-text" >
+                    <p class="lead-text" @dblclick="openEditModal('ESG_03_' + languaje)">
                       <span v-html=" filterData('ESG_03_' + languaje)"></span>
                     </p>
 
                     <div class="highlight-box">
-                      <p >
+                      <p @dblclick="openEditModal('ESG_04_' + languaje)">
                         <span v-html=" filterData('ESG_04_' + languaje)"></span>
                       </p>
                     </div>
 
-                    <p >
+                    <p @dblclick="openEditModal('ESG_05_' + languaje)">
                       <span v-html=" filterData('ESG_05_' + languaje)"></span>
                     </p>
 
                     <div class="back-zone-image">
-                      <p class="lead-rigth-text left-text" >
+                      <p class="lead-rigth-text left-text" @dblclick="openEditModal('ESG_06_' + languaje)">
                         <span v-html=" filterData('ESG_06_' + languaje)"></span>
                       </p>
 
-                      <p class="lead-rigth-text right-text">
+                      <p class="lead-rigth-text right-text" @dblclick="openEditModal('ESG_07_' + languaje)">
                         <span v-html=" filterData('ESG_07_' + languaje)"></span>
                       </p>
                     </div>
@@ -57,7 +83,7 @@
               <div class="number-circle">ESG</div>
               <div class="section-header">
                 <div>
-                  <h2>  <span v-html=" filterData('ESG_08_' + languaje)"></span></h2>
+                  <h2 @dblclick="openEditModal('ESG_08_' + languaje)">  <span v-html=" filterData('ESG_08_' + languaje)"></span></h2>
                 </div>
               </div>
 
@@ -70,7 +96,7 @@
                   />
                 </div>
 
-             <div class="text-content">
+             <div class="text-content" @dblclick="openEditModal('ESG_09_' + languaje)">
               <span v-html=" filterData('ESG_09_' + languaje)"></span>
              </div>
               </div>
@@ -94,9 +120,9 @@
                   <div class="column">
                     <div class="number-circle">ESG</div>
                     <div class="section-header">
-                      <h2> <span v-html=" filterData('ESG_10_' + languaje)"></span></h2>
+                      <h2 @dblclick="openEditModal('ESG_10_' + languaje)"> <span v-html=" filterData('ESG_10_' + languaje)"></span></h2>
                     </div>
-                    <p style="margin-bottom: 16px">
+                    <p style="margin-bottom: 16px" @dblclick="openEditModal('ESG_11_' + languaje)">
                       <span v-html=" filterData('ESG_11_' + languaje)"></span>
                     </p>
 
@@ -112,14 +138,37 @@
             </section>
           </div>
         </div>
+      </v-row>
+    </v-card-text>
+  </v-card>
+  <UpdateModal
+    :visible="dialogVisible"
+    :current-text="currentText"
+    current-page="ESG"
+    :text-id="currentTextId"
+    @update:visible="updateDialogVisible"
+    @save-text="updateText"
+  />
 </template>
 
-<script setup>
-import { onMounted, ref } from "vue";
-import { getLanguage, BASEURL } from "@/kernel/utils";
-import { getSectionByPageandLanguaje } from "@/modules/sections/services/sections-service";
+<script>
+import { defineComponent, onMounted, ref } from "vue";
+import {
+  BASEURL,
+  getLanguageForUpdateContent,
+  setLanguageForUpdateContent,
+} from "@/kernel/utils";
+import { showInfoToast } from "@/kernel/alerts";
+import UpdateModal from "../../components/UpdateModal.vue";
+import { getSectionByPageandLanguaje } from "../../services/sections-service";
 
-const dataEsg = ref([
+export default defineComponent({
+  name: "UpdateEsg",
+  components: {
+    UpdateModal,
+  },
+  setup() {
+    const dataEsg = ref([
       {
         section_id: "ESG_01_EN",
         description: "ESG",
@@ -224,8 +273,6 @@ const dataEsg = ref([
       },
     ]);
 
-    const languaje = ref(getLanguage());
-
     const filterData = (found_id) => {
       const filteredData = dataEsg.value.filter(
         (item) => item.section_id === found_id
@@ -233,11 +280,45 @@ const dataEsg = ref([
       return filteredData.length > 0 ? filteredData[0].description : null;
     };
 
+    const changeLanguage = () => {
+      const lang = getLanguageForUpdateContent() === "EN" ? "ES" : "EN";
+      setLanguageForUpdateContent(lang);
+      showInfoToast(
+        `Language changed to ${lang === "EN" ? "English" : "Spanish"}`
+      );
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
+    };
+
+    const dialogVisible = ref(false);
+    const currentText = ref("");
+    const currentTextId = ref("");
+
+    const updateDialogVisible = (visible) => {
+      dialogVisible.value = visible;
+    };
+
+    const updateText = ({ id, text }) => {
+      const index = dataEsg.value.findIndex((item) => item.section_id === id);
+      if (index !== -1) {
+        dataEsg.value[index].description = text;
+      }
+    };
+
+    const openEditModal = (textId) => {
+      showInfoToast(`Double click to edit the text: ${textId}`);
+      const textToEdit = filterData(textId);
+      currentText.value = textToEdit;
+      currentTextId.value = textId;
+      dialogVisible.value = true;
+    };
+
     const fetchData = async () => {
       try {
         const dataForm = {
           page: "ESG",
-          language: languaje.value,
+          language: getLanguageForUpdateContent(),
         };
         const response = await getSectionByPageandLanguaje(dataForm);
         if (response.status === 200) {
@@ -254,6 +335,20 @@ const dataEsg = ref([
       fetchData();
     });
 
+    return {
+      BASEURL,
+      languaje: getLanguageForUpdateContent(),
+      changeLanguage,
+      filterData,
+      openEditModal,
+      updateDialogVisible,
+      updateText,
+      dialogVisible,
+      currentText,
+      currentTextId,
+    };
+  },
+});
 </script>
 
 <style scoped>
@@ -449,52 +544,52 @@ h2 {
   .about-hero h1 {
     font-size: 2.8rem;
   }
-  
+
   .communities-container {
     padding: 15px;
     margin-top: 80px !important;
   }
-  
+
   h1 {
     font-size: 2rem;
   }
-  
+
   h2 {
     font-size: 1.6rem;
     margin-left: 0.5rem;
   }
-  
+
   .content-with-image,
   .content-with-image.reverse {
     flex-direction: column;
     gap: 1.5rem;
   }
-  
+
   .image-placeholder.right,
   .image-placeholder.left {
     margin: 1rem 0;
     flex: 1 1 100%;
   }
-  
+
   .image-comunities {
     width: 100% !important;
   }
-  
+
   .back-zone-image {
     width: 100%;
     flex-direction: column;
     gap: 1rem;
   }
-  
+
   .lead-rigth-text {
     min-width: 100%;
   }
-  
+
   .two-column-content {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  
+
   .column.text-center img {
     width: 100%;
     max-width: 400px;
@@ -508,57 +603,86 @@ h2 {
   .about-hero {
     height: 50vh;
   }
-  
+
   .about-hero h1 {
     font-size: 2.2rem;
   }
-  
+
   .communities-container {
     padding: 10px;
     margin-top: 70px !important;
   }
-  
+
   h1 {
     font-size: 1.8rem;
     margin-bottom: 1.2rem;
   }
-  
+
   h2 {
     font-size: 1.4rem;
     margin-left: 0;
   }
-  
+
   .number-circle {
     width: 40px;
     height: 40px;
     font-size: 1.1rem;
   }
-  
+
   .lead-text,
   .lead-rigth-text {
     font-size: 1rem;
     line-height: 1.6;
   }
-  
+
   .highlight-box {
     padding: 1rem;
   }
-  
+
   .section-divider {
     margin: 2rem 0;
   }
-  
+
   .back-zone-image {
     margin: 1.5rem 0;
   }
-  
+
   .left-text,
   .right-text {
     padding: 0;
   }
-  
+
   .image-placeholder.full-width img {
     width: 100%;
   }
+}
+
+/* Estilos de la tarjeta */
+.language-tag {
+  font-size: 0.75rem;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.action-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.secondary-btn {
+  background: #f59e0b;
+  color: white;
+}
+
+.secondary-btn:hover {
+  background: #d97706;
+  box-shadow: 0 4px 6px rgba(245, 158, 11, 0.3);
 }
 </style>
