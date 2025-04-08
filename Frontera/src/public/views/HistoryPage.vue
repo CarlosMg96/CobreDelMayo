@@ -129,6 +129,7 @@
 import { onMounted, ref } from "vue";
 import { getLanguage } from "@/kernel/utils";
 import { getSectionByPageandlanguage } from "@/modules/sections/services/sections-service";
+import { getPublicHistoryOperations } from "../services/public-services";
 
 const language = ref(getLanguage());
 
@@ -347,8 +348,22 @@ const filterData = (found_id) => {
   return filteredData.length > 0 ? filteredData[0].description : null;
 };
 
+const fetchPublicHistory = async () => {
+  try {
+    const response = await getPublicHistoryOperations(language.value);
+    if (response.status === 200) {
+      if (parseInt(response.data.length) !== 0) {
+        operations.value = response.data;
+      } 
+    }
+  } catch (error) {
+    console.error("Error fetching public history:", error);
+  }
+};
+
 onMounted(() => {
   fetchData();
+  fetchPublicHistory();
 });
 </script>
 

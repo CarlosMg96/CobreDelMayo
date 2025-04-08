@@ -1,13 +1,12 @@
 DROP TABLE IF EXISTS content_from_frontera;
-
 CREATE TABLE content_from_frontera (
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     page ENUM('HOME', 'ABOUT', 'ESG', 'HISTORY', 'LOCATION', 'OPERATIONS') NOT NULL,
     section_id VARCHAR(100) NOT NULL UNIQUE,
-    description TEXT NOT NULL,
+    description TEXT NULL,
     language VARCHAR(2) NOT NULL DEFAULT 'EN',
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 
@@ -193,3 +192,35 @@ INSERT INTO content_from_frontera (page, section_id, description, language) VALU
 ('HOME', 'HOME_08_ES', 'ESG: Agua y Medio Ambiente', 'ES'),
 ('HOME', 'HOME_09_EN', 'We comply with official regulations to the highest standards and progressively improving our contribution to the environment.', 'EN'),
 ('HOME', 'HOME_09_ES', 'Cumplimos las normativas oficiales con los más altos estándares y mejorando progresivamente nuestra contribución al medio ambiente.', 'ES');
+
+
+drop Table content_from_frontera;
+
+
+CREATE TABLE history_operations_frontera (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    description VARCHAR(255) NOT NULL,
+    details TEXT NOT NULL,
+    language VARCHAR(2) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+-- Insert for history_operations_frontera
+INSERT INTO history_operations_frontera (description, details, language) VALUES
+('Expanding the capacity...', 'In 1Q22 we expanded the capacity of the leach crushing, screening, and conveying system to operate at 36 ktpd, enabling improved recoveries and kinetics, with higher throughput to agglomeration.', 'EN'),
+('Vat leaching of flotation tails...', 'Developing the engineering for agitated tank leaching of 18Mt tails over ten years at an average CuSEQ grade of 0.13%.', 'EN'),
+('Installation of Aggolmerators...', 'In 1Q21, we Installed two agglomerators with a capacity of 24 ktpd to improve metallurgical recoveries by creating robust agglomerate pellets with uniform leach characteristics from screened fines with acid and raffinate to enhance leach recoveries and kinetics, eliminate the loss of contained copper in slimes confined to tails by the screw slurry classification system, and reduce water consumption.', 'EN'),
+('Optimizing acid consumption...', 'Optimizing acid consumption with continuous remote monitoring of heap leach solution chemistry and selective acid addition by section of the leach pad.', 'EN'),
+('Internally developing a mobile...', 'Internally developing a mobile fleet dispatch system that optimizes operations, enables real time monitoring of equipment productivity and automates data capture for multiple systems.', 'EN'),
+('Dispatch System...', 'We developed a mobile fleet dispatch system that optimizes operations, enables real-time monitoring of equipment productivity, and automates data capture for multiple systems.', 'EN'),
+('Optimization of heap leach practices...', 'Selectively implement heap leach aeration, maximizing copper recovery, kinetics, and acid generation.', 'EN'),
+('Ampliación de la capacidad...', 'Ampliación de la capacidad del sistema de trituración y cribado y transporte de la lixiviación en el 1T22 para operar a 40 ktpd y 45 ktpd by 3T22 permitiendo mejorar las recuperaciones y la cinética, con un mayor rendimiento hacia los aglomeradores.', 'ES'),
+('Desarrollar la ingeniería...', 'Desarrollar la ingeniería para la lixiviación en tanque agitado de 18Mt de colas a lo largo de 10 años con una ley media de CuSEQ de 0,13% que comenzará a construirse a finales del 2T22 y se pondrá en marcha en el 4T22.', 'ES'),
+('Instalación de dos aglomeradores...', 'Instalación de dos aglomeradores en el 1T21 con una capacidad de 24 ktpd para crear paneles robustos de aglomerado a partir de finos cribados con ácido y agua refinada para mejorar las recuperaciones de lixiviación y la cinética, eliminar la pérdida de cobre contenido en los lodos confinados en las colas por el sistema de clasificación de lodos de tornillo que reemplazó y reducir el consumo de agua.', 'ES'),
+('Optimizar el consumo de ácido...', 'Optimizar el consumo de ácido con la continua supervisión remota de la pila de lixiviación de la solución química la adición selectiva de ácido por sección de la pila de lixiviación.', 'ES'),
+('Desarrollar internamente un sistema...', 'Desarrollar internamente un sistema de envío de flotas móviles que optimice las operaciones, permita la supervisión en tiempo real de la productividad de los equipos y automatice la captura de datos para múltiples sistemas.', 'ES'),
+('Implementación selectiva de la aireación...', 'Implementación selectiva de la aireación de la pila de lixiviación, maximizando la recuperación de cobre, la cinética y la generación de ácido.', 'ES'),
+('Desarrollo de un circuito para...', 'Desarrollo de un circuito para recuperar el molibdeno que produce xxxlbs de metal contenido al mes.', 'ES');
+
