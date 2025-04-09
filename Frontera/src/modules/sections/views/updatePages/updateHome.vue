@@ -192,7 +192,7 @@
           <!-- Sección Galería -->
           <div class="gallery-section">
             <div v-if="language === 'EN'">
-              <h2 class="text-start">Galery</h2>
+              <h2 class="text-start">Gallery</h2>
             </div>
             <div v-else>
               <h2 class="text-start">Galería</h2>
@@ -249,7 +249,7 @@
   <UpdateModal
     :visible="dialogVisible"
     :current-text="currentText"
-    current-page="ABOUT"
+    current-page="HOME"
     :text-id="currentTextId"
     @update:visible="updateDialogVisible"
     @save-text="updateText"
