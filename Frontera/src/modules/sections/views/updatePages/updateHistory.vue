@@ -28,19 +28,24 @@
         <div class="operations-page">
           <section class="about-hero">
             <div class="hero-overlay">
-              <div >
-                <h1 style="color: white !important"   @dblclick="openEditModal('HISTORY_01_' + language)"> <span v-html=" filterData('HISTORY_01_' + language)"></span></h1>
+              <div>
+                <h1
+                  style="color: white !important"
+                  @dblclick="openEditModal('HISTORY_01_' + language)"
+                >
+                  <span v-html="filterData('HISTORY_01_' + language)"></span>
+                </h1>
               </div>
             </div>
           </section>
 
           <section class="mining_process">
             <div class="text-center">
-              <h2   @dblclick="openEditModal('HISTORY_02_' + language)">
-                <span v-html=" filterData('HISTORY_02_' + language)"></span>
+              <h2 @dblclick="openEditModal('HISTORY_02_' + language)">
+                <span v-html="filterData('HISTORY_02_' + language)"></span>
               </h2>
               <p @dblclick="openEditModal('HISTORY_03_' + language)">
-                <span v-html=" filterData('HISTORY_03_' + language)"></span>
+                <span v-html="filterData('HISTORY_03_' + language)"></span>
               </p>
             </div>
             <div class="container-mining">
@@ -48,7 +53,9 @@
                 <div class="mining-card">
                   <div>
                     <p @dblclick="openEditModal('HISTORY_04_' + language)">
-                      <span v-html=" filterData('HISTORY_04_' + language)"></span>
+                      <span
+                        v-html="filterData('HISTORY_04_' + language)"
+                      ></span>
                     </p>
                   </div>
                 </div>
@@ -56,7 +63,9 @@
                 <div class="mining-card">
                   <div>
                     <p @dblclick="openEditModal('HISTORY_05_' + language)">
-                      <span v-html=" filterData('HISTORY_05_' + language)"></span>
+                      <span
+                        v-html="filterData('HISTORY_05_' + language)"
+                      ></span>
                     </p>
                   </div>
                 </div>
@@ -64,7 +73,9 @@
                 <div class="mining-card">
                   <div>
                     <p @dblclick="openEditModal('HISTORY_06_' + language)">
-                      <span v-html=" filterData('HISTORY_06_' + language)"></span>
+                      <span
+                        v-html="filterData('HISTORY_06_' + language)"
+                      ></span>
                     </p>
                   </div>
                 </div>
@@ -73,7 +84,7 @@
             <div class="mining-section text-center">
               <div>
                 <p @dblclick="openEditModal('HISTORY_07_' + language)">
-                  <span v-html=" filterData('HISTORY_07_' + language)"></span>
+                  <span v-html="filterData('HISTORY_07_' + language)"></span>
                 </p>
               </div>
             </div>
@@ -82,7 +93,7 @@
           <section class="results-section text-center">
             <div>
               <h2 @dblclick="openEditModal('HISTORY_08_' + language)">
-                <span v-html=" filterData('HISTORY_08_' + language)"></span>
+                <span v-html="filterData('HISTORY_08_' + language)"></span>
               </h2>
             </div>
           </section>
@@ -91,13 +102,14 @@
             <div>
               <div>
                 <p @dblclick="openEditModal('HISTORY_09_' + language)">
-                  <span v-html=" filterData('HISTORY_09_' + language)"></span>
+                  <span v-html="filterData('HISTORY_09_' + language)"></span>
                 </p>
               </div>
 
-
               <div @dblclick="openEditModal('HISTORY_10_' + language)">
-                <h3> <span v-html=" filterData('HISTORY_10_' + language)"></span></h3>
+                <h3>
+                  <span v-html="filterData('HISTORY_10_' + language)"></span>
+                </h3>
               </div>
             </div>
           </section>
@@ -105,45 +117,95 @@
           <section class="container-table">
             <div class="operations-table">
               <div v-if="language == 'EN'">
-                <div
-                  v-for="(op, index) in operations.filter(
-                    (op) => op.language === 'EN'
-                  )"
-                  :key="index"
-                  class="operation-row"
-                  @click="toggleExpand(index)"
-                >
-                  <div class="operation-description">
-                    <span>{{ op.description }}</span>
-                    <span class="expand-icon">{{
-                      expandedIndex === index ? "−" : "+"
-                    }}</span>
-                  </div>
-                  <div v-if="expandedIndex === index" class="operation-details">
-                    <p>{{ op.details }}</p>
-                  </div>
-                </div>
+                <table class="operations-table">
+                  <thead>
+                    <tr>
+                      <th>Title</th>
+                      <th>Details</th>
+                      <th>
+                        <button
+                          class="btn-table btn-add-op"
+                          @click="addOperation()"
+                        >
+                          <v-icon class="fa-solid fa-plus"></v-icon>
+                        </button>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr
+                      v-for="(op, index) in operations.filter(
+                        (op) => op.language === 'EN'
+                      )"
+                      :key="index"
+                    >
+                      <td>{{ op.description }}</td>
+                      <td>
+                        <span>{{ op.details }}</span>
+                      </td>
+                      <td>
+                        <button
+                          class="btn-table btn-edit-op"
+                          @click="editOperation(op)"
+                        >
+                          <v-icon class="fa-solid fa-pencil"></v-icon>
+                        </button>
+                        <button
+                          class="btn-table btn-delete-op"
+                          @click="deleteOperation(op)"
+                        >
+                          <v-icon class="fa-solid fa-trash"></v-icon>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
 
               <div v-else>
-                <div
-                  v-for="(op, index) in operations.filter(
-                    (op) => op.language === 'ES'
-                  )"
-                  :key="index"
-                  class="operation-row"
-                  @click="toggleExpand(index)"
-                >
-                  <div class="operation-description">
-                    <span>{{ op.description }}</span>
-                    <span class="expand-icon">{{
-                      expandedIndex === index ? "−" : "+"
-                    }}</span>
-                  </div>
-                  <div v-if="expandedIndex === index" class="operation-details">
-                    <p>{{ op.details }}</p>
-                  </div>
-                </div>
+                <table class="operations-table">
+                  <thead>
+                    <tr>
+                      <th>Título</th>
+                      <th>Detalle</th>
+                      <th>
+                        <button
+                          class="btn-table btn-add-op"
+                          @click="addOperation()"
+                        >
+                          <v-icon class="fa-solid fa-plus"></v-icon>
+                        </button>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr
+                      v-for="(op, index) in operations.filter(
+                        (op) => op.language === 'ES'
+                      )"
+                      :key="index"
+                    >
+                      <td>{{ op.description }}</td>
+                      <td>
+                        <span>{{ op.details }}</span>
+                      </td>
+                      <td>
+                        <button
+                          class="btn-table btn-edit-op"
+                          @click="editOperation(op)"
+                        >
+                          <v-icon class="fa-solid fa-pencil"></v-icon>
+                        </button>
+                        <button
+                          class="btn-table btn-delete-op"
+                          @click="deleteOperation(op)"
+                        >
+                          <v-icon class="fa-solid fa-trash"></v-icon>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </section>
@@ -159,6 +221,17 @@
     @update:visible="updateDialogVisible"
     @save-text="updateText"
   />
+  <UpdateHistoryOpModal
+      :visible="modalEditHistoryOp"
+      @update:visible="modalEditHistoryOp = $event"
+      :currentContent="currentDataHistoryOp"
+      @save-changes="getHistoryOperationsData"
+    />
+  <AddHistoryModal
+    :visible="modalAddHistoryOp"
+    @update:visible="modalAddHistoryOp = $event"
+    @save-text="getHistoryOperationsData"
+  />
 </template>
 
 <script>
@@ -168,14 +241,22 @@ import {
   getLanguageForUpdateContent,
   setLanguageForUpdateContent,
 } from "@/kernel/utils";
-import { showInfoToast } from "@/kernel/alerts";
+import { showInfoToast, showSuccessToast } from "@/kernel/alerts";
 import UpdateModal from "../../components/UpdateModal.vue";
 import { getSectionByPageandlanguage } from "../../services/sections-service";
+import {
+  getHistoryOperations,
+  deleteHistoryOperation,
+} from "../../services/history-operations";
+import UpdateHistoryOpModal from "../../components/UpdateHistoryOpModal.vue";
+import AddHistoryModal from "../../components/AddHistoryModal.vue";
 
 export default defineComponent({
   name: "UpdateHISTORY",
   components: {
     UpdateModal,
+    AddHistoryModal,
+    UpdateHistoryOpModal,
   },
   setup() {
     const dataHistory = ref([
@@ -189,11 +270,13 @@ export default defineComponent({
       },
       {
         section_id: "HISTORY_02_EN",
-        description: "Frontera Copper Corporation built the Piedras Verdes Mine and started commercial production in 2006.",
+        description:
+          "Frontera Copper Corporation built the Piedras Verdes Mine and started commercial production in 2006.",
       },
       {
         section_id: "HISTORY_02_ES",
-        description: "Frontera Copper Corporation construyó la mina Piedras Verdes e inició la producción comercial en 2006.",
+        description:
+          "Frontera Copper Corporation construyó la mina Piedras Verdes e inició la producción comercial en 2006.",
       },
       {
         section_id: "HISTORY_03_EN",
@@ -237,11 +320,13 @@ export default defineComponent({
       },
       {
         section_id: "HISTORY_07_EN",
-        description: "From 1Q20 through 2Q21, Piedras Verdes was placed on Care and Maintenance in the context of the Covid pandemic and low copper prices. During this time, much test work was undertaken and significant operational improvements were identified, analyzed, and implemented.",
+        description:
+          "From 1Q20 through 2Q21, Piedras Verdes was placed on Care and Maintenance in the context of the Covid pandemic and low copper prices. During this time, much test work was undertaken and significant operational improvements were identified, analyzed, and implemented.",
       },
       {
         section_id: "HISTORY_07_ES",
-        description: "Desde el 4T19 hasta el 2T21, Piedras Verdes fue puesta bajo Cuidado y Mantenimiento en el contexto de los bajos precios del cobre. Durante este tiempo, se identificaron muchas mejoras operativas, se analizaron y realizaron pruebas. ",
+        description:
+          "Desde el 4T19 hasta el 2T21, Piedras Verdes fue puesta bajo Cuidado y Mantenimiento en el contexto de los bajos precios del cobre. Durante este tiempo, se identificaron muchas mejoras operativas, se analizaron y realizaron pruebas. ",
       },
       {
         section_id: "HISTORY_08_EN",
@@ -272,7 +357,6 @@ export default defineComponent({
         description: "Crecimiento y optimización de las operaciones mediante:",
       },
     ]);
-    const expandedIndex = ref(null);
 
     const operations = ref([
       {
@@ -361,9 +445,9 @@ export default defineComponent({
       },
     ]);
 
-    const toggleExpand = (index) => {
-      expandedIndex.value = expandedIndex.value === index ? null : index;
-    };
+    const currentDataHistoryOp = ref(null);
+    const modalAddHistoryOp = ref(false);
+    const modalEditHistoryOp = ref(false);
 
     const filterData = (found_id) => {
       const filteredData = dataHistory.value.filter(
@@ -408,6 +492,19 @@ export default defineComponent({
       dialogVisible.value = true;
     };
 
+    const getHistoryOperationsData = async () => {
+      try {
+        const response = await getHistoryOperations(
+          getLanguageForUpdateContent()
+        );
+        if (response.status === 200) {
+          operations.value = response.data;
+        }
+      } catch (error) {
+        console.error("Error fetching history operations:", error);
+      }
+    };
+
     const fetchData = async () => {
       try {
         const dataForm = {
@@ -429,7 +526,37 @@ export default defineComponent({
 
     onMounted(() => {
       fetchData();
+      getHistoryOperationsData();
     });
+
+    const editOperation = (op) => {
+      currentDataHistoryOp.value = op;
+      modalEditHistoryOp.value = true;
+
+      showInfoToast("Edit the text: " + op.description);
+    };
+
+    const deleteOperation = async (op) => {
+      try {
+        const response = await deleteHistoryOperation(op.id);
+        if (response.status === 200) {
+          operations.value = operations.value.filter(
+            (operation) => operation.id !== op.id
+          );
+          if (getLanguageForUpdateContent() === "EN") {
+            showSuccessToast("Operation deleted successfully");
+          } else {
+            showSuccessToast("Operación eliminada con éxito");
+          }
+        }
+      } catch (error) {
+        console.error("Error deleting operation:", error);
+      }
+    };
+
+    const addOperation = () => {
+      modalAddHistoryOp.value = true;
+    };
 
     return {
       BASEURL,
@@ -437,14 +564,19 @@ export default defineComponent({
       changeLanguage,
       filterData,
       operations,
-      expandedIndex,
-      toggleExpand,
       openEditModal,
       updateDialogVisible,
       updateText,
       dialogVisible,
       currentText,
       currentTextId,
+      editOperation,
+      deleteOperation,
+      currentDataHistoryOp,
+      modalAddHistoryOp,
+      modalEditHistoryOp,
+      addOperation,
+      getHistoryOperationsData
     };
   },
 });
@@ -687,5 +819,58 @@ h1 {
 .secondary-btn:hover {
   background: #d97706;
   box-shadow: 0 4px 6px rgba(245, 158, 11, 0.3);
+}
+
+.operations-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.operations-table th,
+.operations-table td {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+}
+
+.expand-icon {
+  cursor: pointer;
+}
+
+/* Botones de editar y eliminar */
+.btn-table {
+  margin-right: 8px;
+  padding: 12px 12px;
+  border-radius: 50%;
+  max-width: 40px;
+  max-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-edit-op {
+  background-color: #ed8739;
+  color: white;
+  border: none;
+}
+.btn-edit-op:hover {
+  background-color: #943b0e;
+}
+.btn-delete-op {
+  background-color: #f44336;
+  color: white;
+  border: none;
+}
+.btn-delete-op:hover {
+  background-color: #941c1a;
+}
+
+.btn-add-op {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+}
+.btn-add-op:hover {
+  background-color: #2e7d32;
 }
 </style>

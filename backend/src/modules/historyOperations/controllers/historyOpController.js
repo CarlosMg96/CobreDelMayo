@@ -13,8 +13,8 @@ exports.createHistoryOp = async (req, res) => {
 
     try {
         const historyOpData = {
-            title,
-            description,
+            description: title,
+            details: description,
             language
         };
 
@@ -68,10 +68,9 @@ exports.getHistoryOpByLanguage = async (req, res) => {
     }
 }
 exports.updateHistoryOp = async (req, res) => {
-    const { historyOp_id } = req.params;
-    const { title, description, language } = req.body;
+    const { details, description, language, id } = req.body;
 
-    if (!historyOp_id || !title || !description || !language) {
+    if (!id || !details || !description || !language) {
         return res.status(400).json({
             status: 400,
             message: 'All fields are required',
@@ -81,12 +80,12 @@ exports.updateHistoryOp = async (req, res) => {
 
     try {
         const historyOpData = {
-            title,
+            details,
             description,
             language
         };
 
-        const result = await historyOpService.updateHistoryOp(historyOp_id, historyOpData);
+        const result = await historyOpService.updateHistoryOp(id, historyOpData);
         res.status(200).json({
             status: 200,
             message: 'History Operation updated successfully',
@@ -102,9 +101,8 @@ exports.updateHistoryOp = async (req, res) => {
     }
 }
 exports.deleteHistoryOp = async (req, res) => {
-    const { historyOp_id } = req.params;
-
-    if (!historyOp_id) {
+    const { historyOpId } = req.query;
+    if (!historyOpId) {
         return res.status(400).json({
             status: 400,
             message: 'History Operation ID is required',
@@ -113,7 +111,7 @@ exports.deleteHistoryOp = async (req, res) => {
     }
 
     try {
-        const result = await historyOpService.deleteHistoryOp(historyOp_id);
+        const result = await historyOpService.deleteHistoryOp(historyOpId);
         res.status(200).json({
             status: 200,
             message: 'History Operation deleted successfully',
