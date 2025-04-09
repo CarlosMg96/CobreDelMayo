@@ -3,6 +3,9 @@ import ListSections from "@/modules/sections/views/ListSections.vue";
 import updateAbout from "@/modules/sections/views/updatePages/updateAbout.vue";
 import updateEsg from "@/modules/sections/views/updatePages/updateEsg.vue";
 import updateHistory from "@/modules/sections/views/updatePages/updateHistory.vue";
+import updateHome from "@/modules/sections/views/updatePages/updateHome.vue";
+import updateLocation from "@/modules/sections/views/updatePages/updateLocation.vue";
+import updateOperations from "@/modules/sections/views/updatePages/updateOperations.vue";
 
 export default [
     {
@@ -61,6 +64,36 @@ export default [
           component: updateHistory,
           meta: {
             title: "Actualizar Historia",
+            role: ['MASTER', 'ADMIN', 'SUPERADMIN'],
+            area: ['FRONTERA']
+          },
+        },
+        {
+          path: "update-home",
+          name: "update-home",
+          component: updateHome,
+          meta: {
+            title: "Actualizar Inicio",
+            role: ['MASTER', 'ADMIN', 'SUPERADMIN'],
+            area: ['FRONTERA']
+          },
+        },
+        {
+          path: "update-location",
+          name: "update-location",
+          component: updateLocation,
+          meta: {
+            title: "Actualizar Ubicación",
+            role: ['MASTER', 'ADMIN', 'SUPERADMIN'],
+            area: ['FRONTERA']
+          },
+        },
+        {
+          path: "update-operations",
+          name: "update-operations",
+          component: updateOperations,
+          meta: {
+            title: "Actualizar Operaciones",
             role: ['MASTER', 'ADMIN', 'SUPERADMIN'],
             area: ['FRONTERA']
           },

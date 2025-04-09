@@ -39,7 +39,10 @@
           <p>
             <span v-html="filterData('HOME_02_' + language)"></span>
           </p>
-          <button class="see-more" @click="seeMoreEsg()">SEE MORE</button>
+          <button class="see-more" @click="seeMore">
+            <span v-if="language === 'EN'">SEE MORE</span>
+            <span v-else>VER MÁS</span>
+          </button>
         </div>
       </div>
     </div>
@@ -143,7 +146,7 @@
     <!-- Sección Galería -->
     <div class="gallery-section">
       <div v-if="language === 'EN'">
-        <h2 class="text-start">Galery</h2>
+        <h2 class="text-start">Gallery</h2>
       </div>
       <div v-else>
         <h2 class="text-start">Galería</h2>
