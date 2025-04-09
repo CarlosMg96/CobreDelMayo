@@ -171,7 +171,7 @@
                   <h3 @dblclick="openEditModal('HOME_08_' + language)">
                     <span v-html="filterData('HOME_08_' + language)"></span>
                   </h3>
-                  <p @dblclick="openEditModal('HOME_08_' + language)">
+                  <p @dblclick="openEditModal('HOME_09_' + language)">
                     <span v-html="filterData('HOME_09_' + language)"></span>
                   </p>
                   <div v-if="language === 'EN'">
