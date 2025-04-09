@@ -53,15 +53,27 @@ const getUserProfile = async (userId) => {
 };
 
 // Obtener lista de usuarios con paginación
-const getUsers = async (page, size) => {
-    const { results, totalElements } = await userModel.getUsersWithPagination(page, size);
+const getUsersFrontera = async (page, size) => {
+    const { results, totalElements } = await userModel.getUsersWithPaginationFrontera(page, size);
     return { content: results, totalElements };
 };
+
+const updatedUserFronteraS = async (data) => {
+    const result = await userModel.updatedUserFronteraM(data);
+    return result;
+}
+
+const deleteUserFronteraS = async (userId) => {
+    const result = await userModel.deleteUserFronteraM(userId);
+    return result;
+}
 
 module.exports = {
     validateEmailAndPassword,
     registerUser,
     loginUser,
     getUserProfile,
-    getUsers
+    getUsersFrontera,
+    updatedUserFronteraS,
+    deleteUserFronteraS
 };

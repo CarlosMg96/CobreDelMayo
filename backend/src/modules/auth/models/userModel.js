@@ -27,23 +27,57 @@ const getUserById = async (id) => {
 };
 
 // Obtener usuarios con paginación
-const getUsersWithPagination = async (page, size) => {
+const getUsersWithPaginationFrontera = async (page, size) => {
     const offset = (page - 1) * size;
     const connection = await createConnection();
-    const query = 'SELECT id, fullname, email, role, area, status, created_at, updated_at FROM users LIMIT ? OFFSET ?';
-    const [results] = await connection.execute(query, [Number(size), Number(offset)]);
     
-    const totalElementsQuery = 'SELECT COUNT(*) AS total FROM users';
-    const [totalResult] = await connection.execute(totalElementsQuery);
-    const totalElements = totalResult[0].total;
-    await connection.end();
-    
-    return { results, totalElements };
+    try {
+        const query = `
+            SELECT id, fullname, email, role, area, status, created_at, updated_at 
+            FROM users
+            LIMIT ${Number(size)} OFFSET ${Number(offset)}`;
+        
+        const [results] = await connection.execute(query);
+
+        const totalElementsQuery = 'SELECT COUNT(*) AS total FROM users WHERE area = "FRONTERA"';
+        const [totalResult] = await connection.execute(totalElementsQuery);
+        const totalElements = totalResult[0].total;
+
+        return { results, totalElements };
+    } catch (error) {
+        console.error('Error fetching users with pagination:', error);
+        throw error; 
+    } finally {
+        await connection.end();  
+    }
 };
+
+
+const updatedUserFronteraM = async (data) => {
+   try{
+    const connection = await createConnection();
+    const query = 'UPDATE users SET fullname = ?, email = ?, role = ?, area = ?, password = ? WHERE id = ?';
+    await connection.execute(query, [data.fullname, data.email, data.role, data.area, data.password, data.id]);
+    await connection.end();
+   }catch(err){
+    console.error('Error updating user:', err);
+    throw new Error('Error updating user');
+   }
+}
+
+const deleteUserFronteraM = async (data) => {
+    const connection = await createConnection();
+    const changeStatus = data.status === 'ACTIVE' ? 'INACTIVE' : 'ACTIVE';
+    const query = 'UPDATE users SET status = ? WHERE id = ?';
+    await connection.execute(query, [changeStatus, data.id]);
+    await connection.end();
+}
 
 module.exports = {
     createUser,
     getUserByEmail,
     getUserById,
-    getUsersWithPagination
+    getUsersWithPaginationFrontera,
+    deleteUserFronteraM,
+    updatedUserFronteraM
 };

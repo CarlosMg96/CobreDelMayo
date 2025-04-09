@@ -9,9 +9,11 @@ router.get('/hello', (req, res) => {
   });
 
 // Definir las rutas correctamente
-router.post('/register', verifyToken, checkRole(['MASTER', 'SUPERADMIN']), authController.register);
+router.post('/register-user-cobre-frontera', verifyToken, checkRole([ 'SUPERADMIN']), authController.register);
 router.post('/login', authController.login);
 router.get('/me', verifyToken, authController.me);
-router.get('/users', verifyToken, checkRole(['MASTER', 'SUPERADMIN']), authController.get_users);
+router.get('/users-frontera', verifyToken, checkRole([ 'SUPERADMIN']), authController.get_users_frontera);
+router.put('/update-user-frontera', verifyToken, checkRole([ 'SUPERADMIN']), authController.update_user_frontera);
+router.delete('/delete-user-frontera', verifyToken, checkRole([ 'SUPERADMIN']), authController.delete_user_frontera);
 
 module.exports = router;

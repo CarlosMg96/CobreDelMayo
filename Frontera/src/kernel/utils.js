@@ -2,8 +2,8 @@ import { jwtDecode } from "jwt-decode"
 import { useEncryption } from "@/config/crypt-config";
 const { encrypt, decrypt } = useEncryption()
 
-const BASEURL = process.env.VUE_APP_BASE_URL+'/public';
-let language = localStorage.getItem('language') || "EN"; 
+const BASEURL = process.env.VUE_APP_BASE_URL + '/public';
+let language = localStorage.getItem('language') || "EN";
 let languageForUpdateContent = localStorage.getItem('languageForUpdateContent') || "EN";
 
 const getLanguage = () => {
@@ -25,8 +25,10 @@ const setLanguageForUpdateContent = (lang) => {
 
 const setToken = async (token) => {
     try {
-        let encryptedToken = await encrypt(token);
-        localStorage.setItem("token", encryptedToken);
+        if (token) {
+            const tokenEncrypted = encrypt(token);
+            localStorage.setItem("token", tokenEncrypted);
+        }
     } catch (error) {
         removeToken()
     }

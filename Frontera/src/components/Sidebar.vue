@@ -59,9 +59,9 @@ export default {
         return {
             showModal: false,
             menuItems: [
-                { label: 'Inicio', icon: 'fa-solid fa-house', route: 'start', roles: ['MASTER', 'ADMIN', 'SUPERADMIN'] },
-                { label: 'Secciones', icon: 'fa-solid fa-list', route: 'list-sections', roles: ['MASTER', 'ADMIN', 'SUPERADMIN'] },
-                { label: 'Usuarios', icon: 'fa-solid fa-user-plus', route: 'users', roles: ['MASTER', 'SUPERADMIN'] },
+                { label: 'Inicio', icon: 'fa-solid fa-house', route: 'start', roles: [ 'ADMIN', 'SUPERADMIN'] },
+                { label: 'Secciones', icon: 'fa-solid fa-list', route: 'list-sections', roles: [ 'ADMIN', 'SUPERADMIN'] },
+                { label: 'Usuarios', icon: 'fa-solid fa-user-plus', route: 'user-list', roles: [ 'SUPERADMIN'] },
             ],
             filteredRoutes: [], 
             charName: '',
