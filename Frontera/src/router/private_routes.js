@@ -7,6 +7,7 @@ import updateHome from "@/modules/sections/views/updatePages/updateHome.vue";
 import updateLocation from "@/modules/sections/views/updatePages/updateLocation.vue";
 import updateOperations from "@/modules/sections/views/updatePages/updateOperations.vue";
 import UserList from "@/modules/users/views/UserList.vue";
+import ListFiles from "@/modules/filesInvestors/views/ListFiles.vue";
 
 export default [
     {
@@ -15,7 +16,7 @@ export default [
         import( "@/layouts/PrivateLayout.vue"),
       meta: {
         requireAuth: true,
-        role: [ 'ADMIN', 'SUPERADMIN'],
+        role: [ 'ADMIN', 'SUPERADMIN','INVESTORS'],
         area: ['FRONTERA', 'NA', 'COBRE']
       },
       children: [
@@ -107,6 +108,16 @@ export default [
             title: "Lista de Usuarios",
             role: [ 'SUPERADMIN'],
             area: ['FRONTERA', 'COBRE']
+          },
+        },
+        {
+          path: "list-files",
+          name: "list-files",
+          component: ListFiles,
+          meta: {
+            title: "Lista de Archivos",
+            role: [ 'ADMIN', 'SUPERADMIN', 'INVESTORS'],
+            area: ['FRONTERA', 'COBRE', 'NA']
           },
         }
       ],

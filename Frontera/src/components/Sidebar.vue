@@ -61,6 +61,7 @@ export default {
             menuItems: [
                 { label: 'Inicio', icon: 'fa-solid fa-house', route: 'start', roles: [ 'ADMIN', 'SUPERADMIN'] },
                 { label: 'Secciones', icon: 'fa-solid fa-list', route: 'list-sections', roles: [ 'ADMIN', 'SUPERADMIN'] },
+                { label: 'Documentos', icon: 'fa-solid fa-file', route: 'list-files', roles: [ 'ADMIN', 'SUPERADMIN', 'INVESTORS']},
                 { label: 'Usuarios', icon: 'fa-solid fa-user-plus', route: 'user-list', roles: [ 'SUPERADMIN'] },
             ],
             filteredRoutes: [], 

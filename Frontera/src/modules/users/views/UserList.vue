@@ -125,7 +125,7 @@
   const headers = ref([
     { title: "#", key: "id" },
     { title: "Status", key: "status" },
-    { title: "Area", key: "area" },
+    { title: "Área", key: "area" },
     { title: "Rol", key: "role" },
     { title: "Nombre Completo", key: "fullname" },
     { title: "Correo", key: "email" },
