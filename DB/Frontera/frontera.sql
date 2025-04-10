@@ -224,3 +224,13 @@ INSERT INTO history_operations_frontera (description, details, language) VALUES
 ('Implementación selectiva de la aireación...', 'Implementación selectiva de la aireación de la pila de lixiviación, maximizando la recuperación de cobre, la cinética y la generación de ácido.', 'ES'),
 ('Desarrollo de un circuito para...', 'Desarrollo de un circuito para recuperar el molibdeno que produce xxxlbs de metal contenido al mes.', 'ES');
 
+
+CREATE TABLE files_cobre_del_mayo (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    file_name VARCHAR(255) NOT NULL,
+    file_path TEXT NOT NULL,
+    file_type VARCHAR(50) NOT NULL,
+    author VARCHAR(100) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
