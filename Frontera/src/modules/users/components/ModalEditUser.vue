@@ -162,12 +162,16 @@ button {
 }
 
 button[type="submit"]:hover {
-  background-color: gray-primary);
+  background-color: yellowgreen;
 }
 
 button[type="button"] {
   margin-left: 16px;
-  background-color: gray-secondary);
+  background-color: darkgray;
+}
+
+button[type="button"]:hover {
+  background-color: gray;
 }
 
 .title {

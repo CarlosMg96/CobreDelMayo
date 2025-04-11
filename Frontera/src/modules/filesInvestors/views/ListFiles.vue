@@ -19,7 +19,7 @@
           </v-col>
 
           <v-col cols="6" class="text-right">
-            <v-btn class="btn-add-user" @click="newUser">
+            <v-btn class="btn-add-user" @click="newFile">
               <v-icon class="fa-solid fa-plus"></v-icon>
               Nuevo Documento
             </v-btn>
@@ -31,7 +31,7 @@
       <v-data-table
         v-model:items-per-page="itemsPerPage"
         :headers="headers"
-        :items="usersContent"
+        :items="filesContent"
         :loading="loading"
         :search="search"
         item-value="name"
@@ -40,75 +40,42 @@
         <template #item="{ item }">
           <tr>
             <td>{{ item.id }}</td>
+            <td>{{ item.file_name }}</td>
+            <td>{{ item.author}}</td>
+            <td>{{ item.created_at }}</td>
             <td>
-              <span :class="getStatusBadge(item.status).badgeClass">
-                {{ getStatusBadge(item.status).text }}
-              </span>
-            </td>
-            <td>{{ item.area }}</td>
-            <td>{{ item.role }}</td>
-            <td>{{ item.fullname }}</td>
-            <td>{{ item.email }}</td>
-            <td>{{ item.updated_at }}</td>
-            <td>
-              <template v-if="item.status === 'ACTIVE'">
-                <v-tooltip text="Eliminar" location="top">
+              <v-tooltip text="Ver pdf" location="top">
                   <template v-slot:activator="{ props }">
                     <v-btn
                       v-bind="props"
-                      @click="deleteUser(item)"
                       class="btn-accion"
                       icon
+                      @click="seeMore(item)"
                     >
-                      <v-icon class="fa-solid fa-trash"></v-icon>
+                      <v-icon class="fa-solid fa-file"></v-icon>
                     </v-btn>
                   </template>
                 </v-tooltip>
-              </template>
-              <template v-else>
-                <v-tooltip text="Activar" location="top">
-                  <template v-slot:activator="{ props }">
-                    <v-btn
-                      v-bind="props"
-                      @click="deleteUser(item)"
-                      class="btn-accion"
-                      icon
-                    >
-                      <v-icon class="fa-solid fa-circle-check"></v-icon>
-                    </v-btn>
-                  </template>
-                </v-tooltip>
-              </template>
-              <v-tooltip text="Editar" location="top">
-                <template v-slot:activator="{ props }">
-                  <v-btn
-                    v-bind="props"
-                    class="btn-accion"
-                    icon
-                    @click="editUser(item)"
-                  >
-                    <v-icon class="fa-solid fa-pencil"></v-icon>
-                  </v-btn>
-                </template>
-              </v-tooltip>
             </td>
           </tr>
         </template>
       </v-data-table>
     </v-card-text>
   </v-card>
-<!-- <ModalAddUser :is-visible-user="showModalAddUser" @update:visible="showModalAddUser = $event" @update:users="loadItems()"  /> -->
-<!-- <ModalEditUser :is-visible="showModalEditUser" :user="selectedUser"  @update:visible="showModalEditUser = $event" @update:users="loadItems()"  /> -->
+  <ModalAddFile
+    :isVisiblePdf="showModalAddFile"
+    @update:visible="showModalAddFile = $event"
+    @update:files="loadItems()"
+  />
 </template>
 
 <script setup>
 import { ref, computed, onMounted } from "vue";
-// import { getUsersService, deleteUserService } from "../services/user-service";
-// import ModalAddUser from "../components/ModalAddUser.vue";
-// import ModalEditUser from "../components/ModalEditUser.vue";
-// import { showSuccessToast } from "@/kernel/alerts";
+import { getFiles } from "../services/files-service";
+import  ModalAddFile  from "../components/ModalAddDocument.vue";
+import { BASEURL } from "@/kernel/utils";
 
-const users = ref({
+const files = ref({
   content: [],
   totalElements: 0,
   page: 0,
@@ -118,19 +85,19 @@ const users = ref({
 const itemsPerPage = ref(25);
 const loading = ref(false);
 const search = ref("");
-const showModalAddUser = ref(false);
-const showModalEditUser = ref(false);
-const selectedUser = ref(null);
+const showModalAddFile = ref(false);
+// const showModalEditFile = ref(false);
+// const selectedFile = ref(null);
 
 const headers = ref([
   { title: "#", key: "id" },
-  { title: "File", key: "status" },
-  { title: "Author", key: "area" },
-  { title: "Subido el", key: "role" },
+  { title: "Nombre del archivo", key: "file_name" },
+  { title: "Subido por", key: "author" },
+  { title: "Subido el", key: "created_at" },
   { title: "", key: "actions", sortable: false },
 ]);
 
-const usersContent = computed(() => users.value.content);
+const filesContent = computed(() => files.value.content);
 
 onMounted(() => {
   loadItems();
@@ -138,76 +105,59 @@ onMounted(() => {
 
 const loadItems = async () => {
   loading.value = true;
-  // try {
-  //   const params = {
-  //     page: users.value.page,
-  //     size: itemsPerPage.value,
-  //     search: search.value,
-  //   };
-  //   const result = await getUsersService(params);
-  //   users.value = result.data;
-  // } catch (error) {
-  //   console.log(error);
-  // } finally {
-  //   loading.value = false;
-  // }
-};
-
-const deleteUser = async (params) => {
-  console.log(params);
-  // const user_status = params.status === "ACTIVE" ? "se desactivo" : "se activo";
-  // const data  = {
-  //   id: params.id,
-  //   status: params.status
-  // }
-  // const result = await deleteUserService(data);
-  // if (result.status === 200) {
-  //   loadItems();
-  //   showSuccessToast(`El usuario ${user_status} correctamente`);
-  // }
-};
-
-const editUser = (user) => {
-  selectedUser.value = user;
-  showModalEditUser.value = true;
-};
-
-const newUser = async () => {
-  showModalAddUser.value = true;
-};
-
-const getStatusBadge = (status) => {
-  if (!status) {
-    return {
-      text: "Desconocido",
-      badgeClass: "badge-unknown",
+  try {
+    const params = {
+      page: files.value.page,
+      size: itemsPerPage.value,
+      search: search.value,
     };
+    const result = await getFiles(params);
+
+    if (result && result.status === 200) {
+
+      if (Array.isArray(result.data.content)) {
+        files.value = result.data;
+      } else {
+        files.value.content = result.data;
+      }
+    }
+  } catch (error) {
+    console.log("Error al cargar archivos:", error);
+  } finally {
+    loading.value = false;
   }
-
-  let text = "";
-  let badgeClass = "";
-
-  switch (status.toUpperCase()) {
-    case "ACTIVE":
-      text = "Activo";
-      badgeClass = "badge-active";
-      break;
-    case "INACTIVE":
-      text = "Inactivo";
-      badgeClass = "badge-inactive";
-      break;
-    default:
-      text = status;
-      badgeClass = "badge-default";
-      break;
-  }
-
-  return {
-    text,
-    badgeClass,
-    showModalAddUser,
-  };
 };
+
+const seeMore = (file) => {
+  console.log(file);
+  let url = BASEURL + file.file_path;
+  window.open(url, "_blank");
+};
+
+
+// const deleteFile = async (params) => {
+//   console.log(params);
+//   // const user_status = params.status === "ACTIVE" ? "se desactivo" : "se activo";
+//   // const data  = {
+//   //   id: params.id,
+//   //   status: params.status
+//   // }
+//   // const result = await deleteUserService(data);
+//   // if (result.status === 200) {
+//   //   loadItems();
+//   //   showSuccessToast(`El usuario ${user_status} correctamente`);
+//   // }
+// };
+
+// const editFile = (user) => {
+//   selectedFile.value = user;
+//   showModalEditFile.value = true;
+// };
+
+const newFile = async () => {
+  showModalAddFile.value = true;
+};
+
 </script>
 
 <style scoped>
@@ -253,7 +203,7 @@ const getStatusBadge = (status) => {
 .fa-trash:hover {
   color: red;
 }
-.fa-pencil:hover {
+.fa-file:hover {
   color: rgb(34, 99, 127);
 }
 .fa-eye:hover {

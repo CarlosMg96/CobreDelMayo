@@ -35,7 +35,7 @@
 import { defineComponent, ref, onMounted } from 'vue';
 import Quill from 'quill';
 import 'quill/dist/quill.snow.css';
-import { createEsg } from '../services/esg-service';
+import { createEsg } from '../services/files-service';
 import { showSuccessToast } from '@/kernel/alerts';
 import router from '@/router';
 

@@ -9,50 +9,62 @@ const {
     deleteFileS
 } = require('../services/invertService');
 
-const uploadFileC = async (req, res) => {
+exports.uploadFileC = async (req, res) => {
     try {
       const file = req.file;
-      const { author } = req.body;
-      console.log(req);
+      const { userEmail } = req;
+
   
       if (!file || path.extname(file.originalname).toLowerCase() !== '.pdf') {
         return res.status(400).json({ message: 'Solo se permiten archivos PDF' });
-      }
-  
+      }    
+
       const fileData = {
         file_name: file.originalname,
         file_path: `/pdf_investors/${file.filename}`,
         file_type: 'application/pdf',
-        author
+        author: userEmail,
       };
   
       const result = await uploadFileS(fileData);
-      res.status(200).json({ message: 'Archivo subido', data: result });
+      res.status(200).json({
+        status: 200,
+        message: 'File retrieved successfully',
+        data: result
+    });
     } catch (error) {
       console.error('Error al subir el archivo:', error);
-      res.status(500).json({ message: 'Error interno del servidor' });
+      res.status(500).json({
+        status: 500,
+        message: 'Error after uploading the file',
+        data: []
+    });
     }
   };
   
-  const getAllFilesC = async (req, res) => {
+  exports.getAllFilesC = async (req, res) => {
     const { page = 1, limit = 10 } = req.query;
     const files = await getAllFilesS(Number(page), Number(limit));
-    res.json(files);
+    res.status(200).json({
+      status: 200,
+      message: 'Files retrieved successfully',
+      data: files
+  });
   };
   
-  const getFileByIdC = async (req, res) => {
+  exports.getFileByIdC = async (req, res) => {
     const { id } = req.params;
     const file = await getFileByIdS(id);
     file ? res.json(file) : res.status(404).json({ message: 'Archivo no encontrado' });
   };
   
-  const getFileByNameC = async (req, res) => {
+  exports.getFileByNameC = async (req, res) => {
     const { name } = req.params;
     const files = await getFileByNameS(name);
     files ? res.json(files) : res.status(404).json({ message: 'No se encontraron archivos' });
   };
 
-  const deleteFileC = async (req, res) => {
+  exports.deleteFileC = async (req, res) => {
     const { id } = req.query;
     const file = await getFileByIdS(id);
   
@@ -73,10 +85,3 @@ const uploadFileC = async (req, res) => {
     });
   }
   
-  module.exports = {
-    uploadFileC,
-    getAllFilesC,
-    getFileByIdC,
-    getFileByNameC,
-    deleteFileC
-  };

@@ -3,6 +3,7 @@ import { useEncryption } from "@/config/crypt-config";
 const { encrypt, decrypt } = useEncryption()
 
 const BASEURL = process.env.VUE_APP_BASE_URL + '/public';
+const BASEURLAPI = process.env.VUE_APP_BASE_URL;
 let language = localStorage.getItem('language') || "EN";
 let languageForUpdateContent = localStorage.getItem('languageForUpdateContent') || "EN";
 
@@ -169,6 +170,7 @@ export {
     convertirImagenABase64,
     extraerBase64,
     BASEURL,
+    BASEURLAPI,
     getLanguage,
     setLanguage,
     getLanguageForUpdateContent,
