@@ -33,7 +33,7 @@
         </div>
       </div>
       <div class="about-content">
-        <div>
+        <div class="text-start">
           <h2><span v-html="filterData('HOME_01_' + language)"></span></h2>
           <div class="divider"></div>
           <p>
@@ -64,13 +64,6 @@
               background-size: cover;
             "
           >
-            <img
-              :src="`${BASEURL}/img/esg-communities.jpg`"
-              alt="commununitis"
-              width="400px"
-              height="200px"
-              style="opacity: 0"
-            />
           </div>
           <div class="esg-content">
             <h3><span v-html="filterData('HOME_04_' + language)"></span></h3>
@@ -95,13 +88,6 @@
               background-size: cover;
             "
           >
-            <img
-              :src="`${BASEURL}/img/esg-health-and-safety.jpg`"
-              alt="health-and-safety"
-              width="400px"
-              height="200px"
-              style="opacity: 0"
-            />
           </div>
           <div class="esg-content">
             <h3><span v-html="filterData('HOME_06_' + language)"></span></h3>
@@ -119,13 +105,12 @@
 
         <!-- Tarjeta Agua y Medio Ambiente -->
         <div class="esg-card">
-          <div class="esg-image-placeholder">
-            <img
-              :src="`${BASEURL}/img/esg-water-environment.jpg`"
-              alt="water-environment"
-              width="400px"
-              height="200px"
-            />
+          <div class="esg-image-placeholder"
+            style="
+              background-image: url('http://localhost:3000/api/public/img/esg-water-environment.jpg');
+              background-size: cover;
+            ">
+           
           </div>
           <div class="esg-content">
             <h3><span v-html="filterData('HOME_08_' + language)"></span></h3>
@@ -395,7 +380,7 @@ export default {
   justify-content: center;
   gap: 2rem;
   padding: 4rem 2rem;
-  background: #f5f5f5;
+  background: #d7d7d7;
 }
 
 .image-gallery {
@@ -407,17 +392,29 @@ export default {
 .image-left {
   width: 250px;
   height: 350px;
-  background: gray; /* Aquí va tu imagen */
 }
 
 .image-right {
   width: 200px;
   height: 150px;
-  background: gray; /* Aquí va tu imagen */
   position: absolute;
   bottom: -20px;
   left: 100px;
-  border: 5px solid white;
+}
+
+@keyframes fadeRight {
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  } 
+}
+
+.image-right img:nth-child(1) {
+  animation: fadeRight 0.9s ease-in-out;
 }
 
 .about-content {
@@ -458,6 +455,30 @@ p {
 
 .see-more:hover {
   background: #c9302c;
+}
+
+@media screen and (max-width: 768px) {
+  .about-section {
+    flex-direction: column;
+    padding: 2rem 1rem;
+  }
+
+  .image-gallery {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-content {
+    margin-left: 0;
+    max-width: 90%;
+    margin-top: 48px;
+    text-align: center;
+  }
+
+  h2, .divider, p, .see-more {
+    margin-left: 0 !important;
+    margin-bottom: 16px;
+  }
 }
 
 /* Estilos para la sección ESG */

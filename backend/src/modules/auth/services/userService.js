@@ -39,7 +39,15 @@ const loginUser = async (email, password) => {
         throw new Error('Invalid password');
     }
 
-    const token = jwt.sign({ id: user.id, role: user.role, area: user.area, status: user.status, fullname: user.fullname, email: user.email }, keysTokens.secret, { expiresIn: keysTokens.expiresIn });
+    let token;
+    if (user.status === 'INACTIVE') {
+        throw new Error('User disabled');
+    }
+
+    if (user.status === 'ACTIVE'){
+       token = jwt.sign({ id: user.id, role: user.role, area: user.area, status: user.status, fullname: user.fullname, email: user.email }, keysTokens.secret, { expiresIn: keysTokens.expiresIn });
+    }
+
     return token;
 };
 

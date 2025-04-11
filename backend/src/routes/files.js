@@ -54,4 +54,11 @@ router.get(
   filesController.getAllFilesC
 );
 
+router.delete(
+  '/files',
+  verifyToken,
+  checkRole(['SUPERADMIN', 'ADMIN', 'INVESTORS']),
+  filesController.deleteFileC
+);
+
 module.exports = router;
