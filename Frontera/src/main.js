@@ -9,6 +9,7 @@ import * as directives from 'vuetify/directives'
 import router from './router'
 import '@/styles/bootstrap-styles.css'
 import '@fortawesome/fontawesome-free/css/all.css'
+import VueKinesis from 'vue-kinesis'
 
 const vuetify = createVuetify({
     components,
@@ -29,4 +30,5 @@ createApp(App)
         position: 'top-right',
     })
     .use(router)
+    .use(VueKinesis)
     .mount('#app')

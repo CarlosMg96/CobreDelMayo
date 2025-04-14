@@ -7,110 +7,109 @@
         </div>
       </section>
     </div>
-    <div class="communities-container">
-      <!-- Sección Principal -->
-      <section class="main-section">
-        <div class="number-circle">ESG</div>
-        <h1><span v-html="filterData('ESG_02_' + language)"></span></h1>
 
-        <div class="content-with-image">
-          <div class="text-content">
-            <p class="lead-text">
-              <span v-html="filterData('ESG_03_' + language)"></span>
-            </p>
+    <!-- Sección Principal -->
+    <section class="main-section">
+      <div class="number-circle">ESG</div>
+      <h1><span v-html="filterData('ESG_02_' + language)"></span></h1>
 
-            <div class="highlight-box">
-              <p>
-                <span v-html="filterData('ESG_04_' + language)"></span>
-              </p>
-            </div>
+      <div class="content-with-image">
+        <div class="text-content">
+          <p class="lead-text">
+            <span v-html="filterData('ESG_03_' + language)"></span>
+          </p>
 
+          <div class="highlight-box">
             <p>
-              <span v-html="filterData('ESG_05_' + language)"></span>
+              <span v-html="filterData('ESG_04_' + language)"></span>
+            </p>
+          </div>
+
+          <p>
+            <span v-html="filterData('ESG_05_' + language)"></span>
+          </p>
+
+          <div class="back-zone-image">
+            <p class="lead-rigth-text left-text">
+              <span v-html="filterData('ESG_06_' + language)"></span>
             </p>
 
-            <div class="back-zone-image">
-              <p class="lead-rigth-text left-text">
-                <span v-html="filterData('ESG_06_' + language)"></span>
-              </p>
+            <p class="lead-rigth-text right-text">
+              <span v-html="filterData('ESG_07_' + language)"></span>
+            </p>
+          </div>
+        </div>
 
-              <p class="lead-rigth-text right-text">
-                <span v-html="filterData('ESG_07_' + language)"></span>
-              </p>
+        <div class="image-placeholder right">
+          <img
+            :src="`${BASEURL}/img/esg-local-communities.jpg`"
+            alt="Community Activities"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Divisor -->
+    <div class="section-divider"></div>
+
+    <!-- Sección Agua y Ambiente -->
+    <section class="second-section">
+      <div class="number-circle">ESG</div>
+      <div class="section-header">
+        <div>
+          <h1><span v-html="filterData('ESG_08_' + language)"></span></h1>
+        </div>
+      </div>
+
+      <div class="content-with-image reverse">
+        <div class="image-placeholder left">
+          <img
+            :src="`${BASEURL}/img/esg-water-and-environment.jpg`"
+            alt="Water Management"
+            class="image-comunities"
+          />
+        </div>
+
+        <div class="text-content">
+          <span v-html="filterData('ESG_09_' + language)"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Divisor -->
+    <div class="section-divider"></div>
+
+    <!-- Sección Salud y Seguridad -->
+    <section class="topic-section">
+      <div class="two-column-content">
+        <div class="column text-center">
+          <img
+            :src="`${BASEURL}/img/esg-health-and-safety-01.jpg`"
+            class="image-healt"
+            alt="esg-healt"
+          />
+        </div>
+
+        <div>
+          <div class="column">
+            <div class="number-circle">ESG</div>
+            <div class="section-header">
+              <h1><span v-html="filterData('ESG_10_' + language)"></span></h1>
             </div>
-          </div>
+            <p style="margin-bottom: 16px">
+              <span v-html="filterData('ESG_11_' + language)"></span>
+            </p>
 
-          <div class="image-placeholder right">
-            <img
-              :src="`${BASEURL}/img/esg-local-communities.jpg`"
-              alt="Community Activities"
-            />
-          </div>
-        </div>
-      </section>
-
-      <!-- Divisor -->
-      <div class="section-divider"></div>
-
-      <!-- Sección Agua y Ambiente -->
-      <section class="topic-section">
-        <div class="number-circle">ESG</div>
-        <div class="section-header">
-          <div>
-            <h2><span v-html="filterData('ESG_08_' + language)"></span></h2>
-          </div>
-        </div>
-
-        <div class="content-with-image reverse">
-          <div class="image-placeholder left">
-            <img
-              :src="`${BASEURL}/img/esg-water-and-environment.jpg`"
-              alt="Water Management"
-              class="image-comunities"
-            />
-          </div>
-
-          <div class="text-content">
-            <span v-html="filterData('ESG_09_' + language)"></span>
-          </div>
-        </div>
-      </section>
-
-      <!-- Divisor -->
-      <div class="section-divider"></div>
-
-      <!-- Sección Salud y Seguridad -->
-      <section class="topic-section">
-        <div class="two-column-content">
-          <div class="column text-center">
-            <img
-              :src="`${BASEURL}/img/esg-health-and-safety-01.jpg`"
-              style="width: 400px"
-              alt="esg-healt"
-            />
-          </div>
-
-          <div>
-            <div class="column">
-              <div class="number-circle">ESG</div>
-              <div class="section-header">
-                <h2><span v-html="filterData('ESG_10_' + language)"></span></h2>
-              </div>
-              <p style="margin-bottom: 16px">
-                <span v-html="filterData('ESG_11_' + language)"></span>
-              </p>
-
-              <div class="image-placeholder full-width">
-                <img
-                  :src="`${BASEURL}/img/esg-health-and-safety-02.jpg`"
-                  alt="Safety Procedures"
-                />
-              </div>
+            <div class="image-placeholder full-width">
+              <img
+                :src="`${BASEURL}/img/esg-health-and-safety-02.jpg`"
+                alt="Safety Procedures"
+              />
             </div>
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -298,13 +297,13 @@ h1 {
   font-size: 2.2rem;
   color: orange;
   margin-bottom: 1.8rem;
-  border-bottom: 2px solid #e2e8f0;
+  border-bottom: 2px solid #cf4a0c;
   padding-bottom: 0.5rem;
 }
 
 h2 {
   font-size: 1.8rem;
-  color: orange;
+  color: rgb(253, 69, 8);
   margin-left: 1rem;
 }
 
@@ -441,6 +440,40 @@ h2 {
 
 .right-text {
   padding-left: 1.5rem;
+}
+
+.main-section {
+  background-color: #e9d8ad;
+  padding: 8rem;
+}
+
+.second-section {
+  background-color: white;
+  padding: 8rem;
+}
+
+.topic-section {
+  background-color: #f0efeb;
+  padding: 8rem;
+}
+
+.image-healt {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .main-section {
+    padding: 2rem;
+  }
+  .second-section {
+    padding: 2rem;
+  }
+  .topic-section {
+    padding: 2rem;
+  }
 }
 
 /* Media Queries para pantallas medianas (tablets) */

@@ -3,7 +3,9 @@
     <section class="about-hero">
       <div class="hero-overlay">
         <div>
-          <h1 style="color: white !important"><span v-html="filterData('OPERATIONS_01_' + language)"></span></h1>
+          <h1 style="color: white !important">
+            <span v-html="filterData('OPERATIONS_01_' + language)"></span>
+          </h1>
         </div>
       </div>
     </section>
@@ -16,91 +18,123 @@
       </div>
     </section>
 
-    <section class="mining-cards">
-      <section class="mining-section">
-        <div class="container-mining">
-          <div class="mining-grid">
-            <div class="mining-card">
-              <div>
-                <p>
-                  <span v-html="filterData('OPERATIONS_05_' + language)"></span>
-                </p>
-              </div>
-            </div>
+    <kinesis-container event="scroll">
+      <kinesis-element
+        :strength="80"
+        type="translate"
+        axis="y"
+        class="mining-cards-parallax"
+      >
+        <section class="mining-cards">
+          <section class="mining-section">
+            <div class="container-mining">
+              <div class="mining-grid">
+                <div class="mining-card">
+                  <div>
+                    <p>
+                      <span
+                        v-html="filterData('OPERATIONS_05_' + language)"
+                      ></span>
+                    </p>
+                  </div>
+                </div>
 
-            <div class="mining-card">
-              <div>
-                <p>
-                  <span v-html="filterData('OPERATIONS_06_' + language)"></span>
-                </p>
-              </div>
-            </div>
+                <div class="mining-card">
+                  <div>
+                    <p>
+                      <span
+                        v-html="filterData('OPERATIONS_06_' + language)"
+                      ></span>
+                    </p>
+                  </div>
+                </div>
 
-            <div class="mining-card">
-              <div>
-                <p>
-                  <span v-html="filterData('OPERATIONS_07_' + language)"></span>
-                </p>
-              </div>
-            </div>
+                <div class="mining-card">
+                  <div>
+                    <p>
+                      <span
+                        v-html="filterData('OPERATIONS_07_' + language)"
+                      ></span>
+                    </p>
+                  </div>
+                </div>
 
-            <div class="mining-card">
-              <div>
-                <p>
-                  <span v-html="filterData('OPERATIONS_08_' + language)"></span>
-                </p>
+                <div class="mining-card">
+                  <div>
+                    <p>
+                      <span
+                        v-html="filterData('OPERATIONS_08_' + language)"
+                      ></span>
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-    </section>
+          </section>
+        </section>
+      </kinesis-element>
+    </kinesis-container>
 
     <section class="only-mining-container">
       <div class="only-mining-content">
         <div>
-          <h1 class="only-mining-title"><span v-html="filterData('OPERATIONS_09_' + language)"></span></h1>
-          <p class="only-mining-intro"><span v-html="filterData('OPERATIONS_10_' + language)"></span></p>
+          <h1 class="only-mining-title">
+            <span v-html="filterData('OPERATIONS_09_' + language)"></span>
+          </h1>
+          <p class="only-mining-intro">
+            <span v-html="filterData('OPERATIONS_10_' + language)"></span>
+          </p>
         </div>
 
-        <div class="only-mining-layout">
-          <!-- Círculo central con imagen de fondo -->
-          <div class="only-mining-circle">
-            <img
-              class="only-mining-background"
-              src="https://via.placeholder.com/400"
-              alt="Mining site"
-            />
-          </div>
+        <!-- 🎯 Kinesis para animaciones -->
+        <kinesis-container event="scroll">
+          <div class="only-mining-layout">
+            <!-- Círculo central con imagen de fondo -->
+            <div class="only-mining-circle"></div>
 
-          <!-- Imagen de la máquina Terex a la izquierda -->
-          <div class="only-mining-machine only-mining-machine-left">
-            <img
-              src="http://localhost:3000/api/public/img/terex.png"
-              alt="Terex Machine"
-            />
-          </div>
+            <!-- Imagen Terex animada desde la izquierda -->
+            <kinesis-element
+              :strength="80"
+              axis="x"
+              type="translate"
+              class="only-mining-machine only-mining-machine-left"
+            >
+              <img
+                src="http://localhost:3000/api/public/img/terex.png"
+                alt="Terex Machine"
+              />
+            </kinesis-element>
 
-          <!-- Imagen de la máquina Caterpillar a la derecha -->
-          <div class="only-mining-machine only-mining-machine-right">
-            <img
-              src="http://localhost:3000/api/public/img/caterpillar.png"
-              alt="Caterpillar Machine"
-            />
-          </div>
+            <!-- Imagen Caterpillar animada desde la derecha -->
+            <kinesis-element
+              :strength="-80"
+              axis="x"
+              type="translate"
+              class="only-mining-machine only-mining-machine-right"
+            >
+              <img
+                src="http://localhost:3000/api/public/img/caterpillar.png"
+                alt="Caterpillar Machine"
+              />
+            </kinesis-element>
 
-          <div>
-            <!-- Elementos posicionados alrededor del círculo -->
+            <!-- Texto alrededor del círculo -->
             <div class="only-mining-item only-mining-trucks">
-              <h2><span v-html="filterData('OPERATIONS_11_' + language)"></span></h2>
+              <h2>
+                <span v-html="filterData('OPERATIONS_11_' + language)"></span>
+              </h2>
             </div>
 
             <div class="only-mining-item only-mining-shovels">
-              <h3><span v-html="filterData('OPERATIONS_12_' + language)"></span></h3>
+              <h3>
+                <span v-html="filterData('OPERATIONS_12_' + language)"></span>
+              </h3>
             </div>
 
             <div class="only-mining-item only-mining-loaders">
-              <h3><span v-html="filterData('OPERATIONS_14_' + language)"></span></h3>
+              <h3>
+                <span v-html="filterData('OPERATIONS_14_' + language)"></span>
+              </h3>
             </div>
 
             <div class="only-mining-item only-mining-drills">
@@ -115,11 +149,11 @@
               </h2>
             </div>
           </div>
-        </div>
+        </kinesis-container>
       </div>
+
       <div
-        class="text-center"
-        style="margin-top: 256px; margin-left: 56px; margin-right: 56px"
+        class="text-center only-mining-last"
       >
         <p>
           <span v-html="filterData('OPERATIONS_17_' + language)"></span>
@@ -130,9 +164,11 @@
     <div class="esg-section">
       <div style="margin-left: 24px; margin-bottom: 24px">
         <div>
-          <h1><span v-html="filterData('OPERATIONS_18_' + language)"></span></h1>
+          <h1 class="esg-title">
+            <span v-html="filterData('OPERATIONS_18_' + language)"></span>
+          </h1>
           <div class="divider"></div>
-          <p>
+          <p class="esg-title">
             <span v-html="filterData('OPERATIONS_19_' + language)"></span>
           </p>
         </div>
@@ -151,7 +187,9 @@
               />
             </div>
             <div class="esg-content">
-              <h3><span v-html="filterData('OPERATIONS_20_' + language)"></span></h3>
+              <h3>
+                <span v-html="filterData('OPERATIONS_20_' + language)"></span>
+              </h3>
               <p>
                 <span v-html="filterData('OPERATIONS_21_' + language)"></span>
               </p>
@@ -169,7 +207,9 @@
               />
             </div>
             <div class="esg-content">
-              <h3><span v-html="filterData('OPERATIONS_22_' + language)"></span></h3>
+              <h3>
+                <span v-html="filterData('OPERATIONS_22_' + language)"></span>
+              </h3>
               <p>
                 <span v-html="filterData('OPERATIONS_23_' + language)"></span>
               </p>
@@ -187,7 +227,9 @@
               />
             </div>
             <div class="esg-content">
-              <h3><span v-html="filterData('OPERATIONS_24_' + language)"></span></h3>
+              <h3>
+                <span v-html="filterData('OPERATIONS_24_' + language)"></span>
+              </h3>
               <p>
                 <span v-html="filterData('OPERATIONS_25_' + language)"></span>
               </p>
@@ -225,13 +267,11 @@ const dataOperations = ref([
   },
   {
     section_id: "OPERATIONS_03_EN",
-    description:
-      "Conventional Open Pit Mine",
+    description: "Conventional Open Pit Mine",
   },
   {
     section_id: "OPERATIONS_03_ES",
-    description:
-      "Mina convencional a cielo abierto",
+    description: "Mina convencional a cielo abierto",
   },
   {
     section_id: "OPERATIONS_04_EN",
@@ -265,11 +305,13 @@ const dataOperations = ref([
   },
   {
     section_id: "OPERATIONS_07_EN",
-    description: "Waste is hauled to dumps located north and northeast of the current pit configuration.",
+    description:
+      "Waste is hauled to dumps located north and northeast of the current pit configuration.",
   },
   {
     section_id: "OPERATIONS_07_ES",
-    description: "Los residuos se transportan a vertederos situados al norte y al noreste de la configuración actual del pozo",
+    description:
+      "Los residuos se transportan a vertederos situados al norte y al noreste de la configuración actual del pozo",
   },
   {
     section_id: "OPERATIONS_08_EN",
@@ -283,13 +325,11 @@ const dataOperations = ref([
   },
   {
     section_id: "OPERATIONS_09_EN",
-    description:
-      "Mining",
+    description: "Mining",
   },
   {
     section_id: "OPERATIONS_09_ES",
-    description:
-      "Minería",
+    description: "Minería",
   },
   {
     section_id: "OPERATIONS_10_EN",
@@ -301,28 +341,23 @@ const dataOperations = ref([
   },
   {
     section_id: "OPERATIONS_11_EN",
-    description:
-      "26 Caterpillar 789 and<br />10 777 haul trucks",
+    description: "26 Caterpillar 789 and<br />10 777 haul trucks",
   },
   {
     section_id: "OPERATIONS_11_ES",
-    description:
-      "26 Caterpillar 789 y<br />10 camionetas 777 de arrastre",
+    description: "26 Caterpillar 789 y<br />10 camionetas 777 de arrastre",
   },
   {
     section_id: "OPERATIONS_12_EN",
-    description:
-      "2 Terex RH200 and one<br />Caterpillar 6040 shovel",
+    description: "2 Terex RH200 and one<br />Caterpillar 6040 shovel",
   },
   {
     section_id: "OPERATIONS_12_ES",
-    description:
-      "2 Terex RH200 y una pala<br />Caterpillar 6040",
+    description: "2 Terex RH200 y una pala<br />Caterpillar 6040",
   },
   {
     section_id: "OPERATIONS_14_EN",
-    description:
-      "3 Caterpillar 994 and<br />one 992 front end loaders",
+    description: "3 Caterpillar 994 and<br />one 992 front end loaders",
   },
   {
     section_id: "OPERATIONS_15_EN",
@@ -341,8 +376,7 @@ const dataOperations = ref([
   },
   {
     section_id: "OPERATIONS_18_EN",
-    description:
-      "Process Streams",
+    description: "Process Streams",
   },
   {
     section_id: "OPERATIONS_19_EN",
@@ -351,8 +385,7 @@ const dataOperations = ref([
   },
   {
     section_id: "OPERATIONS_20_EN",
-    description:
-      "Oxide and Supergene Crushed Ore",
+    description: "Oxide and Supergene Crushed Ore",
   },
   {
     section_id: "OPERATIONS_21_EN",
@@ -361,8 +394,7 @@ const dataOperations = ref([
   },
   {
     section_id: "OPERATIONS_22_EN",
-    description:
-      "ROM and Crushed Chalcopyrite Ore",
+    description: "ROM and Crushed Chalcopyrite Ore",
   },
   {
     section_id: "OPERATIONS_23_EN",
@@ -371,8 +403,7 @@ const dataOperations = ref([
   },
   {
     section_id: "OPERATIONS_24_EN",
-    description:
-      "Ore for Tolling:",
+    description: "Ore for Tolling:",
   },
   {
     section_id: "OPERATIONS_25_EN",
@@ -381,8 +412,7 @@ const dataOperations = ref([
   },
   {
     section_id: "OPERATIONS_14_ES",
-    description:
-      "3 cargadoras frontales Caterpillar 994 y<br />una 992",
+    description: "3 cargadoras frontales Caterpillar 994 y<br />una 992",
   },
   {
     section_id: "OPERATIONS_15_ES",
@@ -401,8 +431,7 @@ const dataOperations = ref([
   },
   {
     section_id: "OPERATIONS_18_ES",
-    description:
-      "Flujos de Proceso",
+    description: "Flujos de Proceso",
   },
   {
     section_id: "OPERATIONS_19_ES",
@@ -411,8 +440,7 @@ const dataOperations = ref([
   },
   {
     section_id: "OPERATIONS_20_ES",
-    description:
-      "Óxido y mineral triturado supergénico",
+    description: "Óxido y mineral triturado supergénico",
   },
   {
     section_id: "OPERATIONS_21_ES",
@@ -421,8 +449,7 @@ const dataOperations = ref([
   },
   {
     section_id: "OPERATIONS_22_ES",
-    description:
-      "ROM y mineral de calcopirita triturado",
+    description: "ROM y mineral de calcopirita triturado",
   },
   {
     section_id: "OPERATIONS_23_ES",
@@ -431,8 +458,7 @@ const dataOperations = ref([
   },
   {
     section_id: "OPERATIONS_24_ES",
-    description:
-      "Mineral para maquila:",
+    description: "Mineral para maquila:",
   },
   {
     section_id: "OPERATIONS_25_ES",
@@ -545,12 +571,25 @@ h1 {
   width: 100%;
 }
 
+.mining-cards-parallax {
+  will-change: transform;
+  display: block;
+}
+
 .mining-cards {
   margin-top: 24px;
   padding: 80px 0;
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.1)),
     url("http://localhost:3000/api/public/img/bg-tbu.jpg") center/cover
       no-repeat;
+  background-attachment: fixed; /* Opcional si quieres efecto clásico */
+  z-index: -99;
+}
+
+@media screen and (max-width: 768px) {
+  .mining-cards {
+    background-attachment: scroll; /* Cambia a scroll en pantallas pequeñas */
+  }
 }
 
 .mining-section {
@@ -601,7 +640,8 @@ h1 {
   padding: 80px 20px;
   background-color: #f4f4f4;
   text-align: start;
-  height: 1220px;
+  min-height: auto; /* Cambiado para adaptabilidad */
+  height: auto;
 }
 
 .only-mining-title {
@@ -686,15 +726,6 @@ h1 {
   transform: translateY(-50%);
 }
 
-/* Animación de entrada */
-.only-mining-machine.visible.only-mining-machine-left {
-  transform: translateY(-50%) translateX(80px);
-}
-
-.only-mining-machine.visible.only-mining-machine-right {
-  transform: translateY(-50%) translateX(-80px);
-}
-
 .only-mining-machine-right {
   right: -160px;
   top: 50%;
@@ -712,16 +743,86 @@ h1 {
 .only-mining-machine-right img {
   transform: rotate(-10deg);
 }
-.only-mining-machine img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
+
+.only-mining-last{
+  margin-top: 256px; margin-left: 56px; margin-right: 56px;
 }
+
+@media screen and (max-width: 1100px) {
+  .only-mining-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 0 10px;
+    max-width: 100%;
+    position: static;
+  }
+
+  .only-mining-circle {
+    width: 80vw;
+    padding-top: 80vw;
+    margin-bottom: 20px;
+    position: relative;
+    margin-bottom: -280px;
+  }
+
+  .only-mining-machine-left,
+  .only-mining-machine-right {
+    position: static;
+    transform: none;
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    width: 120px;
+
+  }
+
+  .only-mining-machine-right{
+    margin-bottom: 80px;
+  }
+
+  .only-mining-item {
+    position: static;
+    width: 100%;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .only-mining-trucks,
+  .only-mining-shovels,
+  .only-mining-loaders,
+  .only-mining-drills,
+  .only-mining-vehicles {
+    position: static;
+    transform: none;
+  }
+
+  .only-mining-title {
+    font-size: 2rem;
+    margin-left: 16px;
+  }
+
+  .only-mining-intro {
+    font-size: 1rem;
+    margin-left: 16px;
+  }
+
+  .only-mining-last{
+    margin-top: 24px; margin-left: 16px; margin-right: 16px;
+  }
+}
+
 
 /* Estilos de la sección ESG */
 .esg-section {
   padding: 4rem 2rem;
-  background: white;
+  background: rgb(181, 51, 51);
+}
+
+.esg-title {
+  color: white;
 }
 
 .esg-container {
@@ -738,7 +839,7 @@ h1 {
   flex: 1;
   min-width: 300px;
   max-width: 350px;
-  background: #f9f9f9;
+  background: #d07777;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -749,23 +850,17 @@ h1 {
   transform: translateY(-5px);
 }
 
-.esg-image-placeholder {
-  height: 200px;
-  background: #e0e0e0;
-  /* Aquí puedes poner tu imagen de fondo */
-}
-
 .esg-content {
   padding: 1.5rem;
 }
 
 .esg-content h3 {
-  color: #333;
+  color: white;
   margin-bottom: 0.5rem;
 }
 
 .esg-content p {
-  color: #666;
+  color: white;
   margin-bottom: 1.5rem;
   margin-left: 0;
 }

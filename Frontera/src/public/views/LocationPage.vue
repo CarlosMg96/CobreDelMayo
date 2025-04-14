@@ -4,7 +4,9 @@
     <section class="about-hero">
       <div class="hero-overlay">
         <div>
-          <h1 style="color: white !important"><span v-html="filterData('LOCATION_01_' + language)"></span></h1>
+          <h1 style="color: white !important">
+            <span v-html="filterData('LOCATION_01_' + language)"></span>
+          </h1>
         </div>
       </div>
     </section>
@@ -68,21 +70,24 @@
       </section>
     </section>
 
-    <section class="image-section">
-      <div class="image-content-blue">
-        <img
-          :src="`${BASEURL}/img/bg-location.jpg`"
-          alt="Location Map"
-          class="location-map"
-        />
-      </div>
-    </section>
+  <kinesis-container event="scroll">
+      <kinesis-element
+        :strength="80"
+        type="translate"
+        axis="y"
+        class="mining-cards-parallax"
+      >
+        <section class="mining-cards"></section>
+      </kinesis-element>
+    </kinesis-container>
 
-    <section>
+    <section class="location-section">
       <div>
         <div class="location-info">
           <div class="location-header">
-            <h3> <span v-html="filterData('LOCATION_08_' + language)"></span></h3>
+            <h3>
+              <span v-html="filterData('LOCATION_08_' + language)"></span>
+            </h3>
           </div>
 
           <div class="transport-grid">
@@ -110,7 +115,9 @@
                 </svg>
               </div>
               <div class="transport-details">
-                <h4> <span v-html="filterData('LOCATION_09_' + language)"></span></h4>
+                <h4>
+                  <span v-html="filterData('LOCATION_09_' + language)"></span>
+                </h4>
                 <p>
                   <span v-html="filterData('LOCATION_10_' + language)"></span>
                 </p>
@@ -230,8 +237,12 @@
                 </svg>
               </div>
               <div class="transport-details">
-                <h4> <span v-html="filterData('LOCATION_11_' + language)"></span></h4>
-                <p> <span v-html="filterData('LOCATION_12_' + language)"></span></p>
+                <h4>
+                  <span v-html="filterData('LOCATION_11_' + language)"></span>
+                </h4>
+                <p>
+                  <span v-html="filterData('LOCATION_12_' + language)"></span>
+                </p>
               </div>
             </div>
 
@@ -308,8 +319,12 @@
                 </svg>
               </div>
               <div class="transport-details">
-                <h4> <span v-html="filterData('LOCATION_13_' + language)"></span></h4>
-                <p> <span v-html="filterData('LOCATION_14_' + language)"></span></p>
+                <h4>
+                  <span v-html="filterData('LOCATION_13_' + language)"></span>
+                </h4>
+                <p>
+                  <span v-html="filterData('LOCATION_14_' + language)"></span>
+                </p>
               </div>
             </div>
 
@@ -379,7 +394,9 @@
                 </svg>
               </div>
               <div class="transport-details">
-                <h4> <span v-html="filterData('LOCATION_15_' + language)"></span></h4>
+                <h4>
+                  <span v-html="filterData('LOCATION_15_' + language)"></span>
+                </h4>
                 <p>
                   <span v-html="filterData('LOCATION_16_' + language)"></span>
                 </p>
@@ -392,9 +409,11 @@
 
     <section>
       <div class="container_infrastructure">
-        <div >
+        <div>
           <div class="text-section_infrastructure">
-            <h1> <span v-html="filterData('LOCATION_17_' + language)"></span></h1>
+            <h1>
+              <span v-html="filterData('LOCATION_17_' + language)"></span>
+            </h1>
             <p>
               <span v-html="filterData('LOCATION_18_' + language)"></span>
             </p>
@@ -565,7 +584,6 @@ const dataLocation = ref([
   },
 ]);
 
-
 const fetchData = async () => {
   try {
     const dataForm = {
@@ -605,6 +623,7 @@ onMounted(() => {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
   line-height: 1.6;
+  background: #d7d7d7;
 }
 
 .container {
@@ -616,11 +635,21 @@ onMounted(() => {
 .section-header {
   text-align: center;
   margin-bottom: 50px;
+  padding: 0px 128px 0px 128px;
 }
 
 .section-header h2 {
   font-size: 2.2rem;
   color: #2c3e50;
+}
+
+@media screen and (max-width: 768px) {
+  .section-header h2 {
+    font-size: 1.8rem;
+  }
+  .section-header {
+    padding: 0px 32px 0px 32px;
+  }
 }
 
 .divider {
@@ -634,7 +663,7 @@ onMounted(() => {
 .about-hero {
   height: 60vh;
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url("http://localhost:3000/api/public/img/bg-history.jpg") center/cover
+    url("http://localhost:3000/api/public/img/bg-location.jpg") center/cover
       no-repeat;
   display: flex;
   align-items: center;
@@ -677,7 +706,6 @@ h1 {
 
 /* Filosofía Section */
 .philosophy-section {
-  background-color: #f9f9f9;
   padding: 80px 0;
 }
 
@@ -700,17 +728,34 @@ h1 {
   transform: translateY(-10px);
 }
 
-/* Image Section */
-.image-content-blue {
-  height: 80%;
-  width: 100%;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Estilos de las cards */
+.mining-cards-parallax {
+  will-change: transform;
+  display: block;
 }
 
+.mining-cards {
+  margin-top: 24px;
+  padding: 80px 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.1)),
+    url("http://localhost:3000/api/public/img/bg-location.jpg") center/cover no-repeat;
+  height: 60vh;
+  background-attachment: fixed; 
+  z-index: -99;
+  background-color: #e9d8ad;
+}
+
+@media screen and (max-width: 768px) {
+  .mining-cards {
+    background-attachment: scroll; 
+  }
+  
+}
 /* Location Info */
+.location-section {
+  background-color: #e9d8ad;
+  padding: 80px 0;
+}
 .location-info {
   font-family: Arial, sans-serif;
   max-width: 800px;
@@ -724,7 +769,7 @@ h1 {
 .location-header h3 {
   text-align: center;
   margin-bottom: 30px;
-  font-size: 1.2rem;
+  font-size: 1.9rem;
   color: #555;
 }
 
@@ -743,8 +788,8 @@ h1 {
 .icon-container {
   background-color: #f0f0f0;
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -757,13 +802,13 @@ h1 {
 
 .transport-details h4 {
   margin: 0 0 8px 0;
-  font-size: 1.1rem;
+  font-size: 1.7rem;
   color: #222;
 }
 
 .transport-details p {
   margin: 0;
-  font-size: 0.95rem;
+  font-size: 1.2rem;
   line-height: 1.4;
   color: #666;
 }
@@ -799,25 +844,27 @@ h1 {
   padding-right: 200px;
 }
 
+
 .text-section_infrastructure {
   margin-right: 100px;
   font-family: Arial, sans-serif;
   color: #333;
+  padding: 48px;
 }
 
 .text-section_infrastructure h1 {
   margin-top: 16px;
   margin-bottom: 16px;
-  font-size: 2rem;
+  font-size: 2.3rem;
   font-weight: bold;
 }
 
 .text-section_infrastructure p {
-  font-size: 1rem;
+  font-size: 1.2rem;
   line-height: 1.5;
 }
 
-.highlight_infrastructure {
+.text-section_infrastructure strong {
   color: red !important;
   font-weight: bold;
   font-size: 1.1rem;
@@ -857,4 +904,6 @@ h1 {
     margin-top: 36px;
   }
 }
+
+
 </style>

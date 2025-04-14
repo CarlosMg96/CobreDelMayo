@@ -2,9 +2,7 @@
   <div class="operations-page">
     <section class="about-hero">
       <div class="hero-overlay bordered-section">
-        <h1
-          style="color: white !important"
-        >
+        <h1 style="color: white !important">
           <span v-html="filterData('ABOUT_01_' + language)"></span>
         </h1>
       </div>
@@ -18,7 +16,7 @@
           </h1>
         </v-col>
         <v-col cols="12" md="6">
-          <p >
+          <p>
             <span v-html="filterData('ABOUT_03_' + language)"></span>
           </p>
         </v-col>
@@ -35,7 +33,7 @@
       </v-row>
       <v-row class="text-start">
         <v-col cols="12" md="6">
-          <p >
+          <p>
             <span v-html="filterData('ABOUT_05_' + language)"></span>
           </p>
         </v-col>
@@ -47,7 +45,16 @@
       </v-row>
     </section>
 
-    <section class="mining-cards"></section>
+    <kinesis-container event="scroll">
+      <kinesis-element
+        :strength="80"
+        type="translate"
+        axis="y"
+        class="mining-cards-parallax"
+      >
+        <section class="mining-cards"></section>
+      </kinesis-element>
+    </kinesis-container>
 
     <section class="strategy-content">
       <v-row>
@@ -79,7 +86,7 @@
       <v-row>
         <v-col cols="12" md="6" class="backgroudnd-text-values">
           <div class="strategy-text text-start">
-            <h1 >
+            <h1>
               <span v-html="filterData('ABOUT_10_' + language)"></span>
             </h1>
             <p>
@@ -301,9 +308,11 @@ h1 {
   color: #333;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding-left: 128px;
+  padding-right: 128px;
+  max-width: 1200px;
+  margin: 0 auto;
   margin-top: 48px !important;
-  margin-bottom: 48px !important;
 }
 
 .about-info {
@@ -311,8 +320,8 @@ h1 {
   color: #333;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
-  margin-top: 48px !important;
+  padding: 128px;
+  margin-top: -128px !important;
 }
 
 .about-info h1 {
@@ -340,22 +349,55 @@ h1 {
   color: #333;
 }
 
+@media screen and (max-width: 768px) {
+  .header_about {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .about-info {
+    padding: 24px;
+    margin-top: 0px !important;
+  }
+}
 /* Estilos de las cards */
+.mining-cards-parallax {
+  will-change: transform;
+  display: block;
+}
+
 .mining-cards {
   margin-top: 24px;
   padding: 80px 0;
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.1)),
-    url("http://localhost:3000/api/public/img/bg-tbu.jpg") center/cover
-      no-repeat;
+    url("http://localhost:3000/api/public/img/bg-tbu.jpg") center/cover no-repeat;
   height: 60vh;
+  background-attachment: fixed; /* Opcional si quieres efecto clásico */
+  z-index: -99;
+}
+
+@media screen and (max-width: 768px) {
+  .mining-cards {
+    background-attachment: scroll; /* Cambia a scroll en pantallas pequeñas */
+  }
+  
 }
 
 /* Estilos de la estrategia */
 .strategy-content {
   font-family: "Arial", sans-serif;
   color: #333;
-  max-width: 1200px;
+  max-width: auto;
+  background: #d7d7d7;
+  height: 800px;
+  padding: 48px;
 }
+
+.strategy-content img {
+  position: static;
+  z-index: 999;
+  margin-left: -128;
+}
+
 .strategy-text {
   padding: 20px;
   margin-top: 48px !important;
@@ -383,7 +425,6 @@ h1 {
 .values-content {
   font-family: "Arial", sans-serif;
   color: #333;
-  margin-top: 128px !important;
   background-color: #d94f4f;
 }
 .values-content h1 {
@@ -426,6 +467,16 @@ h1 {
   }
   .values-content h1 {
     font-size: 1.8rem;
+  }
+
+  .strategy-content img{
+    width: 100%;
+    margin-top: -32px;
+  }
+
+  .strategy-content {
+    height: auto;
+    padding: 24px;
   }
 
   .backgroudnd-text-values {

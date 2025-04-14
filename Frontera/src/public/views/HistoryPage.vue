@@ -372,6 +372,7 @@ onMounted(() => {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
   line-height: 1.6;
+  background: #d7d7d7;
 }
 
 .divider {
@@ -426,10 +427,9 @@ h1 {
 .mining_process {
   font-family: "Arial", sans-serif;
   color: #333;
-  max-width: 1200px;
+  max-width: auto;
   margin: 0 auto;
-  padding: 20px;
-  margin-top: 48px !important;
+  padding: 128px 128px 0px 128px;
 }
 
 /* Cards */
@@ -495,6 +495,12 @@ h1 {
   }
 }
 
+@media screen and (max-width: 768px) {
+  .mining_process {
+    padding: 32px 16px 8px 16px;
+  }
+}
+
 /* Estilos del resultado section */
 .results-section {
   padding: 80px;
@@ -507,6 +513,15 @@ h1 {
   font-weight: bold;
   margin-bottom: 0.5rem;
   color: white !important;
+}
+
+@media screen and (max-width: 768px) {
+  .results-section {
+    margin-left: 16px;
+    margin-right: 16px;
+    padding: 32px 8px 8px 8px;
+  }
+  
 }
 
 /* Estilos del ampliation section */
@@ -527,11 +542,19 @@ h1 {
   color: #333 !important;
 }
 
+@media screen and (max-width: 768px) {
+  .ampliation-section {
+    margin-left: 16px;
+    margin-right: 16px;
+    padding: 32px 8px 8px 8px;
+  }
+}
+
 /* Estilos de la tabla expandable */
 .container-table {
   margin-left: 56px;
   margin-right: 56px;
-  margin-bottom: 24px;
+  padding-bottom: 128px;
 }
 
 .operations-table {

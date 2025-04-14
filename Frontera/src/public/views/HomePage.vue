@@ -24,12 +24,21 @@
           />
         </div>
         <div class="image-right">
-          <img
-            :src="`${BASEURL}/img/about-02.jpg`"
-            alt="about-02"
-            loading="lazy"
-            width="100%"
-          />
+          <kinesis-container event="scroll">
+            <kinesis-element
+              :strength="100"
+              axis="x"
+              type="translate"
+              style="display: inline-block"
+            >
+              <img
+                :src="`${BASEURL}/img/about-02.jpg`"
+                alt="about-02"
+                loading="lazy"
+                width="100%"
+              />
+            </kinesis-element>
+          </kinesis-container>
         </div>
       </div>
       <div class="about-content">
@@ -63,8 +72,7 @@
               background-image: url('http://localhost:3000/api/public/img/esg-communities.jpg');
               background-size: cover;
             "
-          >
-          </div>
+          ></div>
           <div class="esg-content">
             <h3><span v-html="filterData('HOME_04_' + language)"></span></h3>
             <p>
@@ -87,8 +95,7 @@
               background-image: url('http://localhost:3000/api/public/img/esg-health-and-safety.jpg');
               background-size: cover;
             "
-          >
-          </div>
+          ></div>
           <div class="esg-content">
             <h3><span v-html="filterData('HOME_06_' + language)"></span></h3>
             <p>
@@ -105,13 +112,13 @@
 
         <!-- Tarjeta Agua y Medio Ambiente -->
         <div class="esg-card">
-          <div class="esg-image-placeholder"
+          <div
+            class="esg-image-placeholder"
             style="
               background-image: url('http://localhost:3000/api/public/img/esg-water-environment.jpg');
               background-size: cover;
-            ">
-           
-          </div>
+            "
+          ></div>
           <div class="esg-content">
             <h3><span v-html="filterData('HOME_08_' + language)"></span></h3>
             <p>
@@ -381,6 +388,7 @@ export default {
   gap: 2rem;
   padding: 4rem 2rem;
   background: #d7d7d7;
+  height: 600px;
 }
 
 .image-gallery {
@@ -400,21 +408,8 @@ export default {
   position: absolute;
   bottom: -20px;
   left: 100px;
-}
-
-@keyframes fadeRight {
-  0% {
-    transform: translateX(100px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  } 
-}
-
-.image-right img:nth-child(1) {
-  animation: fadeRight 0.9s ease-in-out;
+  z-index: 1;
+  will-change: transform;
 }
 
 .about-content {
@@ -461,6 +456,7 @@ p {
   .about-section {
     flex-direction: column;
     padding: 2rem 1rem;
+    height: auto;
   }
 
   .image-gallery {
@@ -475,7 +471,10 @@ p {
     text-align: center;
   }
 
-  h2, .divider, p, .see-more {
+  h2,
+  .divider,
+  p,
+  .see-more {
     margin-left: 0 !important;
     margin-bottom: 16px;
   }
@@ -484,7 +483,11 @@ p {
 /* Estilos para la sección ESG */
 .esg-section {
   padding: 4rem 2rem;
-  background: white;
+  background: rgb(181, 51, 51);
+}
+
+.esg-section h2 {
+  color: white;
 }
 
 .esg-container {
@@ -500,7 +503,7 @@ p {
   flex: 1;
   min-width: 300px;
   max-width: 350px;
-  background: #f9f9f9;
+  background: #d07777;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -522,12 +525,12 @@ p {
 }
 
 .esg-content h3 {
-  color: #333;
+  color: #fffbfb;
   margin-bottom: 0.5rem;
 }
 
 .esg-content p {
-  color: #666;
+  color: #f9f6f6;
   margin-bottom: 1.5rem;
   margin-left: 0;
 }
@@ -549,8 +552,12 @@ p {
 /* Estilos para la sección Galería */
 .gallery-section {
   padding: 4rem 2rem;
-  background: #f5f5f5;
+  background: #070000;
   text-align: center;
+}
+
+.gallery-section h2 {
+  color: white;
 }
 
 .carousel-container {
