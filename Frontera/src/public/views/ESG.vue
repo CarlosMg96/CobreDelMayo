@@ -49,9 +49,6 @@
       </div>
     </section>
 
-    <!-- Divisor -->
-    <div class="section-divider"></div>
-
     <!-- Sección Agua y Ambiente -->
     <section class="second-section">
       <div class="number-circle">ESG</div>
@@ -75,9 +72,6 @@
         </div>
       </div>
     </section>
-
-    <!-- Divisor -->
-    <div class="section-divider"></div>
 
     <!-- Sección Salud y Seguridad -->
     <section class="topic-section">
@@ -361,11 +355,6 @@ h2 {
   font-size: 1.3rem;
 }
 
-.section-divider {
-  border-top: 3px solid #e2e8f0;
-  margin: 3rem 0;
-}
-
 .bullet-list {
   list-style-type: none;
   padding-left: 0;
@@ -443,7 +432,7 @@ h2 {
 }
 
 .main-section {
-  background-color: #e9d8ad;
+  background-color: #F9E1CD;
   padding: 8rem;
 }
 
@@ -574,10 +563,6 @@ h2 {
 
   .highlight-box {
     padding: 1rem;
-  }
-
-  .section-divider {
-    margin: 2rem 0;
   }
 
   .back-zone-image {

@@ -387,7 +387,7 @@ export default {
   justify-content: center;
   gap: 2rem;
   padding: 4rem 2rem;
-  background: #d7d7d7;
+  background: #E4E5E5;
   height: 600px;
 }
 
@@ -438,7 +438,7 @@ p {
 }
 
 .see-more {
-  background: #d9534f;
+  background: #D32A28;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -449,7 +449,7 @@ p {
 }
 
 .see-more:hover {
-  background: #c9302c;
+  background: #b95854;
 }
 
 @media screen and (max-width: 768px) {
@@ -483,7 +483,7 @@ p {
 /* Estilos para la sección ESG */
 .esg-section {
   padding: 4rem 2rem;
-  background: rgb(181, 51, 51);
+  background: #D32A28;
 }
 
 .esg-section h2 {
@@ -503,7 +503,7 @@ p {
   flex: 1;
   min-width: 300px;
   max-width: 350px;
-  background: #d07777;
+  background: #D32A28;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -517,7 +517,6 @@ p {
 .esg-image-placeholder {
   height: 200px;
   background: #e0e0e0;
-  /* Aquí puedes poner tu imagen de fondo */
 }
 
 .esg-content {
@@ -536,7 +535,7 @@ p {
 }
 
 .esg-see-more {
-  background: #d9534f;
+  background: black;
   color: white;
   padding: 8px 16px;
   border: none;
@@ -546,7 +545,8 @@ p {
 }
 
 .esg-see-more:hover {
-  background: #c9302c;
+  background: #D32A28;
+  box-shadow: #333 0px 3px 0px;
 }
 
 /* Estilos para la sección Galería */

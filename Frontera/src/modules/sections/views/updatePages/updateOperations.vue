@@ -657,7 +657,7 @@ h1 {
   font-size: 2.2rem;
   font-style: bold;
   margin-bottom: 1.8rem;
-  border-bottom: 2px solid #e2e8f0;
+  border-bottom: 2px solid #F9E1CD;
   color: orange;
 }
 

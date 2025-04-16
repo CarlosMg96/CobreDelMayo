@@ -623,7 +623,7 @@ onMounted(() => {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
   line-height: 1.6;
-  background: #d7d7d7;
+  background: #E4E5E5;
 }
 
 .container {
@@ -695,7 +695,7 @@ h1 {
   font-size: 2.2rem;
   font-style: bold;
   margin-bottom: 1.8rem;
-  border-bottom: 2px solid #e2e8f0;
+  border-bottom: 2px solid #F9E1CD;
   color: orange;
 }
 
@@ -742,7 +742,7 @@ h1 {
   height: 60vh;
   background-attachment: fixed; 
   z-index: -99;
-  background-color: #e9d8ad;
+  background-color: #F9E1CD;
 }
 
 @media screen and (max-width: 768px) {
@@ -753,7 +753,7 @@ h1 {
 }
 /* Location Info */
 .location-section {
-  background-color: #e9d8ad;
+  background-color: #F9E1CD;
   padding: 80px 0;
 }
 .location-info {

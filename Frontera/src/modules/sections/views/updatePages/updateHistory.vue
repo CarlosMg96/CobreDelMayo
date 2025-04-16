@@ -633,7 +633,7 @@ h1 {
   font-size: 2.2rem;
   font-style: bold;
   margin-bottom: 1.8rem;
-  border-bottom: 2px solid #e2e8f0;
+  border-bottom: 2px solid #F9E1CD;
   color: orange;
 }
 
@@ -750,7 +750,7 @@ h1 {
 }
 
 .operations-table {
-  border: 1px solid #e2e8f0;
+  border: 1px solid #F9E1CD;
   border-radius: 8px;
   overflow: hidden;
   width: 100%;
@@ -758,7 +758,7 @@ h1 {
 }
 
 .operation-row {
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid #F9E1CD;
   transition: all 0.3s ease;
 }
 

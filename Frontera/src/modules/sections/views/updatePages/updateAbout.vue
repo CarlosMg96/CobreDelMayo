@@ -391,7 +391,7 @@ h1 {
   font-size: 2.2rem;
   font-style: bold;
   margin-bottom: 1.8rem;
-  border-bottom: 2px solid #e2e8f0;
+  border-bottom: 2px solid #F9E1CD;
   color: orange;
 }
 
@@ -419,7 +419,7 @@ h1 {
   font-size: 2.2rem;
   font-style: bold;
   margin-bottom: 1.8rem;
-  border-bottom: 2px solid #e2e8f0;
+  border-bottom: 2px solid #F9E1CD;
   color: black;
 }
 .about-info h3 strong {
@@ -464,7 +464,7 @@ h1 {
   font-size: 2.2rem;
   font-style: bold;
   margin-bottom: 1.8rem;
-  border-bottom: 2px solid #e2e8f0;
+  border-bottom: 2px solid #F9E1CD;
   color: black;
 }
 .strategy-text h2 {
@@ -490,7 +490,7 @@ h1 {
   font-size: 2.2rem;
   font-style: bold;
   margin-bottom: 1.8rem;
-  border-bottom: 2px solid #e2e8f0;
+  border-bottom: 2px solid #F9E1CD;
   color: black;
 }
 
@@ -500,7 +500,7 @@ h1 {
   color: #333;
 }
 .backgroudnd-text-values {
-  background-color: #e9d8ad;
+  background-color: #F9E1CD;
   padding: 20px;
   margin-top: -16px !important;
   margin-left: 200px !important;

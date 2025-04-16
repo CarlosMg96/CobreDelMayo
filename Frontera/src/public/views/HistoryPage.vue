@@ -372,7 +372,7 @@ onMounted(() => {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
   line-height: 1.6;
-  background: #d7d7d7;
+  background: #E4E5E5;
 }
 
 .divider {
@@ -419,7 +419,7 @@ h1 {
   font-size: 2.2rem;
   font-style: bold;
   margin-bottom: 1.8rem;
-  border-bottom: 2px solid #e2e8f0;
+  border-bottom: 2px solid #F9E1CD;
   color: orange;
 }
 
@@ -506,13 +506,13 @@ h1 {
   padding: 80px;
   margin-left: 84px;
   margin-right: 84px;
-  background-color: #d94f4f;
+  background-color: #D32A28;
 }
 .results-section h2 {
   font-size: 2.2rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
-  color: white !important;
+  color: black !important;
 }
 
 @media screen and (max-width: 768px) {
@@ -558,7 +558,7 @@ h1 {
 }
 
 .operations-table {
-  border: 1px solid #e2e8f0;
+  border: 1px solid #F9E1CD;
   border-radius: 8px;
   overflow: hidden;
   width: 100%;
@@ -566,7 +566,7 @@ h1 {
 }
 
 .operation-row {
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid #F9E1CD;
   transition: all 0.3s ease;
 }
 

@@ -394,7 +394,7 @@ h1 {
   font-size: 2.2rem;
   color: orange;
   margin-bottom: 1.8rem;
-  border-bottom: 2px solid #e2e8f0;
+  border-bottom: 2px solid #F9E1CD;
   padding-bottom: 0.5rem;
 }
 
@@ -459,7 +459,7 @@ h2 {
 }
 
 .section-divider {
-  border-top: 3px solid #e2e8f0;
+  border-top: 3px solid #F9E1CD;
   margin: 3rem 0;
 }
 

@@ -547,7 +547,7 @@ h1 {
   font-size: 2.2rem;
   font-style: bold;
   margin-bottom: 1.8rem;
-  border-bottom: 2px solid #e2e8f0;
+  border-bottom: 2px solid #F9E1CD;
   color: orange;
 }
 
@@ -818,7 +818,7 @@ h1 {
 /* Estilos de la sección ESG */
 .esg-section {
   padding: 4rem 2rem;
-  background: rgb(181, 51, 51);
+  background:  #D32A28;
 }
 
 .esg-title {
@@ -839,7 +839,7 @@ h1 {
   flex: 1;
   min-width: 300px;
   max-width: 350px;
-  background: #d07777;
+  background: #D32A28;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
