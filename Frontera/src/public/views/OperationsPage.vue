@@ -100,7 +100,7 @@
               class="only-mining-machine only-mining-machine-left"
             >
               <img
-                src="http://localhost:3000/api/public/img/terex.png"
+                src="http://69.48.203.90:3001/api/public/img/terex.png"
                 alt="Terex Machine"
               />
             </kinesis-element>
@@ -113,7 +113,7 @@
               class="only-mining-machine only-mining-machine-right"
             >
               <img
-                src="http://localhost:3000/api/public/img/caterpillar.png"
+                src="http://69.48.203.90:3001/api/public/img/caterpillar.png"
                 alt="Caterpillar Machine"
               />
             </kinesis-element>
@@ -515,7 +515,7 @@ onMounted(() => {
 .about-hero {
   height: 60vh;
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url("http://localhost:3000/api/public/img/bg-tbu.jpg") center/cover
+    url("http://69.48.203.90:3001/api/public/img/bg-tbu.jpg") center/cover
       no-repeat;
   display: flex;
   align-items: center;
@@ -580,7 +580,7 @@ h1 {
   margin-top: 24px;
   padding: 80px 0;
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.1)),
-    url("http://localhost:3000/api/public/img/bg-tbu.jpg") center/cover
+    url("http://69.48.203.90:3001/api/public/img/bg-tbu.jpg") center/cover
       no-repeat;
   background-attachment: fixed; /* Opcional si quieres efecto clásico */
   z-index: -99;
@@ -669,7 +669,7 @@ h1 {
   width: 100%;
   padding-top: 100%;
   border-radius: 50%;
-  background-image: url("http://localhost:3000/api/public/img/bg-tbu.jpg");
+  background-image: url("http://69.48.203.90:3001/api/public/img/bg-tbu.jpg");
   position: relative;
   overflow: hidden;
 }

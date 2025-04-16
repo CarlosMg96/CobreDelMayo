@@ -778,7 +778,7 @@ export default defineComponent({
 .about-hero {
   height: 60vh;
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url("http://localhost:3000/api/public/img/bg-history.jpg") center/cover
+    url("http://69.48.203.90:3001/api/public/img/bg-history.jpg") center/cover
       no-repeat;
   display: flex;
   align-items: center;

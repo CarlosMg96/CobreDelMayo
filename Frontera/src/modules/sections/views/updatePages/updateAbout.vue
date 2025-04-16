@@ -359,7 +359,7 @@ export default defineComponent({
 .about-hero {
   height: 60vh;
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url("http://localhost:3000/api/public/img/bg-about.jpg") center/cover
+    url("http://69.48.203.90:3001/api/public/img/bg-about.jpg") center/cover
       no-repeat;
   display: flex;
   align-items: center;
@@ -445,7 +445,7 @@ h1 {
   margin-top: 24px;
   padding: 80px 0;
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.1)),
-    url("http://localhost:3000/api/public/img/bg-tbu.jpg") center/cover
+    url("http://69.48.203.90:3001/api/public/img/bg-tbu.jpg") center/cover
       no-repeat;
   height: 60vh;
 }

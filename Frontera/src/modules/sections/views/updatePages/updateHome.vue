@@ -88,7 +88,7 @@
                 <div
                   class="esg-image-placeholder"
                   style="
-                    background-image: url('http://localhost:3000/api/public/img/esg-communities.jpg');
+                    background-image: url('http://69.48.203.90:3001/api/public/img/esg-communities.jpg');
                     background-size: cover;
                   "
                 >
@@ -125,7 +125,7 @@
                 <div
                   class="esg-image-placeholder"
                   style="
-                    background-image: url('http://localhost:3000/api/public/img/esg-health-and-safety.jpg');
+                    background-image: url('http://69.48.203.90:3001/api/public/img/esg-health-and-safety.jpg');
                     background-size: cover;
                   "
                 >
