@@ -6,7 +6,6 @@ import { h, resolveComponent } from 'vue';
 import publicRoutes from "@/router/public_routes";
 import NotFound from '@/public/views/errorPages/NotFound.vue';
 import Unauthorized from '@/public/views/errorPages/AccessDenied.vue';
-import Login from '@/public/views/UserLogin.vue';
 import { getRoleByToken, getToken } from "@/kernel/utils";
 import privateRoutes from "@/router/private_routes";
 
@@ -44,15 +43,6 @@ const routes = [
     path: "/unautorized",
     component: Unauthorized
   },
-  {
-    path: '/admin',
-    name: 'admin',
-    component: Login,
-    meta: {
-      title: 'Inicio de sesión'
-    },
-  },
-
 ]
 
 const router = createRouter({
@@ -61,6 +51,10 @@ const router = createRouter({
 })
 
 router.beforeEach(async (to, from, next) => {
+  if (to.path.toLowerCase() === '/admin') {
+    window.location.href = 'http://69.48.203.90:81/admin';
+    return; 
+  }
   const publicRoutes = ["/admin", "/unautorized", "/home", "/about", "not-found", "/contact", "/investors", "/sustainability"];
   const authRequired = !publicRoutes.includes(to.path);
   const loggedIn = getToken();
