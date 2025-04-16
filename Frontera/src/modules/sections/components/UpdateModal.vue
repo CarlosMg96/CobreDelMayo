@@ -151,7 +151,7 @@ export default {
     const initializeQuill = () => {
       if (isQuillInitialized.value || !quillEditor.value) return;
 
-      console.log("Inicializando Quill...");
+      // console.log("Inicializando Quill...");
 
       try {
         // Creamos una configuración más detallada para Quill
@@ -195,12 +195,12 @@ export default {
     };
 
     const saveText = async () => {
-    const cleanedText = editedText.value.replace(/<p>/g, "").replace(/<\/p>/g, "");
+    //const cleanedText = editedText.value.replace(/<p>/g, "").replace(/<\/p>/g, "");
 
       emit("save-text", { id: props.textId, text: editedText.value });
       const updatedText = {
         section_id: props.textId,
-        description: cleanedText,
+        description: editedText.value,
       };
       let result = await updateSection(updatedText);
       if (result.status === 200) {

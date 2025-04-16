@@ -3,12 +3,12 @@
     <v-card-item>
       <v-card-title> HISTORY / Historia </v-card-title>
       <v-card-subtitle>
-        <div v-if="languaje == 'EN'">
+        <div v-if="language == 'EN'">
           <h2>You are in the section to update in</h2>
           <h1>English</h1>
           <button @click="changeLanguage()" class="action-btn secondary-btn">
             <span class="language-tag">Change Language</span>
-            {{ languaje == "EN" ? "ES" : "EN" }}
+            {{ language == "EN" ? "ES" : "EN" }}
           </button>
         </div>
 
@@ -17,7 +17,7 @@
           <h1>Español</h1>
           <button @click="changeLanguage()" class="action-btn secondary-btn">
             <span class="language-tag">Cambiar idioma</span>
-            {{ languaje == "ES" ? "EN" : "ES" }}
+            {{ language == "ES" ? "EN" : "ES" }}
           </button>
         </div>
         <div class="divider"></div>
@@ -28,43 +28,54 @@
         <div class="operations-page">
           <section class="about-hero">
             <div class="hero-overlay">
-              <div >
-                <h1 style="color: white !important"   @dblclick="openEditModal('HISTORY_01_' + languaje)"> <span v-html=" filterData('HISTORY_01_' + languaje)"></span></h1>
+              <div>
+                <h1
+                  style="color: white !important"
+                  @dblclick="openEditModal('HISTORY_01_' + language)"
+                >
+                  <span v-html="filterData('HISTORY_01_' + language)"></span>
+                </h1>
               </div>
             </div>
           </section>
 
           <section class="mining_process">
             <div class="text-center">
-              <h2   @dblclick="openEditModal('HISTORY_02_' + languaje)">
-                <span v-html=" filterData('HISTORY_02_' + languaje)"></span>
+              <h2 @dblclick="openEditModal('HISTORY_02_' + language)">
+                <span v-html="filterData('HISTORY_02_' + language)"></span>
               </h2>
-              <p @dblclick="openEditModal('HISTORY_03_' + languaje)">
-                <span v-html=" filterData('HISTORY_03_' + languaje)"></span>
+              <p @dblclick="openEditModal('HISTORY_03_' + language)">
+                <span v-html="filterData('HISTORY_03_' + language)"></span>
               </p>
             </div>
             <div class="container-mining">
               <div class="mining-grid">
                 <div class="mining-card">
                   <div>
-                    <p @dblclick="openEditModal('HISTORY_04_' + languaje)">
-                      <span v-html=" filterData('HISTORY_04_' + languaje)"></span>
+                    <p @dblclick="openEditModal('HISTORY_04_' + language)">
+                      <span
+                        v-html="filterData('HISTORY_04_' + language)"
+                      ></span>
                     </p>
                   </div>
                 </div>
 
                 <div class="mining-card">
                   <div>
-                    <p @dblclick="openEditModal('HISTORY_05_' + languaje)">
-                      <span v-html=" filterData('HISTORY_05_' + languaje)"></span>
+                    <p @dblclick="openEditModal('HISTORY_05_' + language)">
+                      <span
+                        v-html="filterData('HISTORY_05_' + language)"
+                      ></span>
                     </p>
                   </div>
                 </div>
 
                 <div class="mining-card">
                   <div>
-                    <p @dblclick="openEditModal('HISTORY_06_' + languaje)">
-                      <span v-html=" filterData('HISTORY_06_' + languaje)"></span>
+                    <p @dblclick="openEditModal('HISTORY_06_' + language)">
+                      <span
+                        v-html="filterData('HISTORY_06_' + language)"
+                      ></span>
                     </p>
                   </div>
                 </div>
@@ -72,8 +83,8 @@
             </div>
             <div class="mining-section text-center">
               <div>
-                <p @dblclick="openEditModal('HISTORY_07_' + languaje)">
-                  <span v-html=" filterData('HISTORY_07_' + languaje)"></span>
+                <p @dblclick="openEditModal('HISTORY_07_' + language)">
+                  <span v-html="filterData('HISTORY_07_' + language)"></span>
                 </p>
               </div>
             </div>
@@ -81,8 +92,8 @@
 
           <section class="results-section text-center">
             <div>
-              <h2 @dblclick="openEditModal('HISTORY_08_' + languaje)">
-                <span v-html=" filterData('HISTORY_08_' + languaje)"></span>
+              <h2 @dblclick="openEditModal('HISTORY_08_' + language)">
+                <span v-html="filterData('HISTORY_08_' + language)"></span>
               </h2>
             </div>
           </section>
@@ -90,60 +101,111 @@
           <section class="ampliation-section text-center">
             <div>
               <div>
-                <p @dblclick="openEditModal('HISTORY_09_' + languaje)">
-                  <span v-html=" filterData('HISTORY_09_' + languaje)"></span>
+                <p @dblclick="openEditModal('HISTORY_09_' + language)">
+                  <span v-html="filterData('HISTORY_09_' + language)"></span>
                 </p>
               </div>
 
-
-              <div @dblclick="openEditModal('HISTORY_10_' + languaje)">
-                <h3> <span v-html=" filterData('HISTORY_10_' + languaje)"></span></h3>
+              <div @dblclick="openEditModal('HISTORY_10_' + language)">
+                <h3>
+                  <span v-html="filterData('HISTORY_10_' + language)"></span>
+                </h3>
               </div>
             </div>
           </section>
 
           <section class="container-table">
             <div class="operations-table">
-              <div v-if="languaje == 'EN'">
-                <div
-                  v-for="(op, index) in operations.filter(
-                    (op) => op.languaje === 'EN'
-                  )"
-                  :key="index"
-                  class="operation-row"
-                  @click="toggleExpand(index)"
-                >
-                  <div class="operation-description">
-                    <span>{{ op.description }}</span>
-                    <span class="expand-icon">{{
-                      expandedIndex === index ? "−" : "+"
-                    }}</span>
-                  </div>
-                  <div v-if="expandedIndex === index" class="operation-details">
-                    <p>{{ op.details }}</p>
-                  </div>
-                </div>
+              <div v-if="language == 'EN'">
+                <table class="operations-table">
+                  <thead>
+                    <tr>
+                      <th>Title</th>
+                      <th>Details</th>
+                      <th>
+                        <button
+                          class="btn-table btn-add-op"
+                          @click="addOperation()"
+                        >
+                          <v-icon class="fa-solid fa-plus"></v-icon>
+                        </button>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr
+                      v-for="(op, index) in operations.filter(
+                        (op) => op.language === 'EN'
+                      )"
+                      :key="index"
+                    >
+                      <td>{{ op.description }}</td>
+                      <td>
+                        <span>{{ op.details }}</span>
+                      </td>
+                      <td>
+                        <button
+                          class="btn-table btn-edit-op"
+                          @click="editOperation(op)"
+                        >
+                          <v-icon class="fa-solid fa-pencil"></v-icon>
+                        </button>
+                        <button
+                          class="btn-table btn-delete-op"
+                          @click="deleteOperation(op)"
+                        >
+                          <v-icon class="fa-solid fa-trash"></v-icon>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
 
               <div v-else>
-                <div
-                  v-for="(op, index) in operations.filter(
-                    (op) => op.languaje === 'ES'
-                  )"
-                  :key="index"
-                  class="operation-row"
-                  @click="toggleExpand(index)"
-                >
-                  <div class="operation-description">
-                    <span>{{ op.description }}</span>
-                    <span class="expand-icon">{{
-                      expandedIndex === index ? "−" : "+"
-                    }}</span>
-                  </div>
-                  <div v-if="expandedIndex === index" class="operation-details">
-                    <p>{{ op.details }}</p>
-                  </div>
-                </div>
+                <table class="operations-table">
+                  <thead>
+                    <tr>
+                      <th>Título</th>
+                      <th>Detalle</th>
+                      <th>
+                        <button
+                          class="btn-table btn-add-op"
+                          @click="addOperation()"
+                        >
+                          <v-icon class="fa-solid fa-plus"></v-icon>
+                        </button>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr
+                      v-for="(op, index) in operations.filter(
+                        (op) => op.language === 'ES'
+                      )"
+                      :key="index"
+                    >
+                      <td>{{ op.description }}</td>
+                      <td>
+                        <span>{{ op.details }}</span>
+                      </td>
+                      <td>
+                        <button
+                          class="btn-table btn-edit-op"
+                          @click="editOperation(op)"
+                        >
+                          <v-icon class="fa-solid fa-pencil"></v-icon>
+                        </button>
+                        <button
+                          class="btn-table btn-delete-op"
+                          @click="deleteOperation(op)"
+                        >
+                          <v-icon class="fa-solid fa-trash"></v-icon>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </section>
@@ -159,6 +221,17 @@
     @update:visible="updateDialogVisible"
     @save-text="updateText"
   />
+  <UpdateHistoryOpModal
+      :visible="modalEditHistoryOp"
+      @update:visible="modalEditHistoryOp = $event"
+      :currentContent="currentDataHistoryOp"
+      @save-changes="getHistoryOperationsData"
+    />
+  <AddHistoryModal
+    :visible="modalAddHistoryOp"
+    @update:visible="modalAddHistoryOp = $event"
+    @save-text="getHistoryOperationsData"
+  />
 </template>
 
 <script>
@@ -168,14 +241,22 @@ import {
   getLanguageForUpdateContent,
   setLanguageForUpdateContent,
 } from "@/kernel/utils";
-import { showInfoToast } from "@/kernel/alerts";
+import { showInfoToast, showSuccessToast } from "@/kernel/alerts";
 import UpdateModal from "../../components/UpdateModal.vue";
-import { getSectionByPageandLanguaje } from "../../services/sections-service";
+import { getSectionByPageandlanguage } from "../../services/sections-service";
+import {
+  getHistoryOperations,
+  deleteHistoryOperation,
+} from "../../services/history-operations";
+import UpdateHistoryOpModal from "../../components/UpdateHistoryOpModal.vue";
+import AddHistoryModal from "../../components/AddHistoryModal.vue";
 
 export default defineComponent({
   name: "UpdateHISTORY",
   components: {
     UpdateModal,
+    AddHistoryModal,
+    UpdateHistoryOpModal,
   },
   setup() {
     const dataHistory = ref([
@@ -189,11 +270,13 @@ export default defineComponent({
       },
       {
         section_id: "HISTORY_02_EN",
-        description: "Frontera Copper Corporation built the Piedras Verdes Mine and started commercial production in 2006.",
+        description:
+          "Frontera Copper Corporation built the Piedras Verdes Mine and started commercial production in 2006.",
       },
       {
         section_id: "HISTORY_02_ES",
-        description: "Frontera Copper Corporation construyó la mina Piedras Verdes e inició la producción comercial en 2006.",
+        description:
+          "Frontera Copper Corporation construyó la mina Piedras Verdes e inició la producción comercial en 2006.",
       },
       {
         section_id: "HISTORY_03_EN",
@@ -237,11 +320,13 @@ export default defineComponent({
       },
       {
         section_id: "HISTORY_07_EN",
-        description: "From 1Q20 through 2Q21, Piedras Verdes was placed on Care and Maintenance in the context of the Covid pandemic and low copper prices. During this time, much test work was undertaken and significant operational improvements were identified, analyzed, and implemented.",
+        description:
+          "From 1Q20 through 2Q21, Piedras Verdes was placed on Care and Maintenance in the context of the Covid pandemic and low copper prices. During this time, much test work was undertaken and significant operational improvements were identified, analyzed, and implemented.",
       },
       {
         section_id: "HISTORY_07_ES",
-        description: "Desde el 4T19 hasta el 2T21, Piedras Verdes fue puesta bajo Cuidado y Mantenimiento en el contexto de los bajos precios del cobre. Durante este tiempo, se identificaron muchas mejoras operativas, se analizaron y realizaron pruebas. ",
+        description:
+          "Desde el 4T19 hasta el 2T21, Piedras Verdes fue puesta bajo Cuidado y Mantenimiento en el contexto de los bajos precios del cobre. Durante este tiempo, se identificaron muchas mejoras operativas, se analizaron y realizaron pruebas. ",
       },
       {
         section_id: "HISTORY_08_EN",
@@ -272,98 +357,97 @@ export default defineComponent({
         description: "Crecimiento y optimización de las operaciones mediante:",
       },
     ]);
-    const expandedIndex = ref(null);
 
     const operations = ref([
       {
         description: "Expanding the capacity...",
         details:
           "In 1Q22 we expanded the capacity of the leach crushing, screening, and conveying system to operate at 36 ktpd, enabling improved recoveries and kinetics, with higher throughput to agglomeration.",
-        languaje: "EN",
+        language: "EN",
       },
       {
         description: "Vat leaching of flotation tails...",
         details:
           "Developing the engineering for agitated tank leaching of 18Mt tails over ten years at an average CuSEQ grade of 0.13%.",
-        languaje: "EN",
+        language: "EN",
       },
       {
         description: "Installation of Aggolmerators...",
         details:
           "In 1Q21, we Installed two agglomerators with a capacity of 24 ktpd to improve metallurgical recoveries by creating robust agglomerate pellets with uniform leach characteristics from screened fines with acid and raffinate to enhance leach recoveries and kinetics, eliminate the loss of contained copper in slimes confined to tails by the screw slurry classification system, and reduce water consumption.",
-        languaje: "EN",
+        language: "EN",
       },
       {
         description: "Optimizing acid consumption...",
         details:
           "Optimizing acid consumption with continuous remote monitoring of heap leach solution chemistry and selective acid addition by section of the leach pad.",
-        languaje: "EN",
+        language: "EN",
       },
       {
         description: "Internally developing a mobile...",
         details:
           "Internally developing a mobile fleet dispatch system that optimizes operations, enables real time monitoring of equipment productivity and automates data capture for multiple systems.",
-        languaje: "EN",
+        language: "EN",
       },
       {
         description: "Dispatch System...",
         details:
           "We developed a mobile fleet dispatch system that optimizes operations, enables real-time monitoring of equipment productivity, and automates data capture for multiple systems.",
-        languaje: "EN",
+        language: "EN",
       },
       {
         description: "Optimization of heap leach practices...",
         details:
           "Selectively implement heap leach aeration, maximizing copper recovery, kinetics, and acid generation.",
-        languaje: "EN",
+        language: "EN",
       },
       {
         description: "Ampliación de la capacidad...",
         details:
           "Ampliación de la capacidad del sistema de trituración y cribado y transporte de la lixiviación en el 1T22 para operar a 40 ktpd y 45 ktpd by 3T22 permitiendo mejorar las recuperaciones y la cinética, con un mayor rendimiento hacia los aglomeradores.",
-        languaje: "ES",
+        language: "ES",
       },
       {
         description: "Desarrollar la ingeniería...",
         details:
           "Desarrollar la ingeniería para la lixiviación en tanque agitado de 18Mt de colas a lo largo de 10 años con una ley media de CuSEQ de 0,13% que comenzará a construirse a finales del 2T22 y se pondrá en marcha en el 4T22.",
-        languaje: "ES",
+        language: "ES",
       },
       {
         description: "Instalación de dos aglomeradores...",
         details:
           "Instalación de dos aglomeradores en el 1T21 con una capacidad de 24 ktpd para crear paneles robustos de aglomerado a partir de finos cribados con ácido y agua refinada para mejorar las recuperaciones de lixiviación y la cinética, eliminar la pérdida de cobre contenido en los lodos confinados en las colas por el sistema de clasificación de lodos de tornillo que reemplazó y reducir el consumo de agua.",
-        languaje: "ES",
+        language: "ES",
       },
       {
         description: "Optimizar el consumo de ácido...",
         details:
           "Optimizar el consumo de ácido con la continua supervisión remota de la pila de lixiviación de la solución química la adición selectiva de ácido por sección de la pila de lixiviación.",
-        languaje: "ES",
+        language: "ES",
       },
       {
         description: "Desarrollar internamente un sistema...",
         details:
           "Desarrollar internamente un sistema de envío de flotas móviles que optimice las operaciones, permita la supervisión en tiempo real de la productividad de los equipos y automatice la captura de datos para múltiples sistemas.",
-        languaje: "ES",
+        language: "ES",
       },
       {
         description: "Implementación selectiva de la aireación...",
         details:
           "Implementación selectiva de la aireación de la pila de lixiviación, maximizando la recuperación de cobre, la cinética y la generación de ácido.",
-        languaje: "ES",
+        language: "ES",
       },
       {
         description: "Desarrollo de un circuito para...",
         details:
           "Desarrollo de un circuito para recuperar el molibdeno que produce xxxlbs de metal contenido al mes.",
-        languaje: "ES",
+        language: "ES",
       },
     ]);
 
-    const toggleExpand = (index) => {
-      expandedIndex.value = expandedIndex.value === index ? null : index;
-    };
+    const currentDataHistoryOp = ref(null);
+    const modalAddHistoryOp = ref(false);
+    const modalEditHistoryOp = ref(false);
 
     const filterData = (found_id) => {
       const filteredData = dataHistory.value.filter(
@@ -408,13 +492,26 @@ export default defineComponent({
       dialogVisible.value = true;
     };
 
+    const getHistoryOperationsData = async () => {
+      try {
+        const response = await getHistoryOperations(
+          getLanguageForUpdateContent()
+        );
+        if (response.status === 200) {
+          operations.value = response.data;
+        }
+      } catch (error) {
+        console.error("Error fetching history operations:", error);
+      }
+    };
+
     const fetchData = async () => {
       try {
         const dataForm = {
           page: "HISTORY",
           language: getLanguageForUpdateContent(),
         };
-        const response = await getSectionByPageandLanguaje(dataForm);
+        const response = await getSectionByPageandlanguage(dataForm);
         if (response.status === 200) {
           if (parseInt(response.data.length) !== 0) {
             dataHistory.value = response.data;
@@ -429,22 +526,57 @@ export default defineComponent({
 
     onMounted(() => {
       fetchData();
+      getHistoryOperationsData();
     });
+
+    const editOperation = (op) => {
+      currentDataHistoryOp.value = op;
+      modalEditHistoryOp.value = true;
+
+      showInfoToast("Edit the text: " + op.description);
+    };
+
+    const deleteOperation = async (op) => {
+      try {
+        const response = await deleteHistoryOperation(op.id);
+        if (response.status === 200) {
+          operations.value = operations.value.filter(
+            (operation) => operation.id !== op.id
+          );
+          if (getLanguageForUpdateContent() === "EN") {
+            showSuccessToast("Operation deleted successfully");
+          } else {
+            showSuccessToast("Operación eliminada con éxito");
+          }
+        }
+      } catch (error) {
+        console.error("Error deleting operation:", error);
+      }
+    };
+
+    const addOperation = () => {
+      modalAddHistoryOp.value = true;
+    };
 
     return {
       BASEURL,
-      languaje: getLanguageForUpdateContent(),
+      language: getLanguageForUpdateContent(),
       changeLanguage,
       filterData,
       operations,
-      expandedIndex,
-      toggleExpand,
       openEditModal,
       updateDialogVisible,
       updateText,
       dialogVisible,
       currentText,
       currentTextId,
+      editOperation,
+      deleteOperation,
+      currentDataHistoryOp,
+      modalAddHistoryOp,
+      modalEditHistoryOp,
+      addOperation,
+      getHistoryOperationsData
     };
   },
 });
@@ -501,7 +633,7 @@ h1 {
   font-size: 2.2rem;
   font-style: bold;
   margin-bottom: 1.8rem;
-  border-bottom: 2px solid #e2e8f0;
+  border-bottom: 2px solid #F9E1CD;
   color: orange;
 }
 
@@ -618,7 +750,7 @@ h1 {
 }
 
 .operations-table {
-  border: 1px solid #e2e8f0;
+  border: 1px solid #F9E1CD;
   border-radius: 8px;
   overflow: hidden;
   width: 100%;
@@ -626,7 +758,7 @@ h1 {
 }
 
 .operation-row {
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid #F9E1CD;
   transition: all 0.3s ease;
 }
 
@@ -687,5 +819,58 @@ h1 {
 .secondary-btn:hover {
   background: #d97706;
   box-shadow: 0 4px 6px rgba(245, 158, 11, 0.3);
+}
+
+.operations-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.operations-table th,
+.operations-table td {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+}
+
+.expand-icon {
+  cursor: pointer;
+}
+
+/* Botones de editar y eliminar */
+.btn-table {
+  margin-right: 8px;
+  padding: 12px 12px;
+  border-radius: 50%;
+  max-width: 40px;
+  max-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-edit-op {
+  background-color: #ed8739;
+  color: white;
+  border: none;
+}
+.btn-edit-op:hover {
+  background-color: #943b0e;
+}
+.btn-delete-op {
+  background-color: #f44336;
+  color: white;
+  border: none;
+}
+.btn-delete-op:hover {
+  background-color: #941c1a;
+}
+
+.btn-add-op {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+}
+.btn-add-op:hover {
+  background-color: #2e7d32;
 }
 </style>

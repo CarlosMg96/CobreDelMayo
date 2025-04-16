@@ -2,10 +2,8 @@
   <div class="operations-page">
     <section class="about-hero">
       <div class="hero-overlay bordered-section">
-        <h1
-          style="color: white !important"
-        >
-          <span v-html="filterData('ABOUT_01_' + languaje)"></span>
+        <h1 style="color: white !important">
+          <span v-html="filterData('ABOUT_01_' + language)"></span>
         </h1>
       </div>
     </section>
@@ -14,12 +12,12 @@
       <v-row>
         <v-col cols="12" md="6">
           <h1>
-            <span v-html="filterData('ABOUT_02_' + languaje)"></span>
+            <span v-html="filterData('ABOUT_02_' + language)"></span>
           </h1>
         </v-col>
         <v-col cols="12" md="6">
-          <p >
-            <span v-html="filterData('ABOUT_03_' + languaje)"></span>
+          <p>
+            <span v-html="filterData('ABOUT_03_' + language)"></span>
           </p>
         </v-col>
       </v-row>
@@ -29,25 +27,34 @@
       <v-row class="text-center">
         <v-col cols="12" md="12">
           <h3>
-            <span v-html="filterData('ABOUT_04_' + languaje)"></span>
+            <span v-html="filterData('ABOUT_04_' + language)"></span>
           </h3>
         </v-col>
       </v-row>
       <v-row class="text-start">
         <v-col cols="12" md="6">
-          <p >
-            <span v-html="filterData('ABOUT_05_' + languaje)"></span>
+          <p>
+            <span v-html="filterData('ABOUT_05_' + language)"></span>
           </p>
         </v-col>
         <v-col cols="12" md="6">
           <p>
-            <span v-html="filterData('ABOUT_06_' + languaje)"></span>
+            <span v-html="filterData('ABOUT_06_' + language)"></span>
           </p>
         </v-col>
       </v-row>
     </section>
 
-    <section class="mining-cards"></section>
+    <kinesis-container event="scroll">
+      <kinesis-element
+        :strength="80"
+        type="translate"
+        axis="y"
+        class="mining-cards-parallax"
+      >
+        <section class="mining-cards"></section>
+      </kinesis-element>
+    </kinesis-container>
 
     <section class="strategy-content">
       <v-row>
@@ -62,13 +69,13 @@
         <v-col cols="12" md="6" class="text-start">
           <div class="strategy-text">
             <h1>
-              <span v-html="filterData('ABOUT_07_' + languaje)"></span>
+              <span v-html="filterData('ABOUT_07_' + language)"></span>
             </h1>
             <p>
-              <span v-html="filterData('ABOUT_08_' + languaje)"></span>
+              <span v-html="filterData('ABOUT_08_' + language)"></span>
             </p>
             <h2>
-              <span v-html="filterData('ABOUT_09_' + languaje)"></span>
+              <span v-html="filterData('ABOUT_09_' + language)"></span>
             </h2>
           </div>
         </v-col>
@@ -79,11 +86,11 @@
       <v-row>
         <v-col cols="12" md="6" class="backgroudnd-text-values">
           <div class="strategy-text text-start">
-            <h1 >
-              <span v-html="filterData('ABOUT_10_' + languaje)"></span>
+            <h1>
+              <span v-html="filterData('ABOUT_10_' + language)"></span>
             </h1>
             <p>
-              <span v-html="filterData('ABOUT_11_' + languaje)"></span>
+              <span v-html="filterData('ABOUT_11_' + language)"></span>
             </p>
           </div>
         </v-col>
@@ -103,9 +110,9 @@
 <script setup>
 import { onMounted, ref } from "vue";
 import { getLanguage, BASEURL } from "@/kernel/utils";
-import { getSectionByPageandLanguaje } from "@/modules/sections/services/sections-service";
+import { getSectionByPageandlanguage } from "@/modules/sections/services/sections-service";
 
-const languaje = ref(getLanguage());
+const language = ref(getLanguage());
 const dataAbout = ref([
   {
     section_id: "ABOUT_01_EN",
@@ -215,9 +222,9 @@ const fetchData = async () => {
   try {
     const dataForm = {
       page: "ABOUT",
-      language: languaje.value,
+      language: language.value,
     };
-    const response = await getSectionByPageandLanguaje(dataForm);
+    const response = await getSectionByPageandlanguage(dataForm);
     if (response.status === 200) {
       if (parseInt(response.data.length) !== 0) {
         dataAbout.value = response.data;
@@ -291,7 +298,7 @@ h1 {
   font-size: 2.2rem;
   font-style: bold;
   margin-bottom: 1.8rem;
-  border-bottom: 2px solid #e2e8f0;
+  border-bottom: 2px solid #F9E1CD;
   color: orange;
 }
 
@@ -301,9 +308,11 @@ h1 {
   color: #333;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding-left: 128px;
+  padding-right: 128px;
+  max-width: 1200px;
+  margin: 0 auto;
   margin-top: 48px !important;
-  margin-bottom: 48px !important;
 }
 
 .about-info {
@@ -311,15 +320,15 @@ h1 {
   color: #333;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
-  margin-top: 48px !important;
+  padding: 128px;
+  margin-top: -128px !important;
 }
 
 .about-info h1 {
   font-size: 2.2rem;
   font-style: bold;
   margin-bottom: 1.8rem;
-  border-bottom: 2px solid #e2e8f0;
+  border-bottom: 2px solid #F9E1CD;
   color: black;
 }
 .about-info h3 strong {
@@ -340,22 +349,55 @@ h1 {
   color: #333;
 }
 
+@media screen and (max-width: 768px) {
+  .header_about {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .about-info {
+    padding: 24px;
+    margin-top: 0px !important;
+  }
+}
 /* Estilos de las cards */
+.mining-cards-parallax {
+  will-change: transform;
+  display: block;
+}
+
 .mining-cards {
   margin-top: 24px;
   padding: 80px 0;
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.1)),
-    url("http://localhost:3000/api/public/img/bg-tbu.jpg") center/cover
-      no-repeat;
+    url("http://localhost:3000/api/public/img/bg-tbu.jpg") center/cover no-repeat;
   height: 60vh;
+  background-attachment: fixed; /* Opcional si quieres efecto clásico */
+  z-index: -99;
+}
+
+@media screen and (max-width: 768px) {
+  .mining-cards {
+    background-attachment: scroll; /* Cambia a scroll en pantallas pequeñas */
+  }
+  
 }
 
 /* Estilos de la estrategia */
 .strategy-content {
   font-family: "Arial", sans-serif;
   color: #333;
-  max-width: 1200px;
+  max-width: auto;
+  background: #E4E5E5;
+  height: 800px;
+  padding: 48px;
 }
+
+.strategy-content img {
+  position: static;
+  z-index: 999;
+  margin-left: -128;
+}
+
 .strategy-text {
   padding: 20px;
   margin-top: 48px !important;
@@ -364,11 +406,11 @@ h1 {
   font-size: 2.2rem;
   font-style: bold;
   margin-bottom: 1.8rem;
-  border-bottom: 2px solid #e2e8f0;
+  border-bottom: 2px solid #F9E1CD;
   color: black;
 }
 .strategy-text h2 {
-  font-size: 1.5rem;
+  font-size: 1.9rem;
   margin-top: 1.8rem;
   color: orange;
 }
@@ -383,14 +425,13 @@ h1 {
 .values-content {
   font-family: "Arial", sans-serif;
   color: #333;
-  margin-top: 128px !important;
-  background-color: #d94f4f;
+  background-color: #F05A29;
 }
 .values-content h1 {
   font-size: 2.2rem;
   font-style: bold;
   margin-bottom: 1.8rem;
-  border-bottom: 2px solid #e2e8f0;
+  border-bottom: 2px solid orange;
   color: black;
 }
 
@@ -400,7 +441,7 @@ h1 {
   color: #333;
 }
 .backgroudnd-text-values {
-  background-color: #e9d8ad;
+  background-color: #F9E1CD;
   padding: 20px;
   margin-top: -16px !important;
   margin-left: 200px !important;
@@ -426,6 +467,16 @@ h1 {
   }
   .values-content h1 {
     font-size: 1.8rem;
+  }
+
+  .strategy-content img{
+    width: 100%;
+    margin-top: -32px;
+  }
+
+  .strategy-content {
+    height: auto;
+    padding: 24px;
   }
 
   .backgroudnd-text-values {

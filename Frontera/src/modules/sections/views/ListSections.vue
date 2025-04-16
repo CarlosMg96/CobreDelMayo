@@ -48,9 +48,9 @@
         { id: 1, name: "About / Nosotros", route: "update-about" },
         { id: 2, name: "ESG", route: "update-esg" },
         { id: 3, name: "History / Historia", route: "update-history" },
-        { id: 4, name: "Home / Inicio", route: "update-about" },
-        { id: 5, name: "Location / Ubicación", route: "update-about" },
-        { id: 6, name: "Operations / Operaciones", route: "update-about"}
+        { id: 4, name: "Home / Inicio", route: "update-home" },
+        { id: 5, name: "Location / Ubicación", route: "update-location" },
+        { id: 6, name: "Operations / Operaciones", route: "update-operations"}
       ]);
       const loading = ref(false);
       

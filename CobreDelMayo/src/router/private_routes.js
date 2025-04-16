@@ -9,7 +9,7 @@ export default [
         import( "@/layouts/PrivateLayout.vue"),
       meta: {
         requireAuth: true,
-        role: ['MASTER', 'ADMIN']
+        role: [ 'ADMIN']
       },
       children: [
         {
@@ -18,7 +18,7 @@ export default [
           component: HomeStart,
           meta: {
             title: "Inicio",
-            role: ['MASTER', 'ADMIN']
+            role: [ 'ADMIN']
           },
         },
         {
@@ -27,7 +27,7 @@ export default [
           component: ListNews,
           meta: {
             title: "Noticias",
-            role: ['MASTER', 'ADMIN']
+            role: [ 'ADMIN']
           },
         },
         {
@@ -36,7 +36,7 @@ export default [
           component: CreateNews,
           meta: {
             title: "Nueva noticia",
-            role: ['MASTER', 'ADMIN']
+            role: [ 'ADMIN']
           },
         },
       ],

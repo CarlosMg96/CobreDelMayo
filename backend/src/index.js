@@ -3,8 +3,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors'); // Importa el middleware CORS
 const authRoutes = require('./routes/auth');
-const esgRoutes = require('./routes/esg');
+const historyOpRoutes = require('./routes/historyOperations');
 const sectionRoutes = require('./routes/sections');
+const fileRoutes = require('./routes/files');
 const { createConnection } = require('./config/db');
 const { createDatabaseIfNotExists } = require('./config/initUser');
 const path = require('path');
@@ -19,8 +20,9 @@ app.use(cors({
 
 app.use('/api/public', express.static(path.join(__dirname, '../public')));
 app.use('/api/', authRoutes);
-app.use('/api/', esgRoutes);
+app.use('/api/', historyOpRoutes);
 app.use('/api/', sectionRoutes);
+app.use('/api/', fileRoutes);
 
 // Manejador de errores para rutas no encontradas
 app.use((req, res, next) => {

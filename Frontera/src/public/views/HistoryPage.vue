@@ -4,7 +4,7 @@
       <div class="hero-overlay">
         <div>
           <h1 style="color: white !important">
-            <span v-html="filterData('HISTORY_01_' + languaje)"></span>
+            <span v-html="filterData('HISTORY_01_' + language)"></span>
           </h1>
         </div>
       </div>
@@ -13,10 +13,10 @@
     <section class="mining_process">
       <div class="text-center">
         <h2>
-          <span v-html="filterData('HISTORY_02_' + languaje)"></span>
+          <span v-html="filterData('HISTORY_02_' + language)"></span>
         </h2>
         <p>
-          <span v-html="filterData('HISTORY_03_' + languaje)"></span>
+          <span v-html="filterData('HISTORY_03_' + language)"></span>
         </p>
       </div>
       <div class="container-mining">
@@ -24,7 +24,7 @@
           <div class="mining-card">
             <div>
               <p>
-                <span v-html="filterData('HISTORY_04_' + languaje)"></span>
+                <span v-html="filterData('HISTORY_04_' + language)"></span>
               </p>
             </div>
           </div>
@@ -32,7 +32,7 @@
           <div class="mining-card">
             <div>
               <p>
-                <span v-html="filterData('HISTORY_05_' + languaje)"></span>
+                <span v-html="filterData('HISTORY_05_' + language)"></span>
               </p>
             </div>
           </div>
@@ -40,7 +40,7 @@
           <div class="mining-card">
             <div>
               <p>
-                <span v-html="filterData('HISTORY_06_' + languaje)"></span>
+                <span v-html="filterData('HISTORY_06_' + language)"></span>
               </p>
             </div>
           </div>
@@ -49,7 +49,7 @@
       <div class="mining-section text-center">
         <div>
           <p>
-            <span v-html="filterData('HISTORY_07_' + languaje)"></span>
+            <span v-html="filterData('HISTORY_07_' + language)"></span>
           </p>
         </div>
       </div>
@@ -58,7 +58,7 @@
     <section class="results-section text-center">
       <div>
         <h2>
-          <span v-html="filterData('HISTORY_08_' + languaje)"></span>
+          <span v-html="filterData('HISTORY_08_' + language)"></span>
         </h2>
       </div>
     </section>
@@ -67,22 +67,22 @@
       <div>
         <div>
           <p>
-            <span v-html="filterData('HISTORY_09_' + languaje)"></span>
+            <span v-html="filterData('HISTORY_09_' + language)"></span>
           </p>
         </div>
 
         <div>
-          <h3><span v-html="filterData('HISTORY_10_' + languaje)"></span></h3>
+          <h3><span v-html="filterData('HISTORY_10_' + language)"></span></h3>
         </div>
       </div>
     </section>
 
     <section class="container-table">
       <div class="operations-table">
-        <div v-if="languaje == 'EN'">
+        <div v-if="language == 'EN'">
           <div
             v-for="(op, index) in operations.filter(
-              (op) => op.languaje === 'EN'
+              (op) => op.language === 'EN'
             )"
             :key="index"
             class="operation-row"
@@ -103,7 +103,7 @@
         <div v-else>
           <div
             v-for="(op, index) in operations.filter(
-              (op) => op.languaje === 'ES'
+              (op) => op.language === 'ES'
             )"
             :key="index"
             class="operation-row"
@@ -128,9 +128,10 @@
 <script setup>
 import { onMounted, ref } from "vue";
 import { getLanguage } from "@/kernel/utils";
-import { getSectionByPageandLanguaje } from "@/modules/sections/services/sections-service";
+import { getSectionByPageandlanguage } from "@/modules/sections/services/sections-service";
+import { getPublicHistoryOperations } from "../services/public-services";
 
-const languaje = ref(getLanguage());
+const language = ref(getLanguage());
 
 const expandedIndex = ref(null);
 
@@ -139,85 +140,85 @@ const operations = ref([
     description: "Expanding the capacity...",
     details:
       "In 1Q22 we expanded the capacity of the leach crushing, screening, and conveying system to operate at 36 ktpd, enabling improved recoveries and kinetics, with higher throughput to agglomeration.",
-    languaje: "EN",
+    language: "EN",
   },
   {
     description: "Vat leaching of flotation tails...",
     details:
       "Developing the engineering for agitated tank leaching of 18Mt tails over ten years at an average CuSEQ grade of 0.13%.",
-    languaje: "EN",
+    language: "EN",
   },
   {
     description: "Installation of Aggolmerators...",
     details:
       "In 1Q21, we Installed two agglomerators with a capacity of 24 ktpd to improve metallurgical recoveries by creating robust agglomerate pellets with uniform leach characteristics from screened fines with acid and raffinate to enhance leach recoveries and kinetics, eliminate the loss of contained copper in slimes confined to tails by the screw slurry classification system, and reduce water consumption.",
-    languaje: "EN",
+    language: "EN",
   },
   {
     description: "Optimizing acid consumption...",
     details:
       "Optimizing acid consumption with continuous remote monitoring of heap leach solution chemistry and selective acid addition by section of the leach pad.",
-    languaje: "EN",
+    language: "EN",
   },
   {
     description: "Internally developing a mobile...",
     details:
       "Internally developing a mobile fleet dispatch system that optimizes operations, enables real time monitoring of equipment productivity and automates data capture for multiple systems.",
-    languaje: "EN",
+    language: "EN",
   },
   {
     description: "Dispatch System...",
     details:
       "We developed a mobile fleet dispatch system that optimizes operations, enables real-time monitoring of equipment productivity, and automates data capture for multiple systems.",
-    languaje: "EN",
+    language: "EN",
   },
   {
     description: "Optimization of heap leach practices...",
     details:
       "Selectively implement heap leach aeration, maximizing copper recovery, kinetics, and acid generation.",
-    languaje: "EN",
+    language: "EN",
   },
   {
     description: "Ampliación de la capacidad...",
     details:
       "Ampliación de la capacidad del sistema de trituración y cribado y transporte de la lixiviación en el 1T22 para operar a 40 ktpd y 45 ktpd by 3T22 permitiendo mejorar las recuperaciones y la cinética, con un mayor rendimiento hacia los aglomeradores.",
-    languaje: "ES",
+    language: "ES",
   },
   {
     description: "Desarrollar la ingeniería...",
     details:
       "Desarrollar la ingeniería para la lixiviación en tanque agitado de 18Mt de colas a lo largo de 10 años con una ley media de CuSEQ de 0,13% que comenzará a construirse a finales del 2T22 y se pondrá en marcha en el 4T22.",
-    languaje: "ES",
+    language: "ES",
   },
   {
     description: "Instalación de dos aglomeradores...",
     details:
       "Instalación de dos aglomeradores en el 1T21 con una capacidad de 24 ktpd para crear paneles robustos de aglomerado a partir de finos cribados con ácido y agua refinada para mejorar las recuperaciones de lixiviación y la cinética, eliminar la pérdida de cobre contenido en los lodos confinados en las colas por el sistema de clasificación de lodos de tornillo que reemplazó y reducir el consumo de agua.",
-    languaje: "ES",
+    language: "ES",
   },
   {
     description: "Optimizar el consumo de ácido...",
     details:
       "Optimizar el consumo de ácido con la continua supervisión remota de la pila de lixiviación de la solución química la adición selectiva de ácido por sección de la pila de lixiviación.",
-    languaje: "ES",
+    language: "ES",
   },
   {
     description: "Desarrollar internamente un sistema...",
     details:
       "Desarrollar internamente un sistema de envío de flotas móviles que optimice las operaciones, permita la supervisión en tiempo real de la productividad de los equipos y automatice la captura de datos para múltiples sistemas.",
-    languaje: "ES",
+    language: "ES",
   },
   {
     description: "Implementación selectiva de la aireación...",
     details:
       "Implementación selectiva de la aireación de la pila de lixiviación, maximizando la recuperación de cobre, la cinética y la generación de ácido.",
-    languaje: "ES",
+    language: "ES",
   },
   {
     description: "Desarrollo de un circuito para...",
     details:
       "Desarrollo de un circuito para recuperar el molibdeno que produce xxxlbs de metal contenido al mes.",
-    languaje: "ES",
+    language: "ES",
   },
 ]);
 
@@ -327,9 +328,9 @@ const fetchData = async () => {
   try {
     const dataForm = {
       page: "HISTORY",
-      language: languaje.value,
+      language: language.value,
     };
-    const response = await getSectionByPageandLanguaje(dataForm);
+    const response = await getSectionByPageandlanguage(dataForm);
     if (response.status === 200) {
       if (parseInt(response.data.length) !== 0) {
         dataHistory.value = response.data;
@@ -347,8 +348,22 @@ const filterData = (found_id) => {
   return filteredData.length > 0 ? filteredData[0].description : null;
 };
 
+const fetchPublicHistory = async () => {
+  try {
+    const response = await getPublicHistoryOperations(language.value);
+    if (response.status === 200) {
+      if (parseInt(response.data.length) !== 0) {
+        operations.value = response.data;
+      } 
+    }
+  } catch (error) {
+    console.error("Error fetching public history:", error);
+  }
+};
+
 onMounted(() => {
   fetchData();
+  fetchPublicHistory();
 });
 </script>
 
@@ -357,6 +372,7 @@ onMounted(() => {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
   line-height: 1.6;
+  background: #E4E5E5;
 }
 
 .divider {
@@ -403,7 +419,7 @@ h1 {
   font-size: 2.2rem;
   font-style: bold;
   margin-bottom: 1.8rem;
-  border-bottom: 2px solid #e2e8f0;
+  border-bottom: 2px solid #F9E1CD;
   color: orange;
 }
 
@@ -411,10 +427,9 @@ h1 {
 .mining_process {
   font-family: "Arial", sans-serif;
   color: #333;
-  max-width: 1200px;
+  max-width: auto;
   margin: 0 auto;
-  padding: 20px;
-  margin-top: 48px !important;
+  padding: 128px 128px 0px 128px;
 }
 
 /* Cards */
@@ -480,18 +495,33 @@ h1 {
   }
 }
 
+@media screen and (max-width: 768px) {
+  .mining_process {
+    padding: 32px 16px 8px 16px;
+  }
+}
+
 /* Estilos del resultado section */
 .results-section {
   padding: 80px;
   margin-left: 84px;
   margin-right: 84px;
-  background-color: #d94f4f;
+  background-color: #D32A28;
 }
 .results-section h2 {
   font-size: 2.2rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
-  color: white !important;
+  color: black !important;
+}
+
+@media screen and (max-width: 768px) {
+  .results-section {
+    margin-left: 16px;
+    margin-right: 16px;
+    padding: 32px 8px 8px 8px;
+  }
+  
 }
 
 /* Estilos del ampliation section */
@@ -512,15 +542,23 @@ h1 {
   color: #333 !important;
 }
 
+@media screen and (max-width: 768px) {
+  .ampliation-section {
+    margin-left: 16px;
+    margin-right: 16px;
+    padding: 32px 8px 8px 8px;
+  }
+}
+
 /* Estilos de la tabla expandable */
 .container-table {
   margin-left: 56px;
   margin-right: 56px;
-  margin-bottom: 24px;
+  padding-bottom: 128px;
 }
 
 .operations-table {
-  border: 1px solid #e2e8f0;
+  border: 1px solid #F9E1CD;
   border-radius: 8px;
   overflow: hidden;
   width: 100%;
@@ -528,7 +566,7 @@ h1 {
 }
 
 .operation-row {
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid #F9E1CD;
   transition: all 0.3s ease;
 }
 

@@ -3,12 +3,12 @@
     <v-card-item>
       <v-card-title> About / Nosotros </v-card-title>
       <v-card-subtitle>
-        <div v-if="languaje == 'EN'">
+        <div v-if="language == 'EN'">
           <h2>You are in the section to update in</h2>
           <h1>English</h1>
           <button @click="changeLanguage()" class="action-btn secondary-btn">
             <span class="language-tag">Change Language</span>
-            {{ languaje == "EN" ? "ES" : "EN" }}
+            {{ language == "EN" ? "ES" : "EN" }}
           </button>
         </div>
 
@@ -17,7 +17,7 @@
           <h1>Español</h1>
           <button @click="changeLanguage()" class="action-btn secondary-btn">
             <span class="language-tag">Cambiar idioma</span>
-            {{ languaje == "ES" ? "EN" : "ES" }}
+            {{ language == "ES" ? "EN" : "ES" }}
           </button>
         </div>
         <div class="divider"></div>
@@ -30,9 +30,9 @@
             <div class="hero-overlay bordered-section">
               <h1
                 style="color: white !important"
-                @dblclick="openEditModal('ABOUT_01_' + languaje)"
+                @dblclick="openEditModal('ABOUT_01_' + language)"
               >
-              <span v-html=" filterData('ABOUT_01_' + languaje)"></span>
+              <span v-html=" filterData('ABOUT_01_' + language)"></span>
               </h1>
             </div>
           </section>
@@ -40,13 +40,13 @@
           <section class="header_about">
             <v-row>
               <v-col cols="12" md="6">
-                <h1 @dblclick="openEditModal('ABOUT_02_' + languaje)">
-                  <span v-html=" filterData('ABOUT_02_' + languaje)"></span>
+                <h1 @dblclick="openEditModal('ABOUT_02_' + language)">
+                  <span v-html=" filterData('ABOUT_02_' + language)"></span>
                 </h1>
               </v-col>
               <v-col cols="12" md="6" >
-                <p @dblclick="openEditModal('ABOUT_03_' + languaje)">
-                  <span v-html=" filterData('ABOUT_03_' + languaje)"></span>
+                <p @dblclick="openEditModal('ABOUT_03_' + language)">
+                  <span v-html=" filterData('ABOUT_03_' + language)"></span>
                 </p>
               </v-col>
             </v-row>
@@ -55,20 +55,20 @@
           <section class="about-info">
             <v-row class="text-center">
               <v-col cols="12" md="12">
-                <h3 @dblclick="openEditModal('ABOUT_04_' + languaje)">
-                  <span v-html=" filterData('ABOUT_04_' + languaje)"></span>
+                <h3 @dblclick="openEditModal('ABOUT_04_' + language)">
+                  <span v-html=" filterData('ABOUT_04_' + language)"></span>
                 </h3>
               </v-col>
             </v-row>
             <v-row class="text-start">
               <v-col cols="12" md="6">
-                <p @dblclick="openEditModal('ABOUT_05_' + languaje)">
-                  <span v-html=" filterData('ABOUT_05_' + languaje)"></span>
+                <p @dblclick="openEditModal('ABOUT_05_' + language)">
+                  <span v-html=" filterData('ABOUT_05_' + language)"></span>
                 </p>
               </v-col>
               <v-col cols="12" md="6">
-                <p @dblclick="openEditModal('ABOUT_06_' + languaje)">
-                  <span v-html=" filterData('ABOUT_06_' + languaje)"></span>
+                <p @dblclick="openEditModal('ABOUT_06_' + language)">
+                  <span v-html=" filterData('ABOUT_06_' + language)"></span>
                 </p>
               </v-col>
             </v-row>
@@ -88,14 +88,14 @@
               </v-col>
               <v-col cols="12" md="6" class="text-start">
                 <div class="strategy-text">
-                  <h1 @dblclick="openEditModal('ABOUT_07_' + languaje)">
-                    <span v-html=" filterData('ABOUT_07_' + languaje)"></span>
+                  <h1 @dblclick="openEditModal('ABOUT_07_' + language)">
+                    <span v-html=" filterData('ABOUT_07_' + language)"></span>
                   </h1>
-                  <p @dblclick="openEditModal('ABOUT_08_' + languaje)">
-                    <span v-html=" filterData('ABOUT_08_' + languaje)"></span>
+                  <p @dblclick="openEditModal('ABOUT_08_' + language)">
+                    <span v-html=" filterData('ABOUT_08_' + language)"></span>
                   </p>
-                  <h2 @dblclick="openEditModal('ABOUT_09_' + languaje)">
-                    <span v-html=" filterData('ABOUT_09_' + languaje)"></span>
+                  <h2 @dblclick="openEditModal('ABOUT_09_' + language)">
+                    <span v-html=" filterData('ABOUT_09_' + language)"></span>
                   </h2>
                 </div>
               </v-col>
@@ -106,11 +106,11 @@
             <v-row>
               <v-col cols="12" md="6" class="backgroudnd-text-values">
                 <div class="strategy-text text-start">
-                  <h1 @dblclick="openEditModal('ABOUT_10_' + languaje)">
-                    <span v-html=" filterData('ABOUT_10_' + languaje)"></span>
+                  <h1 @dblclick="openEditModal('ABOUT_10_' + language)">
+                    <span v-html=" filterData('ABOUT_10_' + language)"></span>
                   </h1>
-                  <p @dblclick="openEditModal('ABOUT_11_' + languaje)">
-                    <span v-html=" filterData('ABOUT_11_' + languaje)"></span>
+                  <p @dblclick="openEditModal('ABOUT_11_' + language)">
+                    <span v-html=" filterData('ABOUT_11_' + language)"></span>
                   </p>
                 </div>
               </v-col>
@@ -147,7 +147,7 @@ import {
 } from "@/kernel/utils";
 import { showInfoToast } from "@/kernel/alerts";
 import UpdateModal from "../../components/UpdateModal.vue";
-import { getSectionByPageandLanguaje } from "../../services/sections-service";
+import { getSectionByPageandlanguage } from "../../services/sections-service";
 
 export default defineComponent({
   name: "UpdateAboutEn",
@@ -307,7 +307,7 @@ export default defineComponent({
           page: "ABOUT",
           language: getLanguageForUpdateContent(),
         };
-        const response = await getSectionByPageandLanguaje(dataForm);
+        const response = await getSectionByPageandlanguage(dataForm);
         if (response.status === 200) {
           if (parseInt(response.data.length) !== 0) {
             dataAbout.value = response.data;
@@ -326,7 +326,7 @@ export default defineComponent({
 
     return {
       BASEURL,
-      languaje: getLanguageForUpdateContent(),
+      language: getLanguageForUpdateContent(),
       changeLanguage,
       filterData,
       openEditModal,
@@ -391,7 +391,7 @@ h1 {
   font-size: 2.2rem;
   font-style: bold;
   margin-bottom: 1.8rem;
-  border-bottom: 2px solid #e2e8f0;
+  border-bottom: 2px solid #F9E1CD;
   color: orange;
 }
 
@@ -419,7 +419,7 @@ h1 {
   font-size: 2.2rem;
   font-style: bold;
   margin-bottom: 1.8rem;
-  border-bottom: 2px solid #e2e8f0;
+  border-bottom: 2px solid #F9E1CD;
   color: black;
 }
 .about-info h3 strong {
@@ -464,7 +464,7 @@ h1 {
   font-size: 2.2rem;
   font-style: bold;
   margin-bottom: 1.8rem;
-  border-bottom: 2px solid #e2e8f0;
+  border-bottom: 2px solid #F9E1CD;
   color: black;
 }
 .strategy-text h2 {
@@ -490,7 +490,7 @@ h1 {
   font-size: 2.2rem;
   font-style: bold;
   margin-bottom: 1.8rem;
-  border-bottom: 2px solid #e2e8f0;
+  border-bottom: 2px solid #F9E1CD;
   color: black;
 }
 
@@ -500,7 +500,7 @@ h1 {
   color: #333;
 }
 .backgroudnd-text-values {
-  background-color: #e9d8ad;
+  background-color: #F9E1CD;
   padding: 20px;
   margin-top: -16px !important;
   margin-left: 200px !important;

@@ -41,6 +41,7 @@ exports.login = async (req, res) => {
     try {
         userService.validateEmailAndPassword(email, password);
         const token = await userService.loginUser(email, password);
+        console.log(token);
 
         res.status(200).json({
             status: 200,
@@ -73,11 +74,10 @@ exports.me = async (req, res) => {
     }
 };
 
-exports.get_users = async (req, res) => {
+exports.get_users_frontera = async (req, res) => {
     const { page = 1, size = 10 } = req.query;
-
     try {
-        const users = await userService.getUsers(page, size);
+        const users = await userService.getUsersFrontera(page, size);
         res.status(200).json({
             status: 200,
             message: "Success",
@@ -87,6 +87,80 @@ exports.get_users = async (req, res) => {
         res.status(500).json({
             status: 500,
             message: 'Server error',
+            data: []
+        });
+    }
+};
+
+exports.update_user_frontera = async (req, res) => {
+    const { id, fullname, email, role, password, area } = req.body;
+    if (!req.userId) {
+        return res.status(401).json({
+            status: 401,
+            message: 'Unauthorized',
+            data: []
+        });
+    }
+
+    if (!id || !fullname || !email || !role || !password || !area) {
+        return res.status(400).json({
+            status: 400,
+            message: 'All fields are required',
+            data: []
+        });
+    }
+
+    try {
+        await userService.updatedUserFronteraS(req.body);
+        res.status(200).json({
+            status: 200,
+            message: 'User updated successfully',
+            data: []
+        });
+    } catch (err) {
+        res.status(400).json({
+            status: 400,
+            message: err.message,
+            data: []
+        });
+    }
+};
+
+exports.delete_user_frontera = async (req, res) => {
+    const { id, status } = req.query;
+
+    if (!id) {
+        return res.status(400).json({
+            status: 400,
+            message: 'User ID is required',
+            data: []
+        });
+    }
+
+    if (!status) {
+        return res.status(400).json({
+            status: 400,
+            message: 'Status is required',
+            data: []
+        });
+    }
+
+    const dataFormDelete = {
+        id,
+        status
+    }
+
+    try {
+        await userService.deleteUserFronteraS(dataFormDelete);
+        res.status(200).json({
+            status: 200,
+            message: 'User deleted successfully',
+            data: []
+        });
+    } catch (err) {
+        res.status(400).json({
+            status: 400,
+            message: err.message,
             data: []
         });
     }

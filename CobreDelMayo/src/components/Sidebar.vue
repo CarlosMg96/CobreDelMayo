@@ -59,8 +59,8 @@ export default {
         return {
             showModal: false,
             menuItems: [
-                { label: 'Inicio', icon: 'fa-solid fa-house', route: 'start', roles: ['MASTER', 'ADMIN'] },
-                { label: 'Noticias', icon: 'fa-solid fa-newspaper', route: 'list-news', roles: ['MASTER', 'ADMIN'] },
+                { label: 'Inicio', icon: 'fa-solid fa-house', route: 'start', roles: [ 'ADMIN'] },
+                { label: 'Noticias', icon: 'fa-solid fa-newspaper', route: 'list-news', roles: [ 'ADMIN'] },
                 { label: 'Usuarios', icon: 'fa-solid fa-user-plus', route: 'users', roles: ['MASTER'] },
             ],
             filteredRoutes: [], 

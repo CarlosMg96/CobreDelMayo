@@ -1,13 +1,12 @@
 DROP TABLE IF EXISTS content_from_frontera;
-
 CREATE TABLE content_from_frontera (
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     page ENUM('HOME', 'ABOUT', 'ESG', 'HISTORY', 'LOCATION', 'OPERATIONS') NOT NULL,
     section_id VARCHAR(100) NOT NULL UNIQUE,
-    description TEXT NOT NULL,
+    description TEXT NULL,
     language VARCHAR(2) NOT NULL DEFAULT 'EN',
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 
@@ -83,3 +82,155 @@ INSERT INTO content_from_frontera (page, section_id, description, language) VALU
 ('HISTORY', 'HISTORY_10_EN', 'Grown and optimized operations by', 'EN'),
 ('HISTORY', 'HISTORY_10_ES', 'Crecimiento y optimización de las operaciones mediante:', 'ES');
 
+INSERT INTO content_from_frontera (page, section_id, description, language)
+VALUES
+  ('OPERATIONS', 'OPERATIONS_01_EN', 'Operations', 'EN'),
+  ('OPERATIONS', 'OPERATIONS_01_ES', 'Operaciones', 'ES'),
+  ('OPERATIONS', 'OPERATIONS_02_EN', 'Mining and Process', 'EN'),
+  ('OPERATIONS', 'OPERATIONS_02_ES', 'Minería y Procesos', 'ES'),
+  ('OPERATIONS', 'OPERATIONS_03_EN', 'Conventional Open Pit Mine', 'EN'),
+  ('OPERATIONS', 'OPERATIONS_03_ES', 'Mina convencional a cielo abierto', 'ES'),
+  ('OPERATIONS', 'OPERATIONS_04_EN', 'The PV deposit is mined by conventional open-pit mining methods.', 'EN'),
+  ('OPERATIONS', 'OPERATIONS_04_ES', 'El yacimiento de PV se explota mediante métodos convencionales de minería a cielo abierto', 'ES'),
+  ('OPERATIONS', 'OPERATIONS_05_EN', 'The pit is 4x2 km and operates 4 to 6 simultaneous faces; the Cerro Chato satellite pit is 1.5km west of the main pit.', 'EN'),
+  ('OPERATIONS', 'OPERATIONS_05_ES', 'El tajo es de 4x2 km y opera de 4 a 6 fases simultáneas, el tajo satélite Cerro Chato está ubicado a 1,5 km al oeste del tajo principal', 'ES'),
+  ('OPERATIONS', 'OPERATIONS_06_EN', 'Mining follows a traditional drill, blast, load, haul, and dump sequence.', 'EN'),
+  ('OPERATIONS', 'OPERATIONS_06_ES', 'La minería sigue una secuencia tradicional de perforación, voladura, carga, acarreo y vertido', 'ES'),
+  ('OPERATIONS', 'OPERATIONS_07_EN', 'Waste is hauled to dumps located north and northeast of the current pit configuration.', 'EN'),
+  ('OPERATIONS', 'OPERATIONS_07_ES', 'Los residuos se transportan a vertederos situados al norte y al noreste de la configuración actual del pozo', 'ES'),
+  ('OPERATIONS', 'OPERATIONS_08_EN', 'Mining Rate Life of Mine (LOM): ~200ktpd of material moved (~60 ktpd of ore) LoM average.', 'EN'),
+  ('OPERATIONS', 'OPERATIONS_08_ES', 'Ritmo de extracción Vida útil de la mina (LOM): ~200 ktpd de material movido (~60 ktpd de mineral) promedio de LOM', 'ES'),
+  ('OPERATIONS', 'OPERATIONS_09_EN', 'Mining', 'EN'),
+  ('OPERATIONS', 'OPERATIONS_09_ES', 'Minería', 'ES'),
+  ('OPERATIONS', 'OPERATIONS_10_EN', 'The PV mobile mining fleet includes:', 'EN'),
+  ('OPERATIONS', 'OPERATIONS_10_ES', 'La flota minera móvil de PV incluye:', 'ES'),
+  ('OPERATIONS', 'OPERATIONS_11_EN', '26 Caterpillar 789 and<br />10 777 haul trucks', 'EN'),
+  ('OPERATIONS', 'OPERATIONS_11_ES', '26 Caterpillar 789 y<br />10 camionetas 777 de arrastre', 'ES'),
+  ('OPERATIONS', 'OPERATIONS_12_EN', '2 Terex RH200 and one<br />Caterpillar 6040 shovel', 'EN'),
+  ('OPERATIONS', 'OPERATIONS_12_ES', '2 Terex RH200 y una pala<br />Caterpillar 6040', 'ES'),
+  ('OPERATIONS', 'OPERATIONS_14_EN', '3 Caterpillar 994 and<br />one 992 front end loaders', 'EN'),
+  ('OPERATIONS', 'OPERATIONS_15_EN', '4 Sandvick D75KS<br />conventional blast hole drills<br />and 1 Powerrock D60 truck drill', 'EN'),
+  ('OPERATIONS', 'OPERATIONS_16_EN', '22 smaller loaders, bulldozers,<br />graders and water trucks', 'EN'),
+  ('OPERATIONS', 'OPERATIONS_17_EN', 'The mobile fleet maintenance facility is staffed by 130 highly experienced employees. The facility can perform all major component overhauls except engines.', 'EN'),
+  ('OPERATIONS', 'OPERATIONS_18_EN', 'Process Streams', 'EN'),
+  ('OPERATIONS', 'OPERATIONS_19_EN', 'The ore is selectively mined and processed as a function of its grade, mineralization, acid consumption, leaching, and flotation characteristics:', 'EN'),
+  ('OPERATIONS', 'OPERATIONS_20_EN', 'Oxide and Supergene Crushed Ore', 'EN'),
+  ('OPERATIONS', 'OPERATIONS_21_EN', 'Medium-grade oxides and supergene leachable ores are hauled to a 50+ ktpd primary crusher that feeds screens and secondary crushers with a capacity of 45ktpd. Ore is transported to leach pads by conveyor stacking systems to minimize cost and compaction. Screened fines are drum agglomerated with fresh water and concentrated sulfuric acid by two Feeco agglomerators with a combined capacity of 24ktpd.', 'EN'),
+  ('OPERATIONS', 'OPERATIONS_22_EN', 'ROM and Crushed Chalcopyrite Ore', 'EN'),
+  ('OPERATIONS', 'OPERATIONS_23_EN', 'Leached at 40ºC to 65ºC to reduce passivation on engineered pads insulated against wind, with automated forced aeration and temperature control.', 'EN'),
+  ('OPERATIONS', 'OPERATIONS_24_EN', 'Ore for Tolling:', 'EN'),
+  ('OPERATIONS', 'OPERATIONS_25_EN', 'When the expected NSR from the sale of primary and to a lesser degree, secondary sulfide ores is greater than that might be achieved by leaching, chalcopyrite ore (typically with lower pyrite and higher acid consumption) and selected high-grade chalcocite ore is crushed by a dedicated system and sold to Kupari for floatation.', 'EN'),
+  ('OPERATIONS', 'OPERATIONS_14_ES', '3 cargadoras frontales Caterpillar 994 y<br />una 992', 'ES'),
+  ('OPERATIONS', 'OPERATIONS_15_ES', '4 perforadoras convencionales Sandvick D75KS<br />y 1 Powerrock D60', 'ES'),
+  ('OPERATIONS', 'OPERATIONS_16_ES', '22 cargadoras, bulldozers,<br />motoniveladoras y camiones de agua más pequeños', 'ES'),
+  ('OPERATIONS', 'OPERATIONS_17_ES', 'La instalación de mantenimiento de la flota móvil cuenta con 130 empleados altamente experimentados. Las instalaciones pueden realizar todas las revisiones de los componentes principales, excepto los motores.', 'ES'),
+  ('OPERATIONS', 'OPERATIONS_18_ES', 'Flujos de Proceso', 'ES'),
+  ('OPERATIONS', 'OPERATIONS_19_ES', 'El mineral se extrae selectivamente y se procesa en función de su ley, mineralización, consumo de ácido, lixiviación y características de flotación:', 'ES'),
+  ('OPERATIONS', 'OPERATIONS_20_ES', 'Óxido y mineral triturado supergénico', 'ES'),
+  ('OPERATIONS', 'OPERATIONS_21_ES', 'Los óxidos de grado medio y los minerales lixiviables supergénicos se transportan a una trituradora primaria de una capacidad de 50+ ktpd que alimenta cribas y trituradoras secundarias con una capacidad de 40ktpd (en una expansión de 45 ktdp). El mineral se transporta a las plataformas de lixiviación mediante un sistema de apilamiento por cinta transportadora para minimizar los costes y la compactación. Los finos cribados se aglomeran en tambor con agua fresca y ácido sulfúrico concentrado mediante dos aglomeradores de Feeco con una capacidad combinada de 24ktpd.', 'ES'),
+  ('OPERATIONS', 'OPERATIONS_22_ES', 'ROM y mineral de calcopirita triturado', 'ES'),
+  ('OPERATIONS', 'OPERATIONS_23_ES', 'Lixiviado a 40ºC a 65ºC para reducir la pasivación en plataformas de ingeniería aisladas contra el viento, con aireación forzada automatizada y control de temperatura', 'ES'),
+  ('OPERATIONS', 'OPERATIONS_24_ES', 'Mineral para maquila:', 'ES'),
+  ('OPERATIONS', 'OPERATIONS_25_ES', 'Cuando la expectativa NSR para la venta es mayor que el que podría lograrse por lixiviación, el mineral de calcopirita (normalmente con menor pirita y mayor consumo de ácido) y el mineral de calcocita seleccionado de alta ley se tritura mediante un sistema dedicado y se vende a Kupari para su flotación. Los subproductos incluyen oro, plata y molibdeno.', 'ES');
+
+-- Insert for LOCATION data
+INSERT INTO content_from_frontera (page, section_id, description, language) VALUES
+('LOCATION', 'LOCATION_01_EN', 'Location and Access', 'EN'),
+('LOCATION', 'LOCATION_01_ES', 'Ubicación y acceso', 'ES'),
+('LOCATION', 'LOCATION_02_EN', 'The Piedras Verdes Mine is located near Alamos and Navojoa towns in Sonora, in a safe, politically stable, and developed historic mining region.', 'EN'),
+('LOCATION', 'LOCATION_02_ES', 'La mina Piedras Verdes está situada cerca de las localidades de Álamos y Navojoa en Sonora, es segura, políticamente estable y desarrollo histórico en una región minera.', 'ES'),
+('LOCATION', 'LOCATION_03_EN', 'It benefits from several direct access roads to public highways, and the proximity to the main north-south railway and two deep-water ports (Guaymas 255 km and Topolobampo 248 km).', 'EN'),
+('LOCATION', 'LOCATION_03_ES', 'Se beneficia de varias vías de acceso directo a las carreteras públicas y de la proximidad a la principal línea ferroviaria norte-sur y a dos puertos de agua profunda (Guaymas 255 km y Topolobampo 248 km)', 'ES'),
+('LOCATION', 'LOCATION_04_EN', 'Mexico is a member of the Organization for Economic Cooperation and Development (“OECD”) and the World Trade Organization and has free trade agreements in place with 48 countries (including the EU and all TPP member countries).', 'EN'),
+('LOCATION', 'LOCATION_04_ES', 'México es miembro de la Organización para la Cooperación y el Desarrollo Económico ("OCDE") y de la Organización Mundial del Comercio y tiene acuerdos de libre comercio con 48 países (incluyendo la UE y todos los países miembros del TPP)', 'ES'),
+('LOCATION', 'LOCATION_05_EN', 'Mexico is a stable mining jurisdiction with a modern legal and regulatory framework. These factors differentiate Mexico from other major copper-producing countries that have experienced greater economic, political, and labor relations and similar risks.', 'EN'),
+('LOCATION', 'LOCATION_05_ES', 'México es estable a la jurisdicción minera con un marco legal y regulatorio moderno. Estos factores diferencian a México de otros grandes países productores de cobre que han experimentado mayores riesgos económicos, políticos, laborales y similares', 'ES'),
+('LOCATION', 'LOCATION_06_EN', 'Its advantaged location allows our management and front-line employees to live in attractive surroundings with access to excellent schools and universities. This provides a significant competitive advantage in recruiting and retaining competent management and a skilled labor force.', 'EN'),
+('LOCATION', 'LOCATION_06_ES', 'Su ventajosa ubicación ofrece a nuestros directivos y empleados de primera línea la oportunidad de vivir en un entorno atractivo con acceso a excelentes escuelas y universidades. Esto nos proporciona una importante ventaja competitiva a la hora de contratar y retener a directivos competentes y a una mano de obra cualificada.', 'ES'),
+('LOCATION', 'LOCATION_07_EN', 'Sonora is the largest copper-producing state in Mexico, accounting for 75.6% of copper production in 2022. Total copper production in Mexico was ~ 753 kt in 2022.', 'EN'),
+('LOCATION', 'LOCATION_07_ES', 'Sonora es el mayor estado productor de cobre en México, con el 81% de la producción de cobre en 2020. La producción de cobre en México fue de ~ 730kt en 2020', 'ES'),
+('LOCATION', 'LOCATION_08_EN', '21 km from Alamos and 50 km from Navojoa', 'EN'),
+('LOCATION', 'LOCATION_08_ES', 'A 21 km de Álamos y a 50 km de Navojoa', 'ES'),
+('LOCATION', 'LOCATION_09_EN', 'Air', 'EN'),
+('LOCATION', 'LOCATION_09_ES', 'Aire', 'ES'),
+('LOCATION', 'LOCATION_10_EN', 'Ciudad Obregón International Airport is located 111 km (~75 min drive) from the mine', 'EN'),
+('LOCATION', 'LOCATION_10_ES', 'El aeropuerto internacional de Ciudad Obregón se encuentra a 111 km (~75 minutos en coche) del sitio', 'ES'),
+('LOCATION', 'LOCATION_11_EN', 'Rail', 'EN'),
+('LOCATION', 'LOCATION_11_ES', 'Ferrocarril', 'ES'),
+('LOCATION', 'LOCATION_12_EN', '50 km to the mainline north-south railway in Navojoa', 'EN'),
+('LOCATION', 'LOCATION_12_ES', 'A 50 km de la línea principal de ferrocarril norte-sur en Navojoa', 'ES'),
+('LOCATION', 'LOCATION_13_EN', 'Road', 'EN'),
+('LOCATION', 'LOCATION_13_ES', 'Carretera', 'ES'),
+('LOCATION', 'LOCATION_14_EN', 'Connected by a 14 km access road to a paved highway', 'EN'),
+('LOCATION', 'LOCATION_14_ES', 'Conectado por una carretera de acceso de 14 km a una autopista pavimentada', 'ES'),
+('LOCATION', 'LOCATION_15_EN', 'Port', 'EN'),
+('LOCATION', 'LOCATION_15_ES', 'Puerto', 'ES'),
+('LOCATION', 'LOCATION_16_EN', 'Approximately ~250 km from the deep-water ports of Guaymas and Topolobampo', 'EN'),
+('LOCATION', 'LOCATION_16_ES', 'A unos ~250 km de los puertos de aguas profundas de Guaymas y Topolobampo', 'ES'),
+('LOCATION', 'LOCATION_17_EN', 'Infrastructure', 'EN'),
+('LOCATION', 'LOCATION_17_ES', 'Infraestructura', 'ES'),
+('LOCATION', 'LOCATION_18_EN', 'All infrastructure is in place and located close to the mine. PV is easily accessible by all modes of transport, including air transport from the Ciudad Obregón International Airport and Alamos domestic airport, road transport, rail transport through Sonora’s mainline north-south railway that passes through Navojoa, and ocean transport at the port of Guaymas and Topolobampo from which copper concentrate is blended and exported by both trading and mining companies. The PV Mine has ten titled water concessions that grant its access to water resources. It has direct access to the Mexican Federal Electricity Commission (Comisión Federal de Electricidad) high-voltage grid, with a continuous capacity of 25 MW of electricity at a current cost of approximately $0.06/kWh purchased on the renewable Wholesale Electricity Market. Sulfuric acid used for heap leaching is purchased from the Grupo México smelter, but it is also available from other sources.', 'EN'),
+('LOCATION', 'LOCATION_18_ES', 'Toda la infraestructura está en su sitio y se encuentra cerca de la mina. PV es fácilmente accesible por todos los medios de transporte, incluido el transporte aéreo desde el Aeropuerto Internacional de Ciudad Obregón y el aeropuerto nacional de Álamos, el transporte por carretera, el transporte ferroviario a través de la línea principal de ferrocarril norte-sur de Sonora que pasa por Navojoa, y el transporte marítimo en el puerto de Guaymas y Topolobampo desde donde se mezcla el concentrado de cobre y se exporta tanto por las empresas comerciales como por las mineras. La mina PV cuenta con 10 concesiones de agua tituladas que le dan acceso a los recursos hídricos. Tiene acceso directo a la red de alta tensión de la Comisión Federal de Electricidad (CFE), con una capacidad continua de 25 MW de electricidad a un costo corriente de aproximadamente 0,04 $/kWh comprados en el Mercado Mayorista de Electricidad renovable. El ácido sulfúrico utilizado para la lixiviación en pilas se adquiere de la compra de Grupo México en Navojoa, Sonora. El ácido sulfúrico también puede obtenerse de otras fuentes', 'ES');
+
+-- Insert for HOME data
+INSERT INTO content_from_frontera (page, section_id, description, language) VALUES
+('HOME', 'HOME_01_EN', 'About Us', 'EN'),
+('HOME', 'HOME_01_ES', 'Acerca de nosotros', 'ES'),
+('HOME', 'HOME_02_EN', 'Frontera Copper Corporation is an operating mine located in northwestern Mexico', 'EN'),
+('HOME', 'HOME_02_ES', 'Frontera Copper Corporation es una mina en operación ubicada en el noroeste de México.', 'ES'),
+('HOME', 'HOME_03_EN', 'ESG', 'EN'),
+('HOME', 'HOME_03_ES', 'ESG', 'ES'),
+('HOME', 'HOME_04_EN', 'ESG: Communities', 'EN'),
+('HOME', 'HOME_04_ES', 'ESG: Comunidades', 'ES'),
+('HOME', 'HOME_05_EN', 'We place great importance on our relationship with our surrounding communities.', 'EN'),
+('HOME', 'HOME_05_ES', 'Damos gran importancia a nuestra relación con las comunidades que nos rodean.', 'ES'),
+('HOME', 'HOME_06_EN', 'ESG: Health and Safety', 'EN'),
+('HOME', 'HOME_06_ES', 'ESG: Salud y Seguridad', 'ES'),
+('HOME', 'HOME_07_EN', 'Extensive training programs combined with rigorous analysis of all anormal operations and prompt corrective action.', 'EN'),
+('HOME', 'HOME_07_ES', 'Amplios programas de entrenamiento combinados con un análisis riguroso de todas las operaciones anormales y una pronta acción correctiva.', 'ES'),
+('HOME', 'HOME_08_EN', 'ESG: Water & Environment', 'EN'),
+('HOME', 'HOME_08_ES', 'ESG: Agua y Medio Ambiente', 'ES'),
+('HOME', 'HOME_09_EN', 'We comply with official regulations to the highest standards and progressively improving our contribution to the environment.', 'EN'),
+('HOME', 'HOME_09_ES', 'Cumplimos las normativas oficiales con los más altos estándares y mejorando progresivamente nuestra contribución al medio ambiente.', 'ES');
+
+
+drop Table content_from_frontera;
+
+
+CREATE TABLE history_operations_frontera (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    description VARCHAR(255) NOT NULL,
+    details TEXT NOT NULL,
+    language VARCHAR(2) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+-- Insert for history_operations_frontera
+INSERT INTO history_operations_frontera (description, details, language) VALUES
+('Expanding the capacity...', 'In 1Q22 we expanded the capacity of the leach crushing, screening, and conveying system to operate at 36 ktpd, enabling improved recoveries and kinetics, with higher throughput to agglomeration.', 'EN'),
+('Vat leaching of flotation tails...', 'Developing the engineering for agitated tank leaching of 18Mt tails over ten years at an average CuSEQ grade of 0.13%.', 'EN'),
+('Installation of Aggolmerators...', 'In 1Q21, we Installed two agglomerators with a capacity of 24 ktpd to improve metallurgical recoveries by creating robust agglomerate pellets with uniform leach characteristics from screened fines with acid and raffinate to enhance leach recoveries and kinetics, eliminate the loss of contained copper in slimes confined to tails by the screw slurry classification system, and reduce water consumption.', 'EN'),
+('Optimizing acid consumption...', 'Optimizing acid consumption with continuous remote monitoring of heap leach solution chemistry and selective acid addition by section of the leach pad.', 'EN'),
+('Internally developing a mobile...', 'Internally developing a mobile fleet dispatch system that optimizes operations, enables real time monitoring of equipment productivity and automates data capture for multiple systems.', 'EN'),
+('Dispatch System...', 'We developed a mobile fleet dispatch system that optimizes operations, enables real-time monitoring of equipment productivity, and automates data capture for multiple systems.', 'EN'),
+('Optimization of heap leach practices...', 'Selectively implement heap leach aeration, maximizing copper recovery, kinetics, and acid generation.', 'EN'),
+('Ampliación de la capacidad...', 'Ampliación de la capacidad del sistema de trituración y cribado y transporte de la lixiviación en el 1T22 para operar a 40 ktpd y 45 ktpd by 3T22 permitiendo mejorar las recuperaciones y la cinética, con un mayor rendimiento hacia los aglomeradores.', 'ES'),
+('Desarrollar la ingeniería...', 'Desarrollar la ingeniería para la lixiviación en tanque agitado de 18Mt de colas a lo largo de 10 años con una ley media de CuSEQ de 0,13% que comenzará a construirse a finales del 2T22 y se pondrá en marcha en el 4T22.', 'ES'),
+('Instalación de dos aglomeradores...', 'Instalación de dos aglomeradores en el 1T21 con una capacidad de 24 ktpd para crear paneles robustos de aglomerado a partir de finos cribados con ácido y agua refinada para mejorar las recuperaciones de lixiviación y la cinética, eliminar la pérdida de cobre contenido en los lodos confinados en las colas por el sistema de clasificación de lodos de tornillo que reemplazó y reducir el consumo de agua.', 'ES'),
+('Optimizar el consumo de ácido...', 'Optimizar el consumo de ácido con la continua supervisión remota de la pila de lixiviación de la solución química la adición selectiva de ácido por sección de la pila de lixiviación.', 'ES'),
+('Desarrollar internamente un sistema...', 'Desarrollar internamente un sistema de envío de flotas móviles que optimice las operaciones, permita la supervisión en tiempo real de la productividad de los equipos y automatice la captura de datos para múltiples sistemas.', 'ES'),
+('Implementación selectiva de la aireación...', 'Implementación selectiva de la aireación de la pila de lixiviación, maximizando la recuperación de cobre, la cinética y la generación de ácido.', 'ES'),
+('Desarrollo de un circuito para...', 'Desarrollo de un circuito para recuperar el molibdeno que produce xxxlbs de metal contenido al mes.', 'ES');
+
+
+CREATE TABLE files_cobre_del_mayo (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    file_name VARCHAR(255) NOT NULL,
+    file_path TEXT NOT NULL,
+    file_type VARCHAR(50) NOT NULL,
+    author VARCHAR(100) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

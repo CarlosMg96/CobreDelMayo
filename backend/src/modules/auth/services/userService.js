@@ -39,7 +39,15 @@ const loginUser = async (email, password) => {
         throw new Error('Invalid password');
     }
 
-    const token = jwt.sign({ id: user.id, role: user.role, area: user.area, status: user.status, fullname: user.fullname, email: user.email }, keysTokens.secret, { expiresIn: keysTokens.expiresIn });
+    let token;
+    if (user.status === 'INACTIVE') {
+        throw new Error('User disabled');
+    }
+
+    if (user.status === 'ACTIVE'){
+       token = jwt.sign({ id: user.id, role: user.role, area: user.area, status: user.status, fullname: user.fullname, email: user.email }, keysTokens.secret, { expiresIn: keysTokens.expiresIn });
+    }
+
     return token;
 };
 
@@ -53,15 +61,27 @@ const getUserProfile = async (userId) => {
 };
 
 // Obtener lista de usuarios con paginación
-const getUsers = async (page, size) => {
-    const { results, totalElements } = await userModel.getUsersWithPagination(page, size);
+const getUsersFrontera = async (page, size) => {
+    const { results, totalElements } = await userModel.getUsersWithPaginationFrontera(page, size);
     return { content: results, totalElements };
 };
+
+const updatedUserFronteraS = async (data) => {
+    const result = await userModel.updatedUserFronteraM(data);
+    return result;
+}
+
+const deleteUserFronteraS = async (userId) => {
+    const result = await userModel.deleteUserFronteraM(userId);
+    return result;
+}
 
 module.exports = {
     validateEmailAndPassword,
     registerUser,
     loginUser,
     getUserProfile,
-    getUsers
+    getUsersFrontera,
+    updatedUserFronteraS,
+    deleteUserFronteraS
 };

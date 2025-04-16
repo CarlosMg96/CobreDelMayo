@@ -503,7 +503,7 @@ body {
 }
 
 /* Estilos responsivos */
-@media (max-width: 768px) {
+@media (max-width: 968px) {
   .navbar {
     width: calc(100% - 48px);
     padding: 10px 16px;

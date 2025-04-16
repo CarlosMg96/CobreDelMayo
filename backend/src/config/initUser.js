@@ -29,7 +29,7 @@ const createTableUsers = async (connection) => {
       email VARCHAR(70) NOT NULL UNIQUE,
       password VARCHAR(100) NOT NULL,
       remember_token VARCHAR(100),
-      role ENUM('MASTER', 'SUPERADMIN', 'ADMIN', 'INVESTORS') NOT NULL,
+      role ENUM( 'SUPERADMIN', 'ADMIN', 'INVESTORS') NOT NULL,
       area ENUM('COBRE', 'FRONTERA', 'NA') NOT NULL,
       status ENUM ('ACTIVE', 'INACTIVE', 'SUSPENDED') DEFAULT 'ACTIVE',
       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -60,7 +60,7 @@ const createDefaultUser = async (connection) => {
       // Crear el usuario si no existe
       await connection.execute(
         'INSERT INTO users (fullname, email, password, role, area) VALUES (?, ?, ?, ?, ?)',
-        ['Isa Dev', keys.userEmail, hashedPassword, 'MASTER', 'NA']
+        ['Eve Dev', keys.userEmail, hashedPassword, 'SUPERADMIN', 'FRONTERA']
       );
       console.log('Usuario por defecto creado exitosamente.');
     } catch (err) {

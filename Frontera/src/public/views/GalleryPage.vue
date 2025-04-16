@@ -2,7 +2,7 @@
   <div class="operations-page">
     <section class="about-hero">
       <div class="hero-overlay">
-        <div v-if="languaje == 'EN'">
+        <div v-if="language == 'EN'">
           <h1 style="color: white !important">Gallery</h1>
         </div>
         <div v-else>
@@ -14,7 +14,7 @@
     <section class="gallery-section">
       <!-- Sección Lixiviación -->
       <div class="gallery-container">
-        <div v-if="languaje == 'EN'">
+        <div v-if="language == 'EN'">
           <h2 class="gallery-title">Leaching and SX/EW</h2>
         </div>
         <div v-else>
@@ -40,7 +40,7 @@
 
       <!-- Sección Mina -->
       <div class="gallery-container">
-        <div v-if="languaje == 'EN'">
+        <div v-if="language == 'EN'">
           <h2 class="gallery-title">Mine</h2>
         </div>
         <div v-else>
@@ -66,7 +66,7 @@
 
       <!-- Sección Trituración -->
       <div class="gallery-container">
-        <div v-if="languaje == 'EN'">
+        <div v-if="language == 'EN'">
           <h2 class="gallery-title">Crushing System</h2>
         </div>
         <div v-else>
@@ -105,7 +105,7 @@
 import { ref } from "vue";
 import { getLanguage, BASEURL } from "@/kernel/utils";
 
-const languaje = ref(getLanguage());
+const language = ref(getLanguage());
 const imagesHidro = ref([
   "hidrometalurgia-01.jpg",
   "hidrometalurgia-02.jpg",
