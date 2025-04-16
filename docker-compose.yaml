@@ -1,0 +1,86 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: mysql-cobre-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: cobre_del_mayo
+    ports:
+      - "3301:3306"
+    volumes:
+      - data_cobre_frontera:/var/lib/mysql 
+    networks:
+      - my-network-cobre
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+      args:
+        NODE_ENV: development
+    container_name: back-cobre
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      MYSQL_HOST: db
+      MYSQL_DB: cobre_del_mayo
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      DATABASE_URL: mysql://root:root@db:3306/cobre_del_mayo
+      NODE_ENV: development
+    ports:
+      - "3001:3000"
+    volumes:
+      - ./backend:/backend-cobre
+      - /backend-cobre/node_modules
+    networks:
+      - my-network-cobre
+
+  frontera:
+    build:
+      context: ./Frontera
+      dockerfile: Dockerfile
+    container_name: front-frontera
+    ports:
+      - "81:8080"
+    volumes:
+      - ./Frontera:/frontend-frontera
+      - /frontend-frontera/node_modules
+    environment:
+      - NODE_ENV=development
+    networks:
+      - my-network-cobre
+    depends_on:
+      - backend
+
+  cobre:
+    build:
+      context: ./CobreDelMayo
+      dockerfile: Dockerfile
+    container_name: front-cobre
+    ports:
+      - "82:8080"
+    volumes:
+      - ./CobreDelMayo:/frontend-cobre
+      - /frontend-cobre/node_modules
+    environment:
+      - NODE_ENV=development
+    networks:
+      - my-network-cobre
+    depends_on:
+      - backend
+
+networks:
+  my-network-cobre:
+    driver: bridge
+
+volumes:
+  data_cobre_frontera:

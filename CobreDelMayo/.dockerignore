@@ -1,0 +1,30 @@
+# Ignorar dependencias locales
+node_modules
+npm-debug.log
+yarn-error.log
+
+# Builds locales (si usas Vite, Vue, React, etc.)
+dist
+build
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Control de versiones
+.git
+.gitignore
+
+# Archivos del entorno local
+.env
+.env.local
+.env.development
+.env.production
+
+# IDEs y editores
+.vscode
+.idea
+
+# Docker
+docker-compose.yml
+Dockerfile

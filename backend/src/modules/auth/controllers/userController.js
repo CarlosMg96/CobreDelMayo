@@ -41,7 +41,6 @@ exports.login = async (req, res) => {
     try {
         userService.validateEmailAndPassword(email, password);
         const token = await userService.loginUser(email, password);
-        console.log(token);
 
         res.status(200).json({
             status: 200,
