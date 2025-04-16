@@ -546,7 +546,7 @@ p {
 
 .esg-see-more:hover {
   background: #D32A28;
-  box-shadow: #333 0px 3px 0px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Estilos para la sección Galería */
