@@ -18,14 +18,17 @@ const storage = multer.diskStorage({
     cb(null, uploadDir);
   },
   filename: function (req, file, cb) {
-    const sanitizedName = file.originalname
+    const userProvidedName = req.body.fileName || 'archivo';
+
+    const sanitizedName = userProvidedName
       .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // elimina acentos
       .replace(/\s+/g, '_')                            // reemplaza espacios por "_"
       .replace(/[^a-zA-Z0-9_.-]/g, '');                // permite solo letras, números, guiones y puntos
 
-    cb(null, `${Date.now()}_${sanitizedName}`);
+    cb(null, `${Date.now()}_${sanitizedName}.pdf`);
   }
 });
+
 
 const upload = multer({
   storage,
@@ -52,6 +55,14 @@ router.get(
   verifyToken,
   checkRole(['SUPERADMIN', 'ADMIN']),
   filesController.getAllFilesC
+);
+
+// 📥 Listado de archivos por email
+router.get(
+  '/files/investor',
+  verifyToken,
+  checkRole(['INVESTORS']),
+  filesController.getFileByInvestorC
 );
 
 router.delete(
