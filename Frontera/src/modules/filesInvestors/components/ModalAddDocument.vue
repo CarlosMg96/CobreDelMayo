@@ -20,6 +20,7 @@
             <label for="category">Categoría</label>
             <select id="category" v-model="category" required>
               <option value="" disabled selected>Selecciona un tipo de archivo</option>
+              <option value="NONE">NONE</option>
               <option value="CDM Overview">CDM Overview</option>
               <option value="Conference Call">Conference Call</option>
               <option value="Presentation">Presentation</option>
