@@ -92,7 +92,7 @@ exports.get_users_frontera = async (req, res) => {
 };
 
 exports.update_user_frontera = async (req, res) => {
-    const { id, fullname, email, role, password, area } = req.body;
+    const { id, fullname, email, role, area } = req.body;
     if (!req.userId) {
         return res.status(401).json({
             status: 401,
@@ -101,7 +101,7 @@ exports.update_user_frontera = async (req, res) => {
         });
     }
 
-    if (!id || !fullname || !email || !role || !password || !area) {
+    if (!id || !fullname || !email || !role || !area) {
         return res.status(400).json({
             status: 400,
             message: 'All fields are required',

@@ -53,17 +53,48 @@ const getUsersWithPaginationFrontera = async (page, size) => {
 };
 
 
-const updatedUserFronteraM = async (data) => {
-   try{
-    const connection = await createConnection();
-    const query = 'UPDATE users SET fullname = ?, email = ?, role = ?, area = ?, password = ? WHERE id = ?';
-    await connection.execute(query, [data.fullname, data.email, data.role, data.area, data.password, data.id]);
-    await connection.end();
-   }catch(err){
-    console.error('Error updating user:', err);
-    throw new Error('Error updating user');
-   }
-}
+const updatedUserFronteraM = async (data, hashedPassword) => {
+    try {
+      const connection = await createConnection();
+  
+      // 1. Traer datos actuales del usuario
+      const [rows] = await connection.execute('SELECT * FROM users WHERE id = ?', [data.id]);
+      const currentUser = rows[0];
+  
+      if (!currentUser) {
+        throw new Error('User not found');
+      }
+  
+      // 2. Usar los valores nuevos si existen, si no, usar los actuales
+      const updatedUser = {
+        fullname: data.fullname ?? currentUser.fullname,
+        email: data.email ?? currentUser.email,
+        role: data.role ?? currentUser.role,
+        area: data.area ?? currentUser.area,
+        password: hashedPassword ?? currentUser.password,
+      };
+  
+      // 3. Hacer el update
+      const query = `
+        UPDATE users SET fullname = ?, email = ?, role = ?, area = ?, password = ?
+        WHERE id = ?`;
+        
+      await connection.execute(query, [
+        updatedUser.fullname,
+        updatedUser.email,
+        updatedUser.role,
+        updatedUser.area,
+        updatedUser.password,
+        data.id,
+      ]);
+  
+      await connection.end();
+    } catch (err) {
+      console.error('Error updating user:', err);
+      throw new Error('Error updating user');
+    }
+  };
+  
 
 const deleteUserFronteraM = async (data) => {
     const connection = await createConnection();

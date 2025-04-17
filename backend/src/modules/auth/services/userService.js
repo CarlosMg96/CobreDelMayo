@@ -67,7 +67,8 @@ const getUsersFrontera = async (page, size) => {
 };
 
 const updatedUserFronteraS = async (data) => {
-    const result = await userModel.updatedUserFronteraM(data);
+    const hashedPassword = data.password ? bcrypt.hashSync(data.password, 8) : null;
+    const result = await userModel.updatedUserFronteraM(data, hashedPassword);
     return result;
 }
 
