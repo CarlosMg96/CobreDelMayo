@@ -68,28 +68,28 @@ export default {
           icon: "fa-solid fa-house",
           route: "start",
           roles: ["ADMIN", "SUPERADMIN", "INVESTORS"],
-          areas: ["COBRE", "FONTERA", "NA"],
+          areas: ["COBRE", "FRONTERA", "NA"],
         },
         {
           label: "Secciones",
           icon: "fa-solid fa-list",
           route: "list-sections",
           roles: ["ADMIN", "SUPERADMIN"],
-          areas: ["FONTERA"],
+          areas: ["FRONTERA"],
         },
         {
           label: "Documentos",
           icon: "fa-solid fa-file",
           route: "list-files",
           roles: ["ADMIN", "SUPERADMIN", "INVESTORS"],
-          areas: ["COBRE", "FONTERA", "NA"],
+          areas: ["COBRE", "FRONTERA", "NA"],
         },
         {
           label: "Usuarios",
           icon: "fa-solid fa-user-plus",
           route: "user-list",
           roles: ["SUPERADMIN"],
-          areas: ["COBRE", "FONTERA"],
+          areas: ["COBRE", "FRONTERA"],
         },
       ],
       filteredRoutes: [],
@@ -119,9 +119,12 @@ export default {
     async updateFilteredRoutes() {
       const role = await getRoleByToken();
       const area = await getAreaByToken();
-      this.filteredRoutes = this.menuItems.filter(
-        (item) => item.roles.includes(role) && item.areas.includes(area)
-      );
+
+      this.filteredRoutes = this.menuItems.filter((item) => {
+        const roleMatch = item.roles.includes(role);
+        const areaMatch = item.areas.includes(area);
+        return roleMatch && areaMatch;
+      });
     },
     openUserModal() {
       this.showModal = true;

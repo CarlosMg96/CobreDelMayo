@@ -41,6 +41,9 @@
           <tr>
             <td>{{ item.id }}</td>
             <td>{{ item.file_name }}</td>
+            <td>{{ item.category }}</td>
+            <td>{{ item.quarter }}</td>
+            <td>{{ item.year }}</td>
             <td>{{ item.author}}</td>
             <td>{{ item.created_at }}</td>
             <td>
@@ -92,6 +95,9 @@ const showModalAddFile = ref(false);
 const headers = ref([
   { title: "#", key: "id" },
   { title: "Nombre del archivo", key: "file_name" },
+  { title: "Categoría", key: "category" },
+  { title: "Trimestre", key: "quarter" },
+  { title: "Año", key: "year" },
   { title: "Subido por", key: "author" },
   { title: "Subido el", key: "created_at" },
   { title: "", key: "actions", sortable: false },
