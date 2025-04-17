@@ -6,7 +6,8 @@ const {
     getFileByIdS,
     getFileByNameS,
     getAllFilesS,
-    deleteFileS
+    deleteFileS,
+    getFileByInvestorS
 } = require('../services/invertService');
 
 exports.uploadFileC = async (req, res) => {
@@ -19,12 +20,18 @@ exports.uploadFileC = async (req, res) => {
         return res.status(400).json({ message: 'Solo se permiten archivos PDF' });
       }    
 
-      const fileData = {
-        file_name: file.originalname,
-        file_path: `/pdf_investors/${file.filename}`,
-        file_type: 'application/pdf',
-        author: userEmail,
-      };
+      // const fileName = req.body.fileName || file.originalname;
+
+        const fileData = {
+          file_name: req.body.fileName,
+          file_path: `/pdf_investors/${file.filename}`, 
+          file_type: 'application/pdf',
+          author: userEmail,
+          category: req.body.category,
+          quarter: req.body.quarter,
+          year: req.body.year,
+        };
+        
   
       const result = await uploadFileS(fileData);
       res.status(200).json({
@@ -83,5 +90,19 @@ exports.uploadFileC = async (req, res) => {
       await deleteFileS(id);
       res.json({ message: 'Archivo eliminado' });
     });
+  }
+
+  exports.getFileByInvestorC = async (req, res) => {
+    const { page = 1, limit = 10} = req.query;
+    const { userEmail } = req;
+    if (!userEmail) {
+      return res.status(400).json({ message: 'Email de usuario no proporcionado' });
+    }
+    const files = await getFileByInvestorS(Number(page), Number(limit), userEmail);
+    res.status(200).json({
+      status: 200,
+      message: 'Files retrieved successfully',
+      data: files
+  });
   }
   

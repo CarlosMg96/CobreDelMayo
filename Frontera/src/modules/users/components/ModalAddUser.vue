@@ -46,6 +46,7 @@
           <select id="role" v-model="role" required>
             <option value="SUPERADMIN">SUPERADMINISTRADOR</option>
             <option value="ADMIN">ADMINISTRADOR</option>
+            <option value="INVESTORS">INVERSIONISTA</option>
           </select>
         </div>
 

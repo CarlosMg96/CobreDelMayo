@@ -1,12 +1,12 @@
 <template>
   <div class="layout-container">
     <!-- Overlay para móviles -->
-    <div 
-      v-if="visible && isMobile" 
+    <div
+      v-if="visible && isMobile"
       class="sidebar-overlay"
       @click="$emit('update:visible', false)"
     ></div>
-    
+
     <!-- Sidebar -->
     <div :class="['custom-sidebar', { open: visible, closed: !visible }]">
       <div @click="openUserModal" class="sidebar-header item-avatar">
@@ -18,10 +18,10 @@
       </div>
       <div class="w-100">
         <ul>
-          <li 
-            class="item" 
-            v-for="(item, index) in filteredRoutes" 
-            :key="index" 
+          <li
+            class="item"
+            v-for="(item, index) in filteredRoutes"
+            :key="index"
             @click="navigate(item.route)"
             :class="{ active: isActive(item.route) }"
           >
@@ -41,97 +41,131 @@
 </template>
 
 <script>
-import { getRoleByToken, getUserInfoByToken } from "@/kernel/utils"
+import {
+  getRoleByToken,
+  getUserInfoByToken,
+  getAreaByToken,
+} from "@/kernel/utils";
 import UserModal from "@/components/UserModal.vue";
 
 export default {
-    name: 'PrivateSidebar',
-    components: {
-      UserModal,
+  name: "PrivateSidebar",
+  components: {
+    UserModal,
+  },
+  props: {
+    visible: {
+      type: Boolean,
+      required: true,
     },
-    props: {
-      visible: {
-        type: Boolean,
-        required: true
+  },
+  data() {
+    return {
+      showModal: false,
+      menuItems: [
+        {
+          label: "Inicio",
+          icon: "fa-solid fa-house",
+          route: "start",
+          roles: ["ADMIN", "SUPERADMIN", "INVESTORS"],
+          areas: ["COBRE", "FONTERA", "NA"],
+        },
+        {
+          label: "Secciones",
+          icon: "fa-solid fa-list",
+          route: "list-sections",
+          roles: ["ADMIN", "SUPERADMIN"],
+          areas: ["FONTERA"],
+        },
+        {
+          label: "Documentos",
+          icon: "fa-solid fa-file",
+          route: "list-files",
+          roles: ["ADMIN", "SUPERADMIN", "INVESTORS"],
+          areas: ["COBRE", "FONTERA", "NA"],
+        },
+        {
+          label: "Usuarios",
+          icon: "fa-solid fa-user-plus",
+          route: "user-list",
+          roles: ["SUPERADMIN"],
+          areas: ["COBRE", "FONTERA"],
+        },
+      ],
+      filteredRoutes: [],
+      charName: "",
+      user_role: "",
+      full_name: "",
+      isMobile: window.innerWidth <= 768,
+    };
+  },
+  async mounted() {
+    await this.updateFilteredRoutes();
+    await this.getAvatarLetter();
+    await this.getName();
+    await this.getRole();
+    window.addEventListener("resize", this.handleResize);
+  },
+  beforeUnmount() {
+    window.removeEventListener("resize", this.handleResize);
+  },
+  methods: {
+    handleResize() {
+      this.isMobile = window.innerWidth <= 768;
+    },
+    isActive(route) {
+      return this.$route.name === route;
+    },
+    async updateFilteredRoutes() {
+      const role = await getRoleByToken();
+      const area = await getAreaByToken();
+      this.filteredRoutes = this.menuItems.filter(
+        (item) => item.roles.includes(role) && item.areas.includes(area)
+      );
+    },
+    openUserModal() {
+      this.showModal = true;
+    },
+    closeUserModal() {
+      this.showModal = false;
+    },
+    async getAvatarLetter() {
+      const userInfo = await getUserInfoByToken();
+      this.charName = userInfo.fullname.charAt(0);
+    },
+    async getName() {
+      const userInfo = await getUserInfoByToken();
+      this.full_name = userInfo.fullname;
+    },
+    async getRole() {
+      const role = await getRoleByToken();
+      const app_role = role === "MASTER" ? "Administrador" : "Usuario";
+      this.user_role = app_role;
+    },
+    logout() {
+      // Lógica para cerrar sesión
+    },
+    navigate(route) {
+      const currentRoute = this.$route.name;
+      if (route !== currentRoute) {
+        this.$router
+          .push({ name: route })
+          .then(() => {
+            if (this.isMobile) {
+              this.$emit("update:visible", false);
+            }
+          })
+          .catch((err) => {
+            if (err.name !== "NavigationDuplicated") {
+              console.error("Navigation error:", err);
+            }
+          });
+      } else if (this.isMobile) {
+        this.$emit("update:visible", false);
       }
     },
-    data() {
-        return {
-            showModal: false,
-            menuItems: [
-                { label: 'Inicio', icon: 'fa-solid fa-house', route: 'start', roles: [ 'ADMIN', 'SUPERADMIN'] },
-                { label: 'Secciones', icon: 'fa-solid fa-list', route: 'list-sections', roles: [ 'ADMIN', 'SUPERADMIN'] },
-                { label: 'Documentos', icon: 'fa-solid fa-file', route: 'list-files', roles: [ 'ADMIN', 'SUPERADMIN', 'INVESTORS']},
-                { label: 'Usuarios', icon: 'fa-solid fa-user-plus', route: 'user-list', roles: [ 'SUPERADMIN'] },
-            ],
-            filteredRoutes: [], 
-            charName: '',
-            user_role: '',
-            full_name: '',
-            isMobile: window.innerWidth <= 768
-        };
-    },
-    async mounted() {
-        await this.updateFilteredRoutes(); 
-        await this.getAvatarLetter();
-        await this.getName();
-        await this.getRole();
-        window.addEventListener('resize', this.handleResize);
-    },
-    beforeUnmount() {
-        window.removeEventListener('resize', this.handleResize);
-    },
-    methods: {
-      handleResize() {
-        this.isMobile = window.innerWidth <= 768;
-      },
-      isActive(route) {
-        return this.$route.name === route;
-      },
-      async updateFilteredRoutes() {
-          const role = await getRoleByToken();
-          this.filteredRoutes = this.menuItems.filter(item => item.roles.includes(role));
-      },
-      openUserModal() {
-          this.showModal = true;
-      },
-      closeUserModal() {
-          this.showModal = false;
-      },
-      async getAvatarLetter() {
-          const userInfo = await getUserInfoByToken();
-          this.charName = userInfo.fullname.charAt(0);
-      },
-      async getName() {
-          const userInfo = await getUserInfoByToken();
-          this.full_name = userInfo.fullname;
-      },
-      async getRole() {
-          const role = await getRoleByToken();
-          const app_role = role === 'MASTER' ? 'Administrador' : 'Usuario';
-          this.user_role = app_role;
-      },
-      logout() {
-        // Lógica para cerrar sesión
-      },
-      navigate(route) {
-          const currentRoute = this.$route.name;
-          if (route !== currentRoute) {
-            this.$router.push({ name: route }).then(() => {
-                if (this.isMobile) {
-                  this.$emit('update:visible', false);
-                }
-            }).catch(err => {
-                if (err.name !== 'NavigationDuplicated') {
-                  console.error('Navigation error:', err);
-                }
-            });
-          } else if (this.isMobile) {
-            this.$emit('update:visible', false);
-          }
-      },
-    },
-}
+  },
+};
 </script>
 
 <style scoped>
@@ -193,7 +227,7 @@ export default {
   transition: all 0.3s ease;
   position: relative;
   cursor: pointer;
-  
+
   &:hover {
     .avatar {
       transform: scale(1.1);
@@ -206,7 +240,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #FF9500, #FF2D00);
+  background: linear-gradient(135deg, #ff9500, #ff2d00);
   color: #fff;
   width: 50px;
   height: 50px;
@@ -237,7 +271,7 @@ export default {
 .role {
   margin: 5px 0 0;
   font-size: 14px;
-  color: #FF9500;
+  color: #ff9500;
   font-weight: 500;
 }
 
@@ -271,28 +305,28 @@ ul {
   cursor: pointer;
   border-radius: 6px;
   transition: all 0.3s ease;
-  
+
   &:hover {
     background-color: #f8f8f8;
-    
+
     .sidebar-icon {
-      color: #FF9500;
+      color: #ff9500;
     }
-    
+
     .sidebar-text {
-      color: #FF2D00;
+      color: #ff2d00;
     }
   }
-  
+
   &.active {
     background-color: #fff5f0;
-    
+
     .sidebar-icon {
-      color: #FF2D00;
+      color: #ff2d00;
     }
-    
+
     .sidebar-text {
-      color: #FF2D00;
+      color: #ff2d00;
       font-weight: 600;
     }
   }
@@ -301,21 +335,22 @@ ul {
 /* Estilos para cuando está cerrado (opcional) */
 .custom-sidebar.closed {
   width: 80px;
-  
-  .sidebar-text, .user-info {
+
+  .sidebar-text,
+  .user-info {
     display: none;
   }
-  
+
   .sidebar-header {
     justify-content: center;
     padding: 0;
   }
-  
+
   .item {
     justify-content: center;
     padding: 15px 0;
   }
-  
+
   .sidebar-icon {
     margin: 0;
     font-size: 20px;

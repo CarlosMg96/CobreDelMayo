@@ -3,7 +3,8 @@ const {
     getFileByIdM,
     getFileByNameM,
     getAllFilesM,
-    deleteFileM
+    deleteFileM,
+    getFileByInvestor
   } = require('../models/investorFileModel');
 
   const uploadFileS = async (fileData) => {
@@ -25,11 +26,16 @@ const {
   const deleteFileS = async (file_id) => {
     return await deleteFileM(file_id);
   }
+
+  const getFileByInvestorS = async (page, limit, investor_email) => {
+    return await getFileByInvestor(page, limit, investor_email);
+  }
   
   module.exports = {
     uploadFileS,
     getFileByIdS,
     getFileByNameS,
     getAllFilesS,
-    deleteFileS
+    deleteFileS,
+    getFileByInvestorS
   };

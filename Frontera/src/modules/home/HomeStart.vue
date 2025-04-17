@@ -6,11 +6,11 @@
   >
     <v-card-item>
       <v-card-title>
-        Inicio
+        Bienvenido a Frontera
       </v-card-title>
 
       <v-card-subtitle>
-        Card subtitle secondary text
+        Bienvenido a la plataforma de Frontera Copper y Cobre del Mayo
       </v-card-subtitle>
     </v-card-item>
 

@@ -3,7 +3,57 @@
       <div class="modal-content">
         <h3 class="title">Subir Archivo PDF</h3>
         <form @submit.prevent="submitPdf">
-  
+
+          <div class="form-group">
+            <label for="fileName" >Nombre del Archivo</label>
+            <input
+              type="text"
+              id="fileName"
+              v-model="fileName"
+              placeholder="Nombre del archivo"
+              required
+            />
+            <div v-if="!fileName" class="text-red"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="category">Categoría</label>
+            <select id="category" v-model="category" required>
+              <option value="" disabled selected>Selecciona un tipo de archivo</option>
+              <option value="CDM Overview">CDM Overview</option>
+              <option value="Conference Call">Conference Call</option>
+              <option value="Presentation">Presentation</option>
+              <option value="Offering Memorandum">Offering Memorandum</option>
+              <option value="Financial Statements">Financial Statements</option>
+              <option value="Ratings">Ratings</option>
+            </select>
+            <div v-if="!category" class="text-red">Debe de seleccionar una categoría</div>
+          </div>
+
+          <div class="form-group">
+            <label for="quarter">Trimestre</label>
+            <select id="quarter" v-model="quarter" required>
+              <option value="" disabled selected>Selecciona un trimestre</option>
+              <option value="Q1">1</option>
+              <option value="Q2">2</option>
+              <option value="Q3">3</option>
+              <option value="Q4">4</option>
+            </select>
+            <div v-if="!quarter" class="text-red">Debe de ingresar un trimestre</div>
+          </div>
+
+          <div class="form-group">
+            <label for="year">Año</label>
+            <input
+              type="number"
+              id="year"
+              v-model="year"
+              placeholder="Año"
+              required
+            />
+            <div v-if="!year" class="text-red">Debe de ingresar un año</div>
+          </div>
+
           <div class="form-group">
             <label for="pdf">Archivo PDF</label>
             <input
@@ -13,7 +63,7 @@
               @change="handleFileChange"
               required
             />
-            <div v-if="fileName" class="text-green">Archivo seleccionado: {{ fileName }}</div>
+            <div v-if="file" class="text-green">Archivo seleccionado: {{ fileName }}</div>
           </div>
   
           <div style="display: flex; justify-content: flex-end;">
@@ -40,6 +90,10 @@
       return {
         pdfFile: null,
         fileName: "",
+        category: "",
+        quarter: "",
+        year: "",
+        file: "",
       };
     },
     methods: {
@@ -47,11 +101,11 @@
         const file = event.target.files[0];
         if (file && file.type === "application/pdf") {
           this.pdfFile = file;
-          this.fileName = file.name;
+          this.file = file.name;
         } else {
           alert("Solo se permiten archivos PDF.");
           this.pdfFile = null;
-          this.fileName = "";
+          this.file = "";
         }
       },
       closeModal() {
@@ -65,8 +119,19 @@
           return;
         }
 
+        if (!this.fileName || !this.category || !this.quarter || !this.year) {
+          showErrorToast("Por favor, completa todos los campos.");
+          return;
+        }
+        const formData = new FormData();
+        formData.append("file", this.pdfFile);
+        formData.append("fileName", this.fileName);
+        formData.append("category", this.category);
+        formData.append("quarter", this.quarter);
+        formData.append("year", this.year);
+
         try {
-            const result = await uploadFile(this.pdfFile);
+            const result = await uploadFile(formData);
             if (result.status === 200) {
                 showSuccessToast("Archivo subido correctamente.");
                 this.$emit("update:files");

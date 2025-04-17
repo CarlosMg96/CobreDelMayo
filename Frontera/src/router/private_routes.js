@@ -26,7 +26,7 @@ export default [
           component: HomeStart,
           meta: {
             title: "Inicio",
-            role: [ 'ADMIN', 'SUPERADMIN'],
+            role: [ 'ADMIN', 'SUPERADMIN','INVESTORS'],
             area: ['FRONTERA', 'NA', 'COBRE']
           },
         },
