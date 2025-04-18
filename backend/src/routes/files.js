@@ -44,7 +44,7 @@ const upload = multer({
 router.post(
   '/upload',
   verifyToken,
-  checkRole(['SUPERADMIN', 'ADMIN', 'INVESTORS']),
+  checkRole(['SUPERADMIN', 'ADMIN']),
   upload.single('file'),
   filesController.uploadFileC
 );
@@ -53,7 +53,7 @@ router.post(
 router.get(
   '/files',
   verifyToken,
-  checkRole(['SUPERADMIN', 'ADMIN']),
+  checkRole(['SUPERADMIN', 'ADMIN', 'INVESTORS']),
   filesController.getAllFilesC
 );
 

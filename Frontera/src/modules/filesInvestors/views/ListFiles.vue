@@ -19,10 +19,12 @@
           </v-col>
 
           <v-col cols="6" class="text-right">
-            <v-btn class="btn-add-user" @click="newFile">
+            <div v-if="role === 'ADMIN' || role === 'SUPERADMIN'">
+              <v-btn class="btn-add-user" @click="newFile">
               <v-icon class="fa-solid fa-plus"></v-icon>
               Nuevo Documento
             </v-btn>
+            </div>
           </v-col>
         </v-row>
       </v-card-subtitle>
@@ -76,7 +78,7 @@
 import { ref, computed, onMounted } from "vue";
 import { getFiles } from "../services/files-service";
 import  ModalAddFile  from "../components/ModalAddDocument.vue";
-import { BASEURL } from "@/kernel/utils";
+import { BASEURL, getRoleByToken } from "@/kernel/utils";
 
 const files = ref({
   content: [],
@@ -89,6 +91,7 @@ const itemsPerPage = ref(25);
 const loading = ref(false);
 const search = ref("");
 const showModalAddFile = ref(false);
+const role = ref(null);
 // const showModalEditFile = ref(false);
 // const selectedFile = ref(null);
 
@@ -105,8 +108,9 @@ const headers = ref([
 
 const filesContent = computed(() => files.value.content);
 
-onMounted(() => {
+onMounted(async() => {
   loadItems();
+  role.value = await getRoleByToken();
 });
 
 const loadItems = async () => {
@@ -135,7 +139,6 @@ const loadItems = async () => {
 };
 
 const seeMore = (file) => {
-  console.log(file);
   let url = BASEURL + file.file_path;
   window.open(url, "_blank");
 };
