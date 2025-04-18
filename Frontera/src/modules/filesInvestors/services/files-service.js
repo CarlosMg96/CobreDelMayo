@@ -1,6 +1,6 @@
 import api from "@/config/http-client-gateway";
 import { showErrorToast } from '@/kernel/alerts';
-import { BASEURLAPI, getRoleByToken, getTokenDecrypted } from "@/kernel/utils";
+import { BASEURLAPI, getTokenDecrypted } from "@/kernel/utils";
 
 export const uploadFile = async (fileData) => {
     try {
@@ -30,12 +30,7 @@ export const uploadFile = async (fileData) => {
 
 export const getFiles = async (params) => {
   try {
-    const role = await getRoleByToken();
-    let url = '/files';
-    if(role === 'INVESTORS'){
-      url = '/files/investor';
-    }
-    const response = await api.doGet(url, params);
+    const response = await api.doGet('/files', params);
     return response?.data;
   } catch (error) {
     console.log('Error fetching files:', error);
